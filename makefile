@@ -4,16 +4,19 @@
 
 CXX = g++
 FLAGS = -c -Wall
-LIBS = -L/usr/local/lib -L/opt/local/lib -lboost_system -lcrypto -lssl -lpthread
-INCLUDES = -I/opt/local/include/
+#LIBS = -L/usr/local/lib -L/opt/local/lib -lboost_system -lcrypto -lssl -lpthread
+#INCLUDES = -I/opt/local/include/
 
-all: w
+all: webapp
 
-w: webemHello.o
-	$(CXX) webemHello.o -o w
+webapp: app.o swift.o
+	$(CXX) app.o swift.o -o webapp
 
-webemHello.o: webemHello.cpp tchar.h targetver.h stdafx.h
-	$(CXX) $(FLAGS) $(LIBS) $(INCLUDES) webemHello.cpp
+app.o: app.cpp app.h swift.h
+	$(CXX) $(FLAGS) app.cpp swift.cpp
+
+swift.o: swift.cpp swift.h
+	$(CXX) $(FLAGS) swift.cpp
 
 clean:
 	rm -f *.o w
