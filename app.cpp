@@ -15,4 +15,5 @@ int main(){
 
 	printf("started\n");
 
+	return 0;
 }

@@ -4,26 +4,36 @@
 * All rights reserved
 */
 
-#include "mongoose/mongoose.h"
+#include "mongoose.h"
 
 #define _SWIFT_MAX_SERVER_THREADS 255
 #define _SWIFT_DEFAULT_PORT 5555
 
 class Swift {
 
-		struct mg_server* servers[_SWIFT_MAX_SERVER_THREADS];
-		int server_count;
+		// Mongoose server
+		struct mg_server* mgserver;
+
+		// Various settings
+		bool verbose;
 
 	public:
-		// constructor/destructor
+		// Constructor/destructor
 		Swift();
 		~Swift();
 
-		// server starting
+		// Server loading
 		static Swift* newServer();
 		void Start();
 		void Start(int port);
 
+		// Setters/getters
+		// void setVerbose(bool)
+
 		// API
 		// void addResource();
+
+	private:
+		// Master event handler
+		static int eventHandler(struct mg_connection *conn, enum mg_event ev);
 };
