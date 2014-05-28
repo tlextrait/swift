@@ -3,7 +3,7 @@
 #
 
 CXX = g++
-CXXFLAGS = -O3 -std=c++0x -pg -D_DEBUG -g -c -Wall
+CXXFLAGS = -O3 -std=c++0x -pg -D_DEBUG -g -c -Wall -Wextra -pedantic-errors
 #LIBS = -L/usr/local/lib -L/opt/local/lib -lboost_system -lcrypto -lssl -lpthread
 #INCLUDES = -I/opt/local/include/
 
