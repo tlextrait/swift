@@ -13,7 +13,5 @@ int main(){
 	Swift* server = Swift::newServer();
 	server->Start();
 
-	printf("started\n");
-
 	return 0;
 }

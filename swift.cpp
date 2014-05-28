@@ -26,6 +26,10 @@ Swift::~Swift(){
 	mg_destroy_server(&mgserver);
 }
 
+/* ======================================================== */
+/* Server loading											*/
+/* ======================================================== */
+
 /**
 * Returns a new swift server object
 * @return swift server
@@ -52,23 +56,28 @@ void Swift::Start(int port){
 	sprintf(str_port, "%d", port);
 
 	// Create a Mongoose server
-	mgserver = mg_create_server(NULL, this->eventHandler);
+	mgserver = mg_create_server(NULL, this->requestHandler);
 
 	// Set the port
 	mg_set_option(mgserver, "listening_port", str_port);
 
 	// Display info
-	std::cout << "Starting on port " << mg_get_option(mgserver, "listening_port") << "\n";
+	printWelcome();
+	std::cout << "Listening on port " << mg_get_option(mgserver, "listening_port") << "...\n";
 
 	for(;;){
 	    mg_poll_server(mgserver, 1000);
 	}
 }
 
+/* ======================================================== */
+/* Private													*/
+/* ======================================================== */
+
 /**
 * Handles requests
 */
-int Swift::eventHandler(struct mg_connection *conn, enum mg_event ev){
+int Swift::requestHandler(struct mg_connection *conn, enum mg_event ev){
 	int result = MG_FALSE;
 
 	if (ev == MG_REQUEST) {
@@ -79,4 +88,22 @@ int Swift::eventHandler(struct mg_connection *conn, enum mg_event ev){
 	}
 
 	return result;
+}
+
+/* ======================================================== */
+/* MISC														*/
+/* ======================================================== */
+
+/**
+* Makes Swift verbose
+*/
+void setVerbose(bool){
+	verbose = true;
+}
+
+/**
+* Prints welcome message
+*/
+void printWelcome(){
+	std::cout << "SWIFT SERVER " << _SWIFT_VERSION << "\n";
 }
