@@ -8,7 +8,6 @@
 #include <iostream>
 
 #include "swift.h"
-#include "mongoose.h"
 
 /**
 * Swift constructor
@@ -61,6 +60,8 @@ void Swift::Start(int port){
 	// Set the port
 	mg_set_option(mgserver, "listening_port", str_port);
 
+	mg_set_option(mgserver, "document_root", "resources");
+
 	// Display info
 	printWelcome();
 	std::cout << "Listening on port " << mg_get_option(mgserver, "listening_port") << "...\n";
@@ -78,6 +79,10 @@ void Swift::Start(int port){
 * Handles requests
 */
 int Swift::requestHandler(struct mg_connection *conn, enum mg_event ev){
+
+	// Build Swift Request
+	SwiftRequest* sr = new SwiftRequest();
+
 	int result = MG_FALSE;
 
 	if (ev == MG_REQUEST) {
@@ -97,13 +102,28 @@ int Swift::requestHandler(struct mg_connection *conn, enum mg_event ev){
 /**
 * Makes Swift verbose
 */
-void setVerbose(bool){
+void Swift::setVerbose(bool){
 	verbose = true;
 }
 
 /**
 * Prints welcome message
 */
-void printWelcome(){
+void Swift::printWelcome(){
 	std::cout << "SWIFT SERVER " << _SWIFT_VERSION << "\n";
+}
+
+/* ======================================================== */
+/* Swift Request											*/
+/* ======================================================== */
+
+SwiftRequest::SwiftRequest(){
+	
+}
+
+/**
+* Constructs a SwiftRequest from a Mongoose connection
+*/
+SwiftRequest::SwiftRequest(struct mg_connection* conn){
+	request_method = conn->
 }
