@@ -17,6 +17,7 @@
 
 namespace swift{
 
+	// HTTP request method types
 	enum class Method {
 		GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT, PATCH
 	};
