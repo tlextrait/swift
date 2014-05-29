@@ -1,0 +1,107 @@
+\hypertarget{classswift_1_1_server}{\section{swift\-:\-:Server Class Reference}
+\label{classswift_1_1_server}\index{swift\-::\-Server@{swift\-::\-Server}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classswift_1_1_server_a0322af4ef5852cd53e37dc661c46637b}{Server} ()
+\item 
+\hyperlink{classswift_1_1_server_aef7faff951fc4b6f82450fd93f7c06c5}{$\sim$\-Server} ()
+\item 
+void \hyperlink{classswift_1_1_server_aff8c9f94b8d827131b0b80b6607ea01f}{Start} ()
+\item 
+void \hyperlink{classswift_1_1_server_a9778a55fbf0118a856af782d21562019}{Start} (int port)
+\item 
+void \hyperlink{classswift_1_1_server_ae4354d31df0a668c8de089da2faf1ab2}{add\-Resource} (std\-::string request\-\_\-path, std\-::string file\-\_\-path)
+\item 
+void \hyperlink{classswift_1_1_server_ac07ca21b3203f486ae6372d7accfabce}{add\-Resource} (std\-::string request\-\_\-path, std\-::string file\-\_\-path, bool preload)
+\item 
+\hypertarget{classswift_1_1_server_ad94cc232553cbbddb57463c343456e18}{void {\bfseries set\-Cache\-Size} (size\-\_\-t size)}\label{classswift_1_1_server_ad94cc232553cbbddb57463c343456e18}
+
+\item 
+void \hyperlink{classswift_1_1_server_a689cb1da20caa7c8a5ac733a4259f87b}{set\-Verbose} (bool)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classswift_1_1_server}{Server} $\ast$ \hyperlink{classswift_1_1_server_a305f7482f2229d522a08f1d92b36dea2}{new\-Server} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classswift_1_1_server_a0322af4ef5852cd53e37dc661c46637b}{\index{swift\-::\-Server@{swift\-::\-Server}!Server@{Server}}
+\index{Server@{Server}!swift::Server@{swift\-::\-Server}}
+\subsubsection[{Server}]{\setlength{\rightskip}{0pt plus 5cm}swift\-::\-Server\-::\-Server (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_server_a0322af4ef5852cd53e37dc661c46637b}
+Swift constructor \hypertarget{classswift_1_1_server_aef7faff951fc4b6f82450fd93f7c06c5}{\index{swift\-::\-Server@{swift\-::\-Server}!$\sim$\-Server@{$\sim$\-Server}}
+\index{$\sim$\-Server@{$\sim$\-Server}!swift::Server@{swift\-::\-Server}}
+\subsubsection[{$\sim$\-Server}]{\setlength{\rightskip}{0pt plus 5cm}swift\-::\-Server\-::$\sim$\-Server (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_server_aef7faff951fc4b6f82450fd93f7c06c5}
+Swift destructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{classswift_1_1_server_ae4354d31df0a668c8de089da2faf1ab2}{\index{swift\-::\-Server@{swift\-::\-Server}!add\-Resource@{add\-Resource}}
+\index{add\-Resource@{add\-Resource}!swift::Server@{swift\-::\-Server}}
+\subsubsection[{add\-Resource}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Server\-::add\-Resource (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{request\-\_\-path, }
+\item[{std\-::string}]{file\-\_\-path}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_server_ae4354d31df0a668c8de089da2faf1ab2}
+Adds a file resource to the server with default settings \hypertarget{classswift_1_1_server_ac07ca21b3203f486ae6372d7accfabce}{\index{swift\-::\-Server@{swift\-::\-Server}!add\-Resource@{add\-Resource}}
+\index{add\-Resource@{add\-Resource}!swift::Server@{swift\-::\-Server}}
+\subsubsection[{add\-Resource}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Server\-::add\-Resource (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{request\-\_\-path, }
+\item[{std\-::string}]{file\-\_\-path, }
+\item[{bool}]{preload}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_server_ac07ca21b3203f486ae6372d7accfabce}
+Adds a file resource to the server \hypertarget{classswift_1_1_server_a305f7482f2229d522a08f1d92b36dea2}{\index{swift\-::\-Server@{swift\-::\-Server}!new\-Server@{new\-Server}}
+\index{new\-Server@{new\-Server}!swift::Server@{swift\-::\-Server}}
+\subsubsection[{new\-Server}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Server} $\ast$ swift\-::\-Server\-::new\-Server (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classswift_1_1_server_a305f7482f2229d522a08f1d92b36dea2}
+Returns a new swift server object \begin{DoxyReturn}{Returns}
+swift server 
+\end{DoxyReturn}
+\hypertarget{classswift_1_1_server_a689cb1da20caa7c8a5ac733a4259f87b}{\index{swift\-::\-Server@{swift\-::\-Server}!set\-Verbose@{set\-Verbose}}
+\index{set\-Verbose@{set\-Verbose}!swift::Server@{swift\-::\-Server}}
+\subsubsection[{set\-Verbose}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Server\-::set\-Verbose (
+\begin{DoxyParamCaption}
+\item[{bool}]{}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_server_a689cb1da20caa7c8a5ac733a4259f87b}
+Makes Swift verbose \hypertarget{classswift_1_1_server_aff8c9f94b8d827131b0b80b6607ea01f}{\index{swift\-::\-Server@{swift\-::\-Server}!Start@{Start}}
+\index{Start@{Start}!swift::Server@{swift\-::\-Server}}
+\subsubsection[{Start}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Server\-::\-Start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_server_aff8c9f94b8d827131b0b80b6607ea01f}
+Starts the server on default port \hypertarget{classswift_1_1_server_a9778a55fbf0118a856af782d21562019}{\index{swift\-::\-Server@{swift\-::\-Server}!Start@{Start}}
+\index{Start@{Start}!swift::Server@{swift\-::\-Server}}
+\subsubsection[{Start}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Server\-::\-Start (
+\begin{DoxyParamCaption}
+\item[{int}]{port}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_server_a9778a55fbf0118a856af782d21562019}
+Starts the server on given port 
+\begin{DoxyParams}{Parameters}
+{\em port} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+swift.\-h\item 
+swift.\-cpp\end{DoxyCompactItemize}

@@ -42,6 +42,7 @@ namespace swift{
 	*/
 	Server::Server(){
 		// Settings
+		max_cache_size = _SWIFT_DEFAULT_CACHE_SIZE;
 		verbose = true;
 	}
 
@@ -116,6 +117,9 @@ namespace swift{
 			// Show we received a request
 			std::cout << _SWIFT_SYMB_REQ << " " << req->getURI() << " from " << req->getRemoteIP() << std::endl;
 
+			// Process it
+			processRequest(req);
+
 			mg_printf_data(conn, "Hello! Requested URI is [%s]", conn->uri);
 			result = MG_TRUE;
 
@@ -126,9 +130,38 @@ namespace swift{
 		return result;
 	}
 
+	/**
+	* Processes given request
+	*/
+	void Server::processRequest(Request req){
+
+	}
+
+	/* ======================================================== */
+	/* API														*/
+	/* ======================================================== */
+
+	/**
+	* Adds a file resource to the server with default settings
+	*/
+	void Server::addResource(std::string request_path, std::string file_path){
+		addResource(request_path, file_path, true);
+	}
+
+	/**
+	* Adds a file resource to the server
+	*/
+	void Server::addResource(std::string request_path, std::string file_path, bool preload){
+
+	}
+
 	/* ======================================================== */
 	/* MISC														*/
 	/* ======================================================== */
+
+	void Server::setCacheSize(size_t size){
+		max_cache_size = size;
+	}
 
 	/**
 	* Makes Swift verbose

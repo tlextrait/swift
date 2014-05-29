@@ -15,6 +15,7 @@
 
 #define _SWIFT_MAX_SERVER_THREADS 255
 #define _SWIFT_DEFAULT_PORT 5555
+#define _SWIFT_DEFAULT_CACHE_SIZE 2147483648 // 2GB
 
 namespace swift{
 
@@ -30,6 +31,7 @@ namespace swift{
 			struct mg_server* mgserver;
 
 			// Various settings
+			size_t max_cache_size;
 			bool verbose;
 
 		public:
@@ -43,15 +45,19 @@ namespace swift{
 			void Start(int port);
 
 			// API
-			// void addResource();
+			void addResource(std::string request_path, std::string file_path);
+			void addResource(std::string request_path, std::string file_path, bool preload);
 
 			// MISC
+			void setCacheSize(size_t size);
 			void setVerbose(bool);
 
 		private:
 
 			// Master request handler
 			static int requestHandler(struct mg_connection *conn, enum mg_event ev);
+
+			static void processRequest(Request req);
 
 			// MISC
 			void printWelcome();
