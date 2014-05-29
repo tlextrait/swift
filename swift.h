@@ -24,45 +24,6 @@ namespace swift{
 		GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT, PATCH
 	};
 
-	// Swift Server object
-	class Server {
-
-			// Mongoose server
-			struct mg_server* mgserver;
-
-			// Various settings
-			size_t max_cache_size;
-			bool verbose;
-
-		public:
-			// Constructor/destructor
-			Server();
-			~Server();
-
-			// Server loading
-			static Server* newServer();
-			void Start();
-			void Start(int port);
-
-			// API
-			void addResource(std::string request_path, std::string file_path);
-			void addResource(std::string request_path, std::string file_path, bool preload);
-
-			// MISC
-			void setCacheSize(size_t size);
-			void setVerbose(bool);
-
-		private:
-
-			// Master request handler
-			static int requestHandler(struct mg_connection *conn, enum mg_event ev);
-
-			static void processRequest(Request req);
-
-			// MISC
-			void printWelcome();
-	};
-
 	// Swift Request object
 	class Request {
 			Method request_method;				// "GET", "POST", etc
@@ -102,6 +63,45 @@ namespace swift{
 			unsigned short getLocalPort();
 			std::string getContent();
 			size_t getContentLen();
+	};
+
+	// Swift Server object
+	class Server {
+
+			// Mongoose server
+			struct mg_server* mgserver;
+
+			// Various settings
+			size_t max_cache_size;
+			bool verbose;
+
+		public:
+			// Constructor/destructor
+			Server();
+			~Server();
+
+			// Server loading
+			static Server* newServer();
+			void Start();
+			void Start(int port);
+
+			// API
+			void addResource(std::string request_path, std::string file_path);
+			void addResource(std::string request_path, std::string file_path, bool preload);
+
+			// MISC
+			void setCacheSize(size_t size);
+			void setVerbose(bool);
+
+		private:
+
+			// Master request handler
+			static int requestHandler(struct mg_connection *conn, enum mg_event ev);
+
+			static void processRequest(Request* req);
+
+			// MISC
+			void printWelcome();
 	};
 
 	// Converts a string to a method enum

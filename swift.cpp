@@ -133,7 +133,7 @@ namespace swift{
 	/**
 	* Processes given request
 	*/
-	void Server::processRequest(Request req){
+	void Server::processRequest(Request* req){
 
 	}
 
@@ -143,6 +143,8 @@ namespace swift{
 
 	/**
 	* Adds a file resource to the server with default settings
+	* @param request path
+	* @param file path
 	*/
 	void Server::addResource(std::string request_path, std::string file_path){
 		addResource(request_path, file_path, true);
@@ -150,6 +152,9 @@ namespace swift{
 
 	/**
 	* Adds a file resource to the server
+	* @param request path
+	* @param file path
+	* @param preload the resource
 	*/
 	void Server::addResource(std::string request_path, std::string file_path, bool preload){
 
@@ -159,6 +164,10 @@ namespace swift{
 	/* MISC														*/
 	/* ======================================================== */
 
+	/**
+	* Sets the server's cache size. If it is set at a smaller number than
+	* the current usage, the cached files will not be affected.
+	*/
 	void Server::setCacheSize(size_t size){
 		max_cache_size = size;
 	}
@@ -197,12 +206,13 @@ namespace swift{
 	/* Request													*/
 	/* ======================================================== */
 
-	Request::Request(){
-		
-	}
+	/**
+	* Constructs a blank request object
+	*/
+	Request::Request(){}
 
 	/**
-	* Constructs a SwiftRequest from a Mongoose connection
+	* Constructs a Request object from a Mongoose connection object
 	*/
 	Request::Request(struct mg_connection* conn){
 
