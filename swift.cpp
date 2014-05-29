@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <string>
 
 #include "swift.h"
 
@@ -84,7 +85,7 @@ int Swift::requestHandler(struct mg_connection *conn, enum mg_event ev){
 	SwiftRequest* sr = new SwiftRequest();
 
 	// Show we received a request
-	cout << _SWIFT_SYMB_REQ << " " << "request\n";
+	std::cout << _SWIFT_SYMB_REQ << " " << "request\n";
 
 	int result = MG_FALSE;
 
@@ -128,5 +129,5 @@ SwiftRequest::SwiftRequest(){
 * Constructs a SwiftRequest from a Mongoose connection
 */
 SwiftRequest::SwiftRequest(struct mg_connection* conn){
-	request_method = conn->
+	//request_method = conn->
 }

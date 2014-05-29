@@ -4,6 +4,8 @@
 * All rights reserved
 */
 
+#include <string>
+
 #include "mongoose.h"
 
 #define _SWIFT_VERSION "0.1"
@@ -49,10 +51,10 @@ class Swift {
 
 // Swift Request object
 class SwiftRequest {
-		const char *request_method; // "GET", "POST", etc
-		const char *uri;            // URL-decoded URI
-		const char *http_version;   // E.g. "1.0", "1.1"
-		const char *query_string;   // URL part after '?', not including '?', or NULL
+		std::string request_method; // "GET", "POST", etc
+		std::string uri;            // URL-decoded URI
+		std::string http_version;   // E.g. "1.0", "1.1"
+		std::string query_string;   // URL part after '?', not including '?', or NULL
 
 		char remote_ip[48];         // Max IPv6 string length is 45 characters
 		char local_ip[48];          // Local IP address
@@ -61,8 +63,8 @@ class SwiftRequest {
 
 		int num_headers;            // Number of HTTP headers
 		struct swift_header {
-			const char *name;       // HTTP header name
-			const char *value;      // HTTP header value
+			std::string name;       // HTTP header name
+			std::string value;      // HTTP header value
 		} http_headers[30];
 
 		char *content;              // POST (or websocket message) data, or NULL
