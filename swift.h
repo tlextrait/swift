@@ -5,6 +5,7 @@
 */
 
 #include <string>
+#include <exception>
 
 #include "mongoose.h"
 
@@ -58,15 +59,16 @@ namespace swift{
 
 	// Swift Request object
 	class Request {
-			std::string request_method; // "GET", "POST", etc
-			std::string uri;            // URL-decoded URI
-			std::string http_version;   // E.g. "1.0", "1.1"
-			std::string query_string;   // URL part after '?', not including '?', or NULL
+			Method request_method;				// "GET", "POST", etc
+			std::string request_method_str; 	// "GET", "POST", etc
+			std::string uri;            		// URL-decoded URI
+			std::string http_version;   		// E.g. "1.0", "1.1"
+			std::string query_string;   		// URL part after '?', not including '?', or NULL
 
-			char remote_ip[48];         // Max IPv6 string length is 45 characters
-			char local_ip[48];          // Local IP address
-			unsigned short remote_port; // Client's port
-			unsigned short local_port;  // Local port number
+			std::string remote_ip;			// Max IPv6 string length is 45 characters
+			std::string local_ip;			// Local IP address
+			unsigned short remote_port; 	// Client's port
+			unsigned short local_port;		// Local port number
 
 			int num_headers;            // Number of HTTP headers
 			struct swift_header {
@@ -78,8 +80,25 @@ namespace swift{
 			size_t content_len;         // Data length
 		
 		public:
+			// Constructor/destructor
 			Request();
 			Request(struct mg_connection* conn);
+
+			// Getters/setters
+			Method getMethod();
+			std::string getMethodStr();
+			std::string getURI();
+			std::string getHTTPVersion();
+			std::string getQueryString();
+			std::string getRemoteIP();
+			std::string getLocalIP();
+			unsigned short getRemotePort();
+			unsigned short getLocalPort();
+			std::string getContent();
+			size_t getContentLen();
 	};
+
+	// Converts a string to a method enum
+	Method str_to_method(std::string request_method);
 
 }
