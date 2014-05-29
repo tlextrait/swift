@@ -3516,7 +3516,10 @@ static void MD5Init(MD5_CTX *ctx) {
 }
 
 static void MD5Transform(uint32_t buf[4], uint32_t const in[16]) {
+  #pragma GCC diagnostic push
+  #pragma GCC diagnostic ignored "-Wdeprecated-register"
   register uint32_t a, b, c, d;
+  #pragma GCC diagnostic pop
 
   a = buf[0];
   b = buf[1];
