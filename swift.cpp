@@ -25,6 +25,18 @@ namespace swift{
 	  	}
 	} ex_null_request;
 
+	class null_uri: public std::exception{
+		virtual const char* what() const throw(){
+	    	return "Null URI";
+	  	}
+	} ex_null_uri;
+
+	class null_http_version: public std::exception{
+		virtual const char* what() const throw(){
+	    	return "Null HTTP version";
+	  	}
+	} ex_null_http_version;
+
 	/**
 	* Swift constructor
 	*/
@@ -164,20 +176,38 @@ namespace swift{
 	Request::Request(struct mg_connection* conn){
 		// Null pointer?
 		if(conn == nullptr) throw ex_null_request;
-
+		
 		// Copy all data from the Mongoose connection struct
-		request_method_str = std::string(conn->request_method);
-		uri = std::string(conn->uri);
-		http_version = std::string(conn->http_version);
-		query_string = std::string(conn->query_string);
-
-		// Parse method
-		request_method = str_to_method(request_method_str);
+		if(conn->request_method != nullptr){
+			request_method_str = std::string(conn->request_method);
+			// Parse the method
+			request_method = str_to_method(request_method_str);
+		}else{
+			throw ex_invalid_method;
+		}
+		
+		if(conn->uri != nullptr){
+			uri = std::string(conn->uri);
+		}else{
+			throw ex_null_uri;
+		}
+		
+		if(conn->http_version != nullptr){
+			http_version = std::string(conn->http_version);
+		}else{
+			throw ex_null_http_version;
+		}
+		
+		if(conn->query_string != nullptr){
+			query_string = std::string(conn->query_string);
+		}else{
+			query_string = "";
+		}
 
 		// IP Addresses
-		remote_ip = std::string(conn->remote_ip);
-		local_ip = std::string(conn->local_ip);
-
+		if(conn->remote_ip != nullptr) remote_ip = std::string(conn->remote_ip);
+		if(conn->local_ip != nullptr) local_ip = std::string(conn->local_ip);
+		
 		// Ports
 		remote_port = conn->remote_port;
 		local_port = conn->local_port;
@@ -186,8 +216,10 @@ namespace swift{
 		num_headers = conn->num_headers;
 
 		// Contents
-		content = std::string(conn->content);
+		if(conn->content != nullptr) content = std::string(conn->content);
+		else content = "";
 		content_len = conn->content_len;
+
 	}
 
 	Method Request::getMethod(){
