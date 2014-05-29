@@ -83,6 +83,9 @@ int Swift::requestHandler(struct mg_connection *conn, enum mg_event ev){
 	// Build Swift Request
 	SwiftRequest* sr = new SwiftRequest();
 
+	// Show we received a request
+	cout << _SWIFT_SYMB_REQ << " " << "request\n";
+
 	int result = MG_FALSE;
 
 	if (ev == MG_REQUEST) {
@@ -110,7 +113,7 @@ void Swift::setVerbose(bool){
 * Prints welcome message
 */
 void Swift::printWelcome(){
-	std::cout << "SWIFT SERVER " << _SWIFT_VERSION << "\n";
+	std::cout << _SWIFT_WELCOME << " " << _SWIFT_VERSION << "\n";
 }
 
 /* ======================================================== */

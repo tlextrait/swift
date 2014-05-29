@@ -7,6 +7,8 @@
 #include "mongoose.h"
 
 #define _SWIFT_VERSION "0.1"
+#define _SWIFT_WELCOME "SWIFT SERVER"
+#define _SWIFT_SYMB_REQ "*"
 
 #define _SWIFT_MAX_SERVER_THREADS 255
 #define _SWIFT_DEFAULT_PORT 5555
