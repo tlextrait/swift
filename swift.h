@@ -15,62 +15,66 @@
 #define _SWIFT_MAX_SERVER_THREADS 255
 #define _SWIFT_DEFAULT_PORT 5555
 
-// Swift Server object
-class Swift {
+namespace swift{
 
-		// Mongoose server
-		struct mg_server* mgserver;
+	// Swift Server object
+	class Server {
 
-		// Various settings
-		bool verbose;
+			// Mongoose server
+			struct mg_server* mgserver;
 
-	public:
-		// Constructor/destructor
-		Swift();
-		~Swift();
+			// Various settings
+			bool verbose;
 
-		// Server loading
-		static Swift* newServer();
-		void Start();
-		void Start(int port);
+		public:
+			// Constructor/destructor
+			Server();
+			~Server();
 
-		// API
-		// void addResource();
+			// Server loading
+			static Server* newServer();
+			void Start();
+			void Start(int port);
 
-		// MISC
-		void setVerbose(bool);
+			// API
+			// void addResource();
 
-	private:
+			// MISC
+			void setVerbose(bool);
 
-		// Master request handler
-		static int requestHandler(struct mg_connection *conn, enum mg_event ev);
+		private:
 
-		// MISC
-		void printWelcome();
-};
+			// Master request handler
+			static int requestHandler(struct mg_connection *conn, enum mg_event ev);
 
-// Swift Request object
-class SwiftRequest {
-		std::string request_method; // "GET", "POST", etc
-		std::string uri;            // URL-decoded URI
-		std::string http_version;   // E.g. "1.0", "1.1"
-		std::string query_string;   // URL part after '?', not including '?', or NULL
+			// MISC
+			void printWelcome();
+	};
 
-		char remote_ip[48];         // Max IPv6 string length is 45 characters
-		char local_ip[48];          // Local IP address
-		unsigned short remote_port; // Client's port
-		unsigned short local_port;  // Local port number
+	// Swift Request object
+	class Request {
+			std::string request_method; // "GET", "POST", etc
+			std::string uri;            // URL-decoded URI
+			std::string http_version;   // E.g. "1.0", "1.1"
+			std::string query_string;   // URL part after '?', not including '?', or NULL
 
-		int num_headers;            // Number of HTTP headers
-		struct swift_header {
-			std::string name;       // HTTP header name
-			std::string value;      // HTTP header value
-		} http_headers[30];
+			char remote_ip[48];         // Max IPv6 string length is 45 characters
+			char local_ip[48];          // Local IP address
+			unsigned short remote_port; // Client's port
+			unsigned short local_port;  // Local port number
 
-		char *content;              // POST (or websocket message) data, or NULL
-		size_t content_len;         // Data length
-	
-	public:
-		SwiftRequest();
-		SwiftRequest(struct mg_connection* conn);
-};
+			int num_headers;            // Number of HTTP headers
+			struct swift_header {
+				std::string name;       // HTTP header name
+				std::string value;      // HTTP header value
+			} http_headers[30];
+
+			std::string content;        // POST (or websocket message) data, or NULL
+			size_t content_len;         // Data length
+		
+		public:
+			Request();
+			Request(struct mg_connection* conn);
+	};
+
+}

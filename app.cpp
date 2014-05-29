@@ -10,7 +10,7 @@
 
 int main(){
 
-	Swift* server = Swift::newServer();
+	swift::Server* server = swift::Server::newServer();
 	server->Start();
 
 	return 0;

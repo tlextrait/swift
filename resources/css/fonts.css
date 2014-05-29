@@ -1,0 +1,16 @@
+/* ------------------------------------------------------------- */
+/* FONTS 														 */
+/* ------------------------------------------------------------- */
+
+/* AVENIR */
+@font-face{
+	font-family:'avenir';
+	src: url("../fonts/avenir.eot");
+    src: url("../fonts/avenir.eot?#iefix") format("embedded-opentype"),
+         url("../fonts/avenir.woff") format("woff"),
+         url("../fonts/avenir.ttf") format("truetype"),
+         url("../fonts/avenir.svg#avenir") format("svg");
+    font-weight:normal;
+    font-style:normal;
+}
+

@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+	<title>WineDex</title>
+
+	<!-- UTF8 Support -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<!-- Rounded Corners IE9 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/jpg" href="images/favicon.jpg" />
+
+	<!-- jQuery -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<script type="text/javascript" src="js/winedex.js"></script>
+	
+</head>
+<body>
+
+	<h1>WineDex</h1>
+
+	<div id="main">
+		<center>
+			<form method="GET" action="javascript:Wine.search()">
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<td><input id="query" type="text" autofocus autocomplete="off" /></td>
+					<td><input type="submit" value="Search" /></td>
+				</tr>
+			</table>
+			</form>
+		</center>
+
+		<div id="results">
+			<center>
+			<div id="welcome">
+				<h2>Welcome to WineDex</h2>
+				<span>Find wines by taste</span>
+				<img class="img1" src="images/red_wine.png" height="150" />
+				<img class="img2" src="images/white_wine.png" height="150" />
+			</div>
+			</center>
+		</div>
+
+	</div>
+
+</body>
+</html>

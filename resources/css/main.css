@@ -1,0 +1,324 @@
+/*
+	Thomas Lextrait
+	tlextrai@brandeis.edu
+	CS132 - Information Retrieval
+	Project Wine
+*/
+
+@import "fonts.css";
+
+body{
+	background:#EEE;
+	background:#EEE url("../images/wine_glass.png") no-repeat;
+	background-position:-70px 100px;
+	background-size:206px 600px;
+	color:#333;
+	font-family:Arial;
+	font-size:13px;
+}
+
+/* ---------------------------------------------------- */
+/* HEADERS												*/
+/* ---------------------------------------------------- */
+
+h1{
+	font-size:45px;
+	font-weight:400;
+	color:#FFF;
+	background:#A51D00;
+	padding:20px 0 10px 0;
+	margin:-20px -20px 20px -20px;
+	text-align:center;
+	font-family:Avenir;
+}
+
+h2{
+	font-size:20px;
+	font-weight:400;
+	color:#A51D00;
+	font-family:Avenir;
+}
+
+/* ---------------------------------------------------- */
+/* BLOCKS												*/
+/* ---------------------------------------------------- */
+
+#main{
+	display:inline-block;
+	margin:0;
+	padding:0;
+	width:70%;
+	margin-left:50%;
+	left:-35%;
+	position:absolute;
+}
+
+#results{
+	display:block;
+	margin:0;
+	padding:0;
+}
+
+/* ---------------------------------------------------- */
+/* WELCOME												*/
+/* ---------------------------------------------------- */
+
+#welcome{
+	/*
+	background:url("../images/cork(800x506).jpg");
+	background-size:400px 253px;
+	box-shadow:0 0 3px #333;
+	*/
+	background:#FFF;
+	display:block;
+	width:30%;
+	min-width:300px;
+	padding:20px;
+	margin:10% 0 0 0;
+	border:1px solid #A51D00;
+	border-radius:10px;
+	font-family:Avenir;
+	color:#A51D00;
+	text-align:left;
+	overflow:hidden;
+	position:relative;
+}
+
+#welcome h2{
+	margin:0;
+}
+
+#welcome span{
+	font-family:Avenir;
+}
+
+#welcome img{
+	position:absolute;
+	display:block;
+}
+
+#welcome img.img1{
+	top:20px;
+	right:10px;
+}
+
+#welcome img.img2{
+	top:20px;
+	right:60px;
+}
+
+/* ---------------------------------------------------- */
+/* STATS												*/
+/* ---------------------------------------------------- */
+
+#stats{
+	font-style:italic;
+	display:block;
+	margin:0 0 15px 0;
+	color:#777;
+	font-size:11px;
+	text-align:center;
+}
+
+#stats span{
+	display:block;
+}
+
+#stats .suggestions{
+	font-style:normal;
+	color:#55F;
+	font-weight:600;
+}
+
+#stats .suggestions a{
+	text-decoration:none;
+	color:#55F;
+	font-weight:400;
+}
+
+#stats .suggestions a:hover{
+	text-decoration:underline;
+}
+
+.try_suggestions{
+	font-style:normal;
+	color:#F00;
+}
+
+.try_suggestions a{
+	text-decoration:none;
+	color:#F00;
+	font-weight:600;
+}
+
+.try_suggestions a:hover{
+	text-decoration:underline;
+}
+
+/* ---------------------------------------------------- */
+/* FIELDS												*/
+/* ---------------------------------------------------- */
+
+input[type="button"],input[type="submit"],a.button{
+	font-family:Avenir;
+	font-size:14px;
+	color:#333;
+	background:#FFF;
+	border-radius:3px;
+	outline:none;
+	margin:0 2px;
+	padding:2px 8px;
+	cursor:pointer;
+	border:1px solid #BBB;
+	text-align:center;
+	display:inline-block;
+	text-decoration:none;
+}
+
+input[type="button"]:hover,input[type="submit"]:hover,a.button:hover{
+	border:1px solid #555;
+	color:#000;
+}
+
+input[type="button"]:active,input[type="submit"]:active,a.button:active{
+	background:#DDD;
+}
+
+input[type="text"]{
+	font-family:Avenir;
+	font-size:14px;
+	color:#333;
+	border-radius:3px;
+	border:1px solid #BBB;
+	outline:none;
+	margin:0 2px;
+	padding:2px 5px;
+}
+
+#query{
+	width:300px;
+}
+
+/* ---------------------------------------------------- */
+/* RESULTS												*/
+/* ---------------------------------------------------- */
+
+.wine{
+	display:block;
+	padding:8px;
+	margin:0 0 5px 0;
+	position:relative;
+	font-size:12px;
+	background:#FFF;
+	border-radius:3px;
+}
+
+.wine table{
+	margin:0;
+	padding:0;
+	border:0;
+	font-size:12px;
+	width:100%;
+}
+
+.wine table td, .wine table th{
+	margin:0;
+	padding:0;
+	border:0;
+	font-size:12px;
+	vertical-align:top;
+}
+
+.wine table td.img{
+	text-align:center;
+	width:70px;
+}
+
+.wine img{
+	display:inline-block;
+	position:relative;
+	margin:0 12px 0 0;
+	padding:0;
+	height:60px;
+	width:60px;
+}
+
+/* -------------------------------- */
+/* WINE BUTTONS						*/
+/* -------------------------------- */
+
+.button.side{
+	width:85px;
+	margin:3px 0 0 0;
+	font-size:11px;
+}
+
+/* -------------------------------- */
+/* WINE Name						*/
+/* -------------------------------- */
+
+.wine .name{
+	display:block;
+	margin:0 0 3px 0;
+	padding:5px 0 0 0;
+}
+
+.wine .name a{
+	font-size:14px;
+	font-weight:600;
+	text-decoration:none;
+	color:#555;
+	margin:0;
+	padding:0;
+}
+
+.wine .name a:hover{
+	text-decoration:underline;
+}
+
+/* -------------------------------- */
+/* WINE Fields						*/
+/* -------------------------------- */
+
+.wine .winery{
+	display:block;
+	font-size:11px;
+	color:#444;
+}
+
+/* -------------------------------- */
+/* WINE Labels						*/
+/* -------------------------------- */
+
+.wine .label_block{
+	padding:0;
+	margin:3px 0 0 0;
+	display:inline-block;
+}
+
+.wine .label{
+	display:inline-block;
+	border-radius:3px;
+	font-size:12px;
+	padding:2px 3px;
+	margin:1px;
+}
+
+.wine .label.price{
+	font-size:18px;
+}
+
+.wine .label.critics{
+	background:#A51D00;
+	border:1px solid #A51D00;
+	color:#FFF;
+	font-size:11px;
+}
+
+.wine .label.vintage{
+	background:#FFF;
+	border:1px solid #A51D00;
+	color:#A51D00;
+	font-size:11px;
+}
+
