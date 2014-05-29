@@ -129,5 +129,19 @@ SwiftRequest::SwiftRequest(){
 * Constructs a SwiftRequest from a Mongoose connection
 */
 SwiftRequest::SwiftRequest(struct mg_connection* conn){
-	//request_method = conn->
+	// Copy all data from the Mongoose connection struct
+	request_method = std::string(conn->request_method);
+	uri = std::string(conn->uri);
+	http_version = std::string(conn->http_version);
+	query_string = std::string(conn->query_string);
+
+	// Ports
+	remote_port = conn->remote_port;
+	local_port = conn->local_port;
+
+	// Headers
+	num_headers = conn->num_headers;
+
+	// Contents
+	content_len = conn->content_len;
 }
