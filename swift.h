@@ -17,6 +17,10 @@
 
 namespace swift{
 
+	enum class Method {
+		GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT, PATCH
+	};
+
 	// Swift Server object
 	class Server {
 
