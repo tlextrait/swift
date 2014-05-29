@@ -88,11 +88,9 @@ namespace swift{
 		// Set the port
 		mg_set_option(mgserver, "listening_port", str_port);
 
-		mg_set_option(mgserver, "document_root", "resources");
-
 		// Display info
 		printWelcome();
-		std::cout << "Listening on port " << mg_get_option(mgserver, "listening_port") << "...\n";
+		std::cout << "Listening on port " << mg_get_option(mgserver, "listening_port") << "..." << std::endl;
 
 		for(;;){
 		    mg_poll_server(mgserver, 1000);
@@ -116,7 +114,7 @@ namespace swift{
 			Request* req = new Request(conn);
 
 			// Show we received a request
-			std::cout << _SWIFT_SYMB_REQ << " " << req->getURI() << " from " << req->getRemoteIP();
+			std::cout << _SWIFT_SYMB_REQ << " " << req->getURI() << " from " << req->getRemoteIP() << std::endl;
 
 			mg_printf_data(conn, "Hello! Requested URI is [%s]", conn->uri);
 			result = MG_TRUE;
@@ -143,7 +141,7 @@ namespace swift{
 	* Prints welcome message
 	*/
 	void Server::printWelcome(){
-		std::cout << _SWIFT_WELCOME << " " << _SWIFT_VERSION << "\n";
+		std::cout << _SWIFT_WELCOME << " " << _SWIFT_VERSION << std::endl;
 	}
 
 	/**
@@ -174,6 +172,7 @@ namespace swift{
 	* Constructs a SwiftRequest from a Mongoose connection
 	*/
 	Request::Request(struct mg_connection* conn){
+
 		// Null pointer?
 		if(conn == nullptr) throw ex_null_request;
 		
