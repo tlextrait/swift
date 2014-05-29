@@ -22,6 +22,13 @@ swift.o: swift.cpp swift.h mongoose.h
 mongoose.o: mongoose.c mongoose.h
 	$(CXX) $(CXXFLAGS) $(LIBS) mongoose.c
 
+# Compile documentation, using 'make doc'
+doc: $(DOC)
+	echo 'compiling doxygen'
+	doxygen doc/doxygen.config
+
 clean:
 	rm -f *.o webapp
 
+# These are not directly producing files
+.PHONY: all clean doc

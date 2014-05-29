@@ -120,7 +120,7 @@ namespace swift{
 			std::cout << _SWIFT_SYMB_REQ << " " << req->getURI() << " from " << req->getRemoteIP() << std::endl;
 
 			// Process it
-			processRequest(req);
+			processRequest(req, conn);
 
 			result = MG_TRUE;
 
