@@ -104,6 +104,8 @@ namespace swift{
 
 	/**
 	* Handles requests
+	* @param mongoose connection oject
+	* @param mongoose event enum
 	*/
 	int Server::requestHandler(struct mg_connection *conn, enum mg_event ev){
 
@@ -120,7 +122,6 @@ namespace swift{
 			// Process it
 			processRequest(req);
 
-			mg_printf_data(conn, "Hello! Requested URI is [%s]", conn->uri);
 			result = MG_TRUE;
 
 		}else if(ev == MG_AUTH){
@@ -132,9 +133,11 @@ namespace swift{
 
 	/**
 	* Processes given request
+	* @param request object
+	* @param mongoose connection object
 	*/
-	void Server::processRequest(Request* req){
-
+	void Server::processRequest(Request* req, struct mg_connection *conn){
+		mg_printf_data(conn, "Hello! Requested URI is [%s]", conn->uri);
 	}
 
 	/* ======================================================== */

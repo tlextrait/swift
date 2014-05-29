@@ -95,10 +95,8 @@ namespace swift{
 
 		private:
 
-			// Master request handler
 			static int requestHandler(struct mg_connection *conn, enum mg_event ev);
-
-			static void processRequest(Request* req);
+			static void processRequest(Request* req, struct mg_connection *conn);
 
 			// MISC
 			void printWelcome();

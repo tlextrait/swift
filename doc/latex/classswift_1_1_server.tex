@@ -16,8 +16,7 @@ void \hyperlink{classswift_1_1_server_ae4354d31df0a668c8de089da2faf1ab2}{add\-Re
 \item 
 void \hyperlink{classswift_1_1_server_ac07ca21b3203f486ae6372d7accfabce}{add\-Resource} (std\-::string request\-\_\-path, std\-::string file\-\_\-path, bool preload)
 \item 
-\hypertarget{classswift_1_1_server_ad94cc232553cbbddb57463c343456e18}{void {\bfseries set\-Cache\-Size} (size\-\_\-t size)}\label{classswift_1_1_server_ad94cc232553cbbddb57463c343456e18}
-
+void \hyperlink{classswift_1_1_server_ad94cc232553cbbddb57463c343456e18}{set\-Cache\-Size} (size\-\_\-t size)
 \item 
 void \hyperlink{classswift_1_1_server_a689cb1da20caa7c8a5ac733a4259f87b}{set\-Verbose} (bool)
 \end{DoxyCompactItemize}
@@ -54,7 +53,14 @@ Swift destructor
 \item[{std\-::string}]{file\-\_\-path}
 \end{DoxyParamCaption}
 )}}\label{classswift_1_1_server_ae4354d31df0a668c8de089da2faf1ab2}
-Adds a file resource to the server with default settings \hypertarget{classswift_1_1_server_ac07ca21b3203f486ae6372d7accfabce}{\index{swift\-::\-Server@{swift\-::\-Server}!add\-Resource@{add\-Resource}}
+Adds a file resource to the server with default settings 
+\begin{DoxyParams}{Parameters}
+{\em request} & path \\
+\hline
+{\em file} & path \\
+\hline
+\end{DoxyParams}
+\hypertarget{classswift_1_1_server_ac07ca21b3203f486ae6372d7accfabce}{\index{swift\-::\-Server@{swift\-::\-Server}!add\-Resource@{add\-Resource}}
 \index{add\-Resource@{add\-Resource}!swift::Server@{swift\-::\-Server}}
 \subsubsection[{add\-Resource}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Server\-::add\-Resource (
 \begin{DoxyParamCaption}
@@ -63,7 +69,16 @@ Adds a file resource to the server with default settings \hypertarget{classswift
 \item[{bool}]{preload}
 \end{DoxyParamCaption}
 )}}\label{classswift_1_1_server_ac07ca21b3203f486ae6372d7accfabce}
-Adds a file resource to the server \hypertarget{classswift_1_1_server_a305f7482f2229d522a08f1d92b36dea2}{\index{swift\-::\-Server@{swift\-::\-Server}!new\-Server@{new\-Server}}
+Adds a file resource to the server 
+\begin{DoxyParams}{Parameters}
+{\em request} & path \\
+\hline
+{\em file} & path \\
+\hline
+{\em preload} & the resource \\
+\hline
+\end{DoxyParams}
+\hypertarget{classswift_1_1_server_a305f7482f2229d522a08f1d92b36dea2}{\index{swift\-::\-Server@{swift\-::\-Server}!new\-Server@{new\-Server}}
 \index{new\-Server@{new\-Server}!swift::Server@{swift\-::\-Server}}
 \subsubsection[{new\-Server}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Server} $\ast$ swift\-::\-Server\-::new\-Server (
 \begin{DoxyParamCaption}
@@ -73,7 +88,14 @@ Adds a file resource to the server \hypertarget{classswift_1_1_server_a305f7482f
 Returns a new swift server object \begin{DoxyReturn}{Returns}
 swift server 
 \end{DoxyReturn}
-\hypertarget{classswift_1_1_server_a689cb1da20caa7c8a5ac733a4259f87b}{\index{swift\-::\-Server@{swift\-::\-Server}!set\-Verbose@{set\-Verbose}}
+\hypertarget{classswift_1_1_server_ad94cc232553cbbddb57463c343456e18}{\index{swift\-::\-Server@{swift\-::\-Server}!set\-Cache\-Size@{set\-Cache\-Size}}
+\index{set\-Cache\-Size@{set\-Cache\-Size}!swift::Server@{swift\-::\-Server}}
+\subsubsection[{set\-Cache\-Size}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Server\-::set\-Cache\-Size (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_server_ad94cc232553cbbddb57463c343456e18}
+Sets the server's cache size. If it is set at a smaller number than the current usage, the cached files will not be affected. \hypertarget{classswift_1_1_server_a689cb1da20caa7c8a5ac733a4259f87b}{\index{swift\-::\-Server@{swift\-::\-Server}!set\-Verbose@{set\-Verbose}}
 \index{set\-Verbose@{set\-Verbose}!swift::Server@{swift\-::\-Server}}
 \subsubsection[{set\-Verbose}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Server\-::set\-Verbose (
 \begin{DoxyParamCaption}
