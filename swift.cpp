@@ -102,7 +102,7 @@ namespace swift{
 	}
 
 	/* ======================================================== */
-	/* Private													*/
+	/* Request Management										*/
 	/* ======================================================== */
 
 	/**
@@ -194,7 +194,7 @@ namespace swift{
 	* @return boolean
 	*/
 	bool Server::hasEndpointWithPath(std::string path){
-		
+		return endpoints.count(path) > 0;
 	}
 
 	/* ======================================================== */
