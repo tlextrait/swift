@@ -27,6 +27,7 @@ doc: $(DOC)
 	echo 'compiling doxygen'
 	doxygen doc/doxygen.config
 
+# Clean up object and compiled files
 clean:
 	rm -f *.o webapp
 

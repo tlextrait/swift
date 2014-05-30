@@ -6,6 +6,8 @@
 
 #include <string>
 #include <exception>
+#include <map>
+#include <set>
 
 #include "mongoose.h"
 
@@ -24,7 +26,10 @@ namespace swift{
 		GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT, PATCH
 	};
 
-	// Swift Request object
+	// Converts a string to a method enum
+	Method str_to_method(std::string request_method);
+
+	// Swift Request class
 	class Request {
 			Method request_method;				// "GET", "POST", etc
 			std::string request_method_str; 	// "GET", "POST", etc
@@ -65,11 +70,42 @@ namespace swift{
 			size_t getContentLen();
 	};
 
-	// Swift Server object
+	// API Hook
+	class Hook {
+			std::string request_path;			// request path
+
+			bool is_resource;					// is this a resource?
+			std::string resource_path; 			// path to resource file
+			bool preload_resource;				// preload the resource?
+
+			std::set<Method> allowed_methods;	// POST, GET...
+			void* callback_function;			// pointer to function
+		
+		public:
+			// Constructor/destructor
+			Hook();
+			Hook(std::string request_path, void* callback_function);
+			Hook(std::string request_path, std::string resource_path);
+
+			void allowMethod(Method m);
+			void disallowMethod(Method m);
+			bool isMethodAllowed(Method m);
+
+			void setResourcePath(std::string path);
+			void setPreloadResource(bool preload);
+			void setIsResource(bool resource);
+
+			void setCallback(void* function);
+	};
+
+	// Swift Server class
 	class Server {
 
 			// Mongoose server
 			struct mg_server* mgserver;
+
+			// Request paths
+			std::map<std::string,Hook*> endpoints;
 
 			// Various settings
 			size_t max_cache_size;
@@ -81,7 +117,7 @@ namespace swift{
 			~Server();
 
 			// Server loading
-			static Server* newServer();
+			static Server* newServer(); 	// factory
 			void Start();
 			void Start(int port);
 
@@ -95,14 +131,14 @@ namespace swift{
 
 		private:
 
-			static int requestHandler(struct mg_connection *conn, enum mg_event ev);
-			static void processRequest(Request* req, struct mg_connection *conn);
+			int requestHandler(struct mg_connection *conn, enum mg_event ev);
+			void processRequest(Request* req, struct mg_connection *conn);
+
+			bool addEndpoint(std::string path, Hook* hook);
+			bool hasEndpointWithPath(std::string path);
 
 			// MISC
 			void printWelcome();
 	};
-
-	// Converts a string to a method enum
-	Method str_to_method(std::string request_method);
 
 }

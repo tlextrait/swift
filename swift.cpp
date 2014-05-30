@@ -7,6 +7,9 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
+#include <map>
+#include <utility> // make_pair
+#include <vector>
 
 #include "swift.h"
 
@@ -160,7 +163,38 @@ namespace swift{
 	* @param preload the resource
 	*/
 	void Server::addResource(std::string request_path, std::string file_path, bool preload){
+		// Create the API Hook
+		Hook* hook = new Hook(request_path, file_path);
+		hook->setPreloadResource(preload);
 
+		// Add the endpoint
+		addEndpoint(request_path, hook);
+	}
+
+	/**
+	* Tries to add an endpoint to the server
+	* @param endpoint path
+	* @param API Hook
+	* @return success
+	*/
+	bool Server::addEndpoint(std::string path, Hook* hook){
+		bool success = false;
+
+		if(!hasEndpointWithPath(path)){
+			endpoints.insert(std::make_pair(path, hook));
+			success = true;
+		}
+
+		return success;
+	}
+
+	/**
+	* Checks if an endpoint with given path already exists
+	* @param endpoint path
+	* @return boolean
+	*/
+	bool Server::hasEndpointWithPath(std::string path){
+		
 	}
 
 	/* ======================================================== */
@@ -203,6 +237,58 @@ namespace swift{
 		else if(request_method == "CONNECT") return Method::CONNECT;
 		else if(request_method == "PATCH") return Method::PATCH;
 		else throw ex_invalid_method;
+	}
+
+	/* ======================================================== */
+	/* API Hook													*/
+	/* ======================================================== */
+
+	Hook::Hook(){
+		is_resource = false;
+		preload_resource = false;
+	}
+
+	Hook::Hook(std::string request_path, void* callback_function){
+		is_resource = false;
+		preload_resource = false;
+		this->request_path = request_path;
+		this->callback_function = callback_function;
+	}
+
+	Hook::Hook(std::string request_path, std::string resource_path){
+		is_resource = true;
+		preload_resource = true;
+		this->request_path = request_path;
+		this->resource_path = resource_path;
+	}
+
+	void Hook::allowMethod(Method m){
+		allowed_methods.insert(m);
+	}
+
+	void Hook::disallowMethod(Method m){
+		allowed_methods.erase(m);
+	}
+
+	bool Hook::isMethodAllowed(Method m){
+		return allowed_methods.count(m) > 0;
+	}
+
+	void Hook::setResourcePath(std::string path){
+		is_resource = true;
+		this->resource_path = resource_path;
+	}
+
+	void Hook::setPreloadResource(bool preload){
+		preload_resource = preload;
+	}
+
+	void Hook::setIsResource(bool resource){
+		is_resource = resource;
+	}
+
+	void Hook::setCallback(void* function){
+		callback_function = function;
 	}
 
 	/* ======================================================== */
