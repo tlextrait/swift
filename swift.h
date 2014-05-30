@@ -131,8 +131,8 @@ namespace swift{
 
 		private:
 
-			int requestHandler(struct mg_connection *conn, enum mg_event ev);
-			void processRequest(Request* req, struct mg_connection *conn);
+			static int requestHandler(struct mg_connection *conn, enum mg_event ev);
+			static void processRequest(Request* req, struct mg_connection *conn);
 
 			bool addEndpoint(std::string path, Hook* hook);
 			bool hasEndpointWithPath(std::string path);

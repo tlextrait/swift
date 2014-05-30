@@ -276,7 +276,7 @@ namespace swift{
 
 	void Hook::setResourcePath(std::string path){
 		is_resource = true;
-		this->resource_path = resource_path;
+		resource_path = path;
 	}
 
 	void Hook::setPreloadResource(bool preload){
