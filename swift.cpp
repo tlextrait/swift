@@ -88,6 +88,7 @@ namespace swift{
 
 		// Create a Mongoose server
 		mgserver = mg_create_server(NULL, this->requestHandler);
+		//server_map.insert(std::make_pair(mgserver->server_id, this));
 
 		// Set the port
 		mg_set_option(mgserver, "listening_port", str_port);
@@ -238,7 +239,7 @@ namespace swift{
 		else if(request_method == "PATCH") return Method::PATCH;
 		else throw ex_invalid_method;
 	}
-
+	
 	/* ======================================================== */
 	/* API Hook													*/
 	/* ======================================================== */

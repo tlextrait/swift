@@ -140,6 +140,11 @@ typedef void *SSL_CTX;
 extern "C" {
 #endif // __cplusplus
 
+//
+// Globals - @author Thomas Lextrait
+//
+int server_id = 0;
+
 union socket_address {
   struct sockaddr sa;
   struct sockaddr_in sin;
@@ -1241,6 +1246,7 @@ struct mg_server {
   union socket_address lsa;   // Listening socket address
   mg_handler_t event_handler;
   char *config_options[NUM_OPTIONS];
+  int server_id; // @author Thomas Lextrait
 };
 
 // Local endpoint representation
