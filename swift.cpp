@@ -15,6 +15,8 @@
 
 namespace swift{
 
+	std::map<int,Server*> server_map;
+
 	// Invalid method exception
 	class invalid_method_exception: public std::exception{
 	  	virtual const char* what() const throw(){

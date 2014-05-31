@@ -1289,6 +1289,7 @@ struct connection* MG_CONN_2_CONN(const struct mg_connection* c){
   offsetof(struct connection, mg_conn)));
   conn->server_id = c->server_id;
   conn->ns_conn->server_id = c->server_id;
+  return conn;
 }
 
 /*
