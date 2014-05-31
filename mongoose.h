@@ -56,6 +56,8 @@ struct mg_connection {
   void *server_param;         // Parameter passed to mg_add_uri_handler()
   void *connection_param;     // Placeholder for connection-specific data
   void *callback_param;       // Needed by mg_iterate_over_connections()
+
+  int server_id;              // @author Thomas Lextrait
 };
 
 struct mg_server; // Opaque structure describing server instance

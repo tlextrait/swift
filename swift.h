@@ -78,8 +78,10 @@ namespace swift{
 			std::string resource_path; 			// path to resource file
 			bool preload_resource;				// preload the resource?
 
-			std::set<Method> allowed_methods;	// POST, GET...
+			std::set<Method> allowed_methods;	// POST, GET... (overrides server settings)
 			void* callback_function;			// pointer to function
+
+			std::set<unsigned short> allowed_ports; // (overrides server settings)
 		
 		public:
 			// Constructor/destructor
@@ -110,6 +112,10 @@ namespace swift{
 			// Various settings
 			size_t max_cache_size;
 			bool verbose;
+
+			// Global server restrictions - default settings, overridden by each API hook
+			std::set<Method> allowed_methods;
+			std::set<unsigned short> allowed_ports;
 
 		public:
 			// Constructor/destructor

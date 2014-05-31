@@ -184,6 +184,7 @@ struct ns_server {
   SSL_CTX *ssl_ctx;
   SSL_CTX *client_ssl_ctx;
   sock_t ctl[2];
+  int server_id; // @author Thomas Lextrait
 };
 
 struct ns_connection {
@@ -197,6 +198,9 @@ struct ns_connection {
   void *connection_data;
   time_t last_io_time;
   unsigned int flags;
+
+  int server_id; // @author Thomas Lextrait
+
 #define NSF_FINISHED_SENDING_DATA   (1 << 0)
 #define NSF_BUFFER_BUT_DONT_SEND    (1 << 1)
 #define NSF_SSL_HANDSHAKE_DONE      (1 << 2)
@@ -273,6 +277,12 @@ int ns_hexdump(const void *buf, int len, char *dst, int dst_len);
 #ifndef NS_FREE
 #define NS_FREE free
 #endif
+
+//
+// Globals
+// @author Thomas Lextrait
+//
+int server_id = 0;
 
 struct ctl_msg {
   ns_callback_t callback;
@@ -1241,6 +1251,7 @@ struct mg_server {
   union socket_address lsa;   // Listening socket address
   mg_handler_t event_handler;
   char *config_options[NUM_OPTIONS];
+  int server_id; // @author Thomas Lextrait
 };
 
 // Local endpoint representation
@@ -1269,10 +1280,21 @@ struct connection {
   int64_t num_bytes_sent; // Total number of bytes sent
   int64_t cl;             // Reply content length, for Range support
   int request_len;  // Request length, including last \r\n after last header
+
+  int server_id;
 };
 
+struct connection* MG_CONN_2_CONN(const struct mg_connection* c){
+  struct connection* conn = ((struct connection *) ((char *) (c) - \
+  offsetof(struct connection, mg_conn)));
+  conn->server_id = c->server_id;
+  conn->ns_conn->server_id = c->server_id;
+}
+
+/*
 #define MG_CONN_2_CONN(c) ((struct connection *) ((char *) (c) - \
   offsetof(struct connection, mg_conn)))
+*/
 
 static void open_local_endpoint(struct connection *conn, int skip_user);
 static void close_local_endpoint(struct connection *conn);
@@ -4353,6 +4375,11 @@ struct mg_connection *mg_connect(struct mg_server *server, const char *host,
   conn->mg_conn.server_param = server->ns_server.server_data;
   conn->ns_conn->flags = NSF_CONNECTING;
 
+  // Copy server id
+  conn->server_id = server->server_id;
+  conn->ns_conn->server_id = server->server_id;
+  conn->mg_conn.server_id = server->server_id;
+
   return &conn->mg_conn;
 }
 
@@ -4949,5 +4976,12 @@ struct mg_server *mg_create_server(void *server_data, mg_handler_t handler) {
   ns_server_init(&server->ns_server, server_data, mg_ev_handler);
   set_default_option_values(server->config_options);
   server->event_handler = handler;
+
+  // Record server id
+  // @author Thomas Lextrait
+  server->server_id = server_id;
+  server->ns_server.server_id = server_id;
+  ++server_id;
+
   return server;
 }
