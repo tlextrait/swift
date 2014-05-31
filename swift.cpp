@@ -15,6 +15,7 @@
 
 namespace swift{
 
+	// Maps server id's to swift servers
 	std::map<int,Server*> server_map;
 
 	// Invalid method exception
@@ -101,6 +102,43 @@ namespace swift{
 
 		for(;;){
 		    mg_poll_server(mgserver, 1000);
+		}
+	}
+
+	/**
+	* Indicates if server with given id exists
+	* @param server id
+	* @return boolean
+	*/
+	bool hasServer(int server_id){
+		return server_map.count(server_id) > 0;
+	}
+
+	/**
+	* Adds a server and assigns the given id, to keep track of it
+	* @param server object
+	* @param server id
+	* @return boolean on success
+	*/
+	bool addServer(Server* server, int server_id){
+		bool success = false;
+		if(!hasServer(server_id)){
+			server_map.insert(std::make_pair(server_id, server));
+			success = true;
+		}
+		return success;
+	}
+
+	/**
+	* Fetches a server that's being tracked
+	* @param server id
+	* @return server object, or nullptr if not found
+	*/
+	Server* getServer(int server_id){
+		if(hasServer(server_id)){
+			return server_map[server_id];
+		}else{
+			return nullptr;
 		}
 	}
 

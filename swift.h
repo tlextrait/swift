@@ -140,6 +140,10 @@ namespace swift{
 			static int requestHandler(struct mg_connection *conn, enum mg_event ev);
 			static void processRequest(Request* req, struct mg_connection *conn);
 
+			static bool hasServer(int server_id);
+			static bool addServer(Server* server, int server_id);
+			static Server* getServer(int server_id);
+
 			bool addEndpoint(std::string path, Hook* hook);
 			bool hasEndpointWithPath(std::string path);
 
