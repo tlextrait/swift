@@ -38,10 +38,19 @@ enum {\bfseries Method} \{ \\*
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+bool \hyperlink{namespaceswift_a45e07dad5aa2cd143511b697ea48450e}{has\-Server} (int server\-\_\-id)
+\item 
+bool \hyperlink{namespaceswift_a00edddb9ca464384d01ff658405c8778}{add\-Server} (\hyperlink{classswift_1_1_server}{Server} $\ast$server, int server\-\_\-id)
+\item 
+\hyperlink{classswift_1_1_server}{Server} $\ast$ \hyperlink{namespaceswift_afb5fcb8e3b86e885e3d0db38d6f5b718}{get\-Server} (int server\-\_\-id)
+\item 
 Method \hyperlink{namespaceswift_a54d9cafe8eb822e4a2fedef9d724a702}{str\-\_\-to\-\_\-method} (std\-::string request\-\_\-method)
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespaceswift_a0d54eeac3847161ee8afa83619ab7cc2}{std\-::map$<$ int, \hyperlink{classswift_1_1_server}{Server} $\ast$ $>$ {\bfseries server\-\_\-map}}\label{namespaceswift_a0d54eeac3847161ee8afa83619ab7cc2}
+
 \item 
 \hypertarget{namespaceswift_a96185be7719182de92b20647b128052b}{\hyperlink{classswift_1_1invalid__method__exception}{swift\-::invalid\-\_\-method\-\_\-exception} {\bfseries ex\-\_\-invalid\-\_\-method}}\label{namespaceswift_a96185be7719182de92b20647b128052b}
 
@@ -61,6 +70,54 @@ Method \hyperlink{namespaceswift_a54d9cafe8eb822e4a2fedef9d724a702}{str\-\_\-to\
 S\-W\-I\-F\-T Copyright (c) 2014 Thomas Lextrait \href{mailto:thomas.lextrait@gmail.com}{\tt thomas.\-lextrait@gmail.\-com} All rights reserved 
 
 \subsection{Function Documentation}
+\hypertarget{namespaceswift_a00edddb9ca464384d01ff658405c8778}{\index{swift@{swift}!add\-Server@{add\-Server}}
+\index{add\-Server@{add\-Server}!swift@{swift}}
+\subsubsection[{add\-Server}]{\setlength{\rightskip}{0pt plus 5cm}bool swift\-::add\-Server (
+\begin{DoxyParamCaption}
+\item[{Server $\ast$}]{server, }
+\item[{int}]{server\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{namespaceswift_a00edddb9ca464384d01ff658405c8778}
+Adds a server and assigns the given id, to keep track of it 
+\begin{DoxyParams}{Parameters}
+{\em server} & object \\
+\hline
+{\em server} & id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean on success 
+\end{DoxyReturn}
+\hypertarget{namespaceswift_afb5fcb8e3b86e885e3d0db38d6f5b718}{\index{swift@{swift}!get\-Server@{get\-Server}}
+\index{get\-Server@{get\-Server}!swift@{swift}}
+\subsubsection[{get\-Server}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Server}$\ast$ swift\-::get\-Server (
+\begin{DoxyParamCaption}
+\item[{int}]{server\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{namespaceswift_afb5fcb8e3b86e885e3d0db38d6f5b718}
+Fetches a server that's being tracked 
+\begin{DoxyParams}{Parameters}
+{\em server} & id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+server object, or nullptr if not found 
+\end{DoxyReturn}
+\hypertarget{namespaceswift_a45e07dad5aa2cd143511b697ea48450e}{\index{swift@{swift}!has\-Server@{has\-Server}}
+\index{has\-Server@{has\-Server}!swift@{swift}}
+\subsubsection[{has\-Server}]{\setlength{\rightskip}{0pt plus 5cm}bool swift\-::has\-Server (
+\begin{DoxyParamCaption}
+\item[{int}]{server\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{namespaceswift_a45e07dad5aa2cd143511b697ea48450e}
+Indicates if server with given id exists 
+\begin{DoxyParams}{Parameters}
+{\em server} & id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
 \hypertarget{namespaceswift_a54d9cafe8eb822e4a2fedef9d724a702}{\index{swift@{swift}!str\-\_\-to\-\_\-method@{str\-\_\-to\-\_\-method}}
 \index{str\-\_\-to\-\_\-method@{str\-\_\-to\-\_\-method}!swift@{swift}}
 \subsubsection[{str\-\_\-to\-\_\-method}]{\setlength{\rightskip}{0pt plus 5cm}Method swift\-::str\-\_\-to\-\_\-method (

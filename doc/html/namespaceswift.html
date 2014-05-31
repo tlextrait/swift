@@ -130,11 +130,20 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a45e07dad5aa2cd143511b697ea48450e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceswift.html#a45e07dad5aa2cd143511b697ea48450e">hasServer</a> (int server_id)</td></tr>
+<tr class="separator:a45e07dad5aa2cd143511b697ea48450e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00edddb9ca464384d01ff658405c8778"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceswift.html#a00edddb9ca464384d01ff658405c8778">addServer</a> (<a class="el" href="classswift_1_1_server.html">Server</a> *server, int server_id)</td></tr>
+<tr class="separator:a00edddb9ca464384d01ff658405c8778"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb5fcb8e3b86e885e3d0db38d6f5b718"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classswift_1_1_server.html">Server</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceswift.html#afb5fcb8e3b86e885e3d0db38d6f5b718">getServer</a> (int server_id)</td></tr>
+<tr class="separator:afb5fcb8e3b86e885e3d0db38d6f5b718"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54d9cafe8eb822e4a2fedef9d724a702"><td class="memItemLeft" align="right" valign="top">Method&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceswift.html#a54d9cafe8eb822e4a2fedef9d724a702">str_to_method</a> (std::string request_method)</td></tr>
 <tr class="separator:a54d9cafe8eb822e4a2fedef9d724a702"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a0d54eeac3847161ee8afa83619ab7cc2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d54eeac3847161ee8afa83619ab7cc2"></a>
+std::map&lt; int, <a class="el" href="classswift_1_1_server.html">Server</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>server_map</b></td></tr>
+<tr class="separator:a0d54eeac3847161ee8afa83619ab7cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96185be7719182de92b20647b128052b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96185be7719182de92b20647b128052b"></a>
 <a class="el" href="classswift_1_1invalid__method__exception.html">swift::invalid_method_exception</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ex_invalid_method</b></td></tr>
 <tr class="separator:a96185be7719182de92b20647b128052b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,6 +160,89 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>SWIFT Copyright (c) 2014 Thomas Lextrait <a href="#" onclick="location.href='mai'+'lto:'+'tho'+'ma'+'s.l'+'ex'+'tra'+'it'+'@gm'+'ai'+'l.c'+'om'; return false;">thoma<span style="display: none;">.nosp@m.</span>s.le<span style="display: none;">.nosp@m.</span>xtrai<span style="display: none;">.nosp@m.</span>t@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> All rights reserved </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a00edddb9ca464384d01ff658405c8778"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool swift::addServer </td>
+          <td>(</td>
+          <td class="paramtype">Server *&#160;</td>
+          <td class="paramname"><em>server</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>server_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Adds a server and assigns the given id, to keep track of it </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>object </td></tr>
+    <tr><td class="paramname">server</td><td>id </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean on success </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afb5fcb8e3b86e885e3d0db38d6f5b718"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classswift_1_1_server.html">Server</a>* swift::getServer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>server_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fetches a server that's being tracked </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>id </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>server object, or nullptr if not found </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a45e07dad5aa2cd143511b697ea48450e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool swift::hasServer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>server_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Indicates if server with given id exists </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">server</td><td>id </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a54d9cafe8eb822e4a2fedef9d724a702"></a>
 <div class="memitem">
 <div class="memproto">
@@ -171,7 +263,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 30 2014 22:14:47 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 31 2014 11:48:42 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

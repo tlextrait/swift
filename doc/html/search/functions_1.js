@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['newserver',['newServer',['../classswift_1_1_server.html#a305f7482f2229d522a08f1d92b36dea2',1,'swift::Server']]]
+  ['getserver',['getServer',['../namespaceswift.html#afb5fcb8e3b86e885e3d0db38d6f5b718',1,'swift']]]
 ];
