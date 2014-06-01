@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['request',['Request',['../classswift_1_1_request.html#a229fbc0523e779262551de6f4ea2c920',1,'swift::Request::Request()'],['../classswift_1_1_request.html#aede86c57b7c39bc6577a4c4f2f2bf0b8',1,'swift::Request::Request(struct mg_connection *conn)']]]
+  ['ismethodallowed',['isMethodAllowed',['../classswift_1_1_hook.html#ad5e71e832b6290d4f195a5dcd594e661',1,'swift::Hook']]]
 ];

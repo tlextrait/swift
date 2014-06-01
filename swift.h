@@ -146,6 +146,7 @@ namespace swift{
 
 			bool addEndpoint(std::string path, Hook* hook);
 			bool hasEndpointWithPath(std::string path);
+			Hook* getEndpoint(std::string path);
 
 			// MISC
 			void printWelcome();

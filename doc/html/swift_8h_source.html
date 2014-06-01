@@ -172,9 +172,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <a class="code" href="classswift_1_1_hook.html">Hook</a>(std::string request_path, <span class="keywordtype">void</span>* callback_function);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <a class="code" href="classswift_1_1_hook.html">Hook</a>(std::string request_path, std::string resource_path);</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordtype">void</span> allowMethod(Method m);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordtype">void</span> disallowMethod(Method m);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordtype">bool</span> isMethodAllowed(Method m);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classswift_1_1_hook.html#ab8f2a030f4234be5aaea657628414669">allowMethod</a>(Method m);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classswift_1_1_hook.html#a02148f71598a14eb8c7f42d9c82f50cb">disallowMethod</a>(Method m);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classswift_1_1_hook.html#ad5e71e832b6290d4f195a5dcd594e661">isMethodAllowed</a>(Method m);</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordtype">void</span> setResourcePath(std::string path);</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keywordtype">void</span> setPreloadResource(<span class="keywordtype">bool</span> preload);</div>
@@ -229,30 +229,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            <span class="keywordtype">bool</span> addEndpoint(std::string path, <a class="code" href="classswift_1_1_hook.html">Hook</a>* hook);</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <span class="keywordtype">bool</span> hasEndpointWithPath(std::string path);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            <span class="comment">// MISC</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            <span class="keywordtype">void</span> printWelcome();</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    };</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;}</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <a class="code" href="classswift_1_1_hook.html">Hook</a>* getEndpoint(std::string path);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            <span class="comment">// MISC</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <span class="keywordtype">void</span> printWelcome();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    };</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;}</div>
 <div class="ttc" id="classswift_1_1_server_html"><div class="ttname"><a href="classswift_1_1_server.html">swift::Server</a></div><div class="ttdef"><b>Definition:</b> swift.h:104</div></div>
-<div class="ttc" id="classswift_1_1_server_html_ae4354d31df0a668c8de089da2faf1ab2"><div class="ttname"><a href="classswift_1_1_server.html#ae4354d31df0a668c8de089da2faf1ab2">swift::Server::addResource</a></div><div class="ttdeci">void addResource(std::string request_path, std::string file_path)</div><div class="ttdef"><b>Definition:</b> swift.cpp:215</div></div>
-<div class="ttc" id="classswift_1_1_request_html_a229fbc0523e779262551de6f4ea2c920"><div class="ttname"><a href="classswift_1_1_request.html#a229fbc0523e779262551de6f4ea2c920">swift::Request::Request</a></div><div class="ttdeci">Request()</div><div class="ttdef"><b>Definition:</b> swift.cpp:361</div></div>
+<div class="ttc" id="classswift_1_1_server_html_ae4354d31df0a668c8de089da2faf1ab2"><div class="ttname"><a href="classswift_1_1_server.html#ae4354d31df0a668c8de089da2faf1ab2">swift::Server::addResource</a></div><div class="ttdeci">void addResource(std::string request_path, std::string file_path)</div><div class="ttdef"><b>Definition:</b> swift.cpp:234</div></div>
+<div class="ttc" id="classswift_1_1_request_html_a229fbc0523e779262551de6f4ea2c920"><div class="ttname"><a href="classswift_1_1_request.html#a229fbc0523e779262551de6f4ea2c920">swift::Request::Request</a></div><div class="ttdeci">Request()</div><div class="ttdef"><b>Definition:</b> swift.cpp:406</div></div>
 <div class="ttc" id="classswift_1_1_hook_html"><div class="ttname"><a href="classswift_1_1_hook.html">swift::Hook</a></div><div class="ttdef"><b>Definition:</b> swift.h:74</div></div>
 <div class="ttc" id="classswift_1_1_server_html_a305f7482f2229d522a08f1d92b36dea2"><div class="ttname"><a href="classswift_1_1_server.html#a305f7482f2229d522a08f1d92b36dea2">swift::Server::newServer</a></div><div class="ttdeci">static Server * newServer()</div><div class="ttdef"><b>Definition:</b> swift.cpp:71</div></div>
 <div class="ttc" id="classswift_1_1_server_html_aff8c9f94b8d827131b0b80b6607ea01f"><div class="ttname"><a href="classswift_1_1_server.html#aff8c9f94b8d827131b0b80b6607ea01f">swift::Server::Start</a></div><div class="ttdeci">void Start()</div><div class="ttdef"><b>Definition:</b> swift.cpp:79</div></div>
 <div class="ttc" id="classswift_1_1_request_html"><div class="ttname"><a href="classswift_1_1_request.html">swift::Request</a></div><div class="ttdef"><b>Definition:</b> swift.h:33</div></div>
-<div class="ttc" id="classswift_1_1_server_html_a689cb1da20caa7c8a5ac733a4259f87b"><div class="ttname"><a href="classswift_1_1_server.html#a689cb1da20caa7c8a5ac733a4259f87b">swift::Server::setVerbose</a></div><div class="ttdeci">void setVerbose(bool)</div><div class="ttdef"><b>Definition:</b> swift.cpp:275</div></div>
+<div class="ttc" id="classswift_1_1_server_html_a689cb1da20caa7c8a5ac733a4259f87b"><div class="ttname"><a href="classswift_1_1_server.html#a689cb1da20caa7c8a5ac733a4259f87b">swift::Server::setVerbose</a></div><div class="ttdeci">void setVerbose(bool)</div><div class="ttdef"><b>Definition:</b> swift.cpp:307</div></div>
 <div class="ttc" id="classswift_1_1_server_html_a0322af4ef5852cd53e37dc661c46637b"><div class="ttname"><a href="classswift_1_1_server.html#a0322af4ef5852cd53e37dc661c46637b">swift::Server::Server</a></div><div class="ttdeci">Server()</div><div class="ttdef"><b>Definition:</b> swift.cpp:49</div></div>
 <div class="ttc" id="classswift_1_1_server_html_aef7faff951fc4b6f82450fd93f7c06c5"><div class="ttname"><a href="classswift_1_1_server.html#aef7faff951fc4b6f82450fd93f7c06c5">swift::Server::~Server</a></div><div class="ttdeci">~Server()</div><div class="ttdef"><b>Definition:</b> swift.cpp:58</div></div>
 <div class="ttc" id="structmg__server_html"><div class="ttname"><a href="structmg__server.html">mg_server</a></div><div class="ttdef"><b>Definition:</b> mongoose.c:1249</div></div>
-<div class="ttc" id="classswift_1_1_server_html_ad94cc232553cbbddb57463c343456e18"><div class="ttname"><a href="classswift_1_1_server.html#ad94cc232553cbbddb57463c343456e18">swift::Server::setCacheSize</a></div><div class="ttdeci">void setCacheSize(size_t size)</div><div class="ttdef"><b>Definition:</b> swift.cpp:268</div></div>
+<div class="ttc" id="classswift_1_1_server_html_ad94cc232553cbbddb57463c343456e18"><div class="ttname"><a href="classswift_1_1_server.html#ad94cc232553cbbddb57463c343456e18">swift::Server::setCacheSize</a></div><div class="ttdeci">void setCacheSize(size_t size)</div><div class="ttdef"><b>Definition:</b> swift.cpp:300</div></div>
 <div class="ttc" id="structmg__connection_html"><div class="ttname"><a href="structmg__connection.html">mg_connection</a></div><div class="ttdef"><b>Definition:</b> mongoose.h:33</div></div>
-<div class="ttc" id="namespaceswift_html_a54d9cafe8eb822e4a2fedef9d724a702"><div class="ttname"><a href="namespaceswift.html#a54d9cafe8eb822e4a2fedef9d724a702">swift::str_to_method</a></div><div class="ttdeci">Method str_to_method(std::string request_method)</div><div class="ttdef"><b>Definition:</b> swift.cpp:289</div></div>
+<div class="ttc" id="classswift_1_1_hook_html_ab8f2a030f4234be5aaea657628414669"><div class="ttname"><a href="classswift_1_1_hook.html#ab8f2a030f4234be5aaea657628414669">swift::Hook::allowMethod</a></div><div class="ttdeci">void allowMethod(Method m)</div><div class="ttdef"><b>Definition:</b> swift.cpp:361</div></div>
+<div class="ttc" id="namespaceswift_html_a54d9cafe8eb822e4a2fedef9d724a702"><div class="ttname"><a href="namespaceswift.html#a54d9cafe8eb822e4a2fedef9d724a702">swift::str_to_method</a></div><div class="ttdeci">Method str_to_method(std::string request_method)</div><div class="ttdef"><b>Definition:</b> swift.cpp:321</div></div>
+<div class="ttc" id="classswift_1_1_hook_html_a02148f71598a14eb8c7f42d9c82f50cb"><div class="ttname"><a href="classswift_1_1_hook.html#a02148f71598a14eb8c7f42d9c82f50cb">swift::Hook::disallowMethod</a></div><div class="ttdeci">void disallowMethod(Method m)</div><div class="ttdef"><b>Definition:</b> swift.cpp:369</div></div>
+<div class="ttc" id="classswift_1_1_hook_html_ad5e71e832b6290d4f195a5dcd594e661"><div class="ttname"><a href="classswift_1_1_hook.html#ad5e71e832b6290d4f195a5dcd594e661">swift::Hook::isMethodAllowed</a></div><div class="ttdeci">bool isMethodAllowed(Method m)</div><div class="ttdef"><b>Definition:</b> swift.cpp:378</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 31 2014 21:16:48 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 31 2014 21:46:35 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

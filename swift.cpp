@@ -154,6 +154,7 @@ namespace swift{
 	* @param mongoose event enum
 	*/
 	int Server::requestHandler(struct mg_connection *conn, enum mg_event ev){
+		// Static
 
 		int result = MG_FALSE;
 
@@ -166,7 +167,7 @@ namespace swift{
 			std::cout << _SWIFT_SYMB_REQ << " " << req->getURI() << " from " << req->getRemoteIP() << std::endl;
 
 			// Process it
-			processRequest(req, conn);
+			Server::processRequest(req, conn);
 
 			result = MG_TRUE;
 
@@ -183,18 +184,36 @@ namespace swift{
 	* @param mongoose connection object
 	*/
 	void Server::processRequest(Request* req, struct mg_connection *conn){
+		// Static
 
 		// Check that we're tracking this server
 		int server_id = conn->server_id;
 
-		if(hasServer(server_id)){
-			Server* server = getServer(server_id);
+		if(Server::hasServer(server_id)){
+			Server* server = Server::getServer(server_id);
 
 			if(server->verbose) std::cout << "Got request from server #" << conn->server_id << std::endl;
 
-			/*
-			@TODO Figure out what hook we're requesting!
-			*/
+			if(server->hasEndpointWithPath(req->getURI())){
+
+				Hook* hook = server->getEndpoint(req->getURI());
+
+				// Check rules
+				if(hook->isMethodAllowed(req->getMethod())){
+
+				}else{
+					if(server->verbose) std::cout << "Access denied" << std::endl;
+					/*
+					@TODO ACCESS DENIED
+					*/
+				}
+
+			}else{
+				if(server->verbose) std::cout << "No matching endpoint" << std::endl;
+				/*
+				@TODO 404 !!!
+				*/
+			}
 
 			mg_printf_data(conn, "Hello! Requested URI is [%s]", conn->uri);
 		}else{
@@ -255,6 +274,19 @@ namespace swift{
 	*/
 	bool Server::hasEndpointWithPath(std::string path){
 		return endpoints.count(path) > 0;
+	}
+
+	/**
+	* Fetches and endpoint with given path
+	* @param path
+	* @return Hook object
+	*/
+	Hook* Server::getEndpoint(std::string path){
+		if(hasEndpointWithPath(path)){
+			return endpoints[path];
+		}else{
+			return nullptr;
+		}
 	}
 
 	/* ======================================================== */
@@ -322,14 +354,27 @@ namespace swift{
 		this->resource_path = resource_path;
 	}
 
+	/**
+	* Adds given method to the allowed list
+	* @param Method enum
+	*/
 	void Hook::allowMethod(Method m){
 		allowed_methods.insert(m);
 	}
 
+	/**
+	* Disallows the given method
+	* @param Method enum
+	*/
 	void Hook::disallowMethod(Method m){
 		allowed_methods.erase(m);
 	}
 
+	/**
+	* Indicates whether the given method is allowed by this API Hook
+	* @param Method enum: POST, GET...
+	* @return boolean
+	*/
 	bool Hook::isMethodAllowed(Method m){
 		return allowed_methods.count(m) > 0;
 	}

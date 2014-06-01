@@ -10,14 +10,11 @@
 \hypertarget{classswift_1_1_hook_a08e8c205418d4dc95a24ad10f0a6754e}{{\bfseries Hook} (std\-::string request\-\_\-path, std\-::string resource\-\_\-path)}\label{classswift_1_1_hook_a08e8c205418d4dc95a24ad10f0a6754e}
 
 \item 
-\hypertarget{classswift_1_1_hook_ab8f2a030f4234be5aaea657628414669}{void {\bfseries allow\-Method} (Method m)}\label{classswift_1_1_hook_ab8f2a030f4234be5aaea657628414669}
-
+void \hyperlink{classswift_1_1_hook_ab8f2a030f4234be5aaea657628414669}{allow\-Method} (Method m)
 \item 
-\hypertarget{classswift_1_1_hook_a02148f71598a14eb8c7f42d9c82f50cb}{void {\bfseries disallow\-Method} (Method m)}\label{classswift_1_1_hook_a02148f71598a14eb8c7f42d9c82f50cb}
-
+void \hyperlink{classswift_1_1_hook_a02148f71598a14eb8c7f42d9c82f50cb}{disallow\-Method} (Method m)
 \item 
-\hypertarget{classswift_1_1_hook_ad5e71e832b6290d4f195a5dcd594e661}{bool {\bfseries is\-Method\-Allowed} (Method m)}\label{classswift_1_1_hook_ad5e71e832b6290d4f195a5dcd594e661}
-
+bool \hyperlink{classswift_1_1_hook_ad5e71e832b6290d4f195a5dcd594e661}{is\-Method\-Allowed} (Method m)
 \item 
 \hypertarget{classswift_1_1_hook_a4147575b0d54691515271508baa428c8}{void {\bfseries set\-Resource\-Path} (std\-::string path)}\label{classswift_1_1_hook_a4147575b0d54691515271508baa428c8}
 
@@ -31,6 +28,48 @@
 \hypertarget{classswift_1_1_hook_ad7bcbc0360bf438cef8eac374919495d}{void {\bfseries set\-Callback} (void $\ast$function)}\label{classswift_1_1_hook_ad7bcbc0360bf438cef8eac374919495d}
 
 \end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classswift_1_1_hook_ab8f2a030f4234be5aaea657628414669}{\index{swift\-::\-Hook@{swift\-::\-Hook}!allow\-Method@{allow\-Method}}
+\index{allow\-Method@{allow\-Method}!swift::Hook@{swift\-::\-Hook}}
+\subsubsection[{allow\-Method}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Hook\-::allow\-Method (
+\begin{DoxyParamCaption}
+\item[{Method}]{m}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_hook_ab8f2a030f4234be5aaea657628414669}
+Adds given method to the allowed list 
+\begin{DoxyParams}{Parameters}
+{\em Method} & enum \\
+\hline
+\end{DoxyParams}
+\hypertarget{classswift_1_1_hook_a02148f71598a14eb8c7f42d9c82f50cb}{\index{swift\-::\-Hook@{swift\-::\-Hook}!disallow\-Method@{disallow\-Method}}
+\index{disallow\-Method@{disallow\-Method}!swift::Hook@{swift\-::\-Hook}}
+\subsubsection[{disallow\-Method}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Hook\-::disallow\-Method (
+\begin{DoxyParamCaption}
+\item[{Method}]{m}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_hook_a02148f71598a14eb8c7f42d9c82f50cb}
+Disallows the given method 
+\begin{DoxyParams}{Parameters}
+{\em Method} & enum \\
+\hline
+\end{DoxyParams}
+\hypertarget{classswift_1_1_hook_ad5e71e832b6290d4f195a5dcd594e661}{\index{swift\-::\-Hook@{swift\-::\-Hook}!is\-Method\-Allowed@{is\-Method\-Allowed}}
+\index{is\-Method\-Allowed@{is\-Method\-Allowed}!swift::Hook@{swift\-::\-Hook}}
+\subsubsection[{is\-Method\-Allowed}]{\setlength{\rightskip}{0pt plus 5cm}bool swift\-::\-Hook\-::is\-Method\-Allowed (
+\begin{DoxyParamCaption}
+\item[{Method}]{m}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_hook_ad5e71e832b6290d4f195a5dcd594e661}
+Indicates whether the given method is allowed by this A\-P\-I \hyperlink{classswift_1_1_hook}{Hook} 
+\begin{DoxyParams}{Parameters}
+{\em Method} & enum\-: P\-O\-S\-T, G\-E\-T... \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

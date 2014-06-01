@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['newserver',['newServer',['../classswift_1_1_server.html#a305f7482f2229d522a08f1d92b36dea2',1,'swift::Server']]]
+  ['disallowmethod',['disallowMethod',['../classswift_1_1_hook.html#a02148f71598a14eb8c7f42d9c82f50cb',1,'swift::Hook']]]
 ];
