@@ -95,14 +95,14 @@ namespace swift{
 			bool preload_resource;				// preload the resource?
 
 			std::set<Method> allowed_methods;	// POST, GET... (overrides server settings)
-			void* callback_function;			// pointer to function
+			std::string (*callback_function)(Request*); 	// pointer to function
 
 			std::set<unsigned short> allowed_ports; // (overrides server settings)
 		
 		public:
 			// Constructor/destructor
 			Hook();
-			Hook(std::string request_path, void* callback_function);
+			Hook(std::string request_path, std::string (*function)(Request*));
 			Hook(std::string request_path, std::string resource_path);
 
 			void allowMethod(Method m);
@@ -114,7 +114,7 @@ namespace swift{
 			void setIsResource(bool resource);
 			bool isResource();
 
-			void setCallback(std::string (*function)(Request));
+			void setCallback(std::string (*function)(Request*));
 			void processCallback(Request* req);
 	};
 

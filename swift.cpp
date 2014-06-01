@@ -348,11 +348,11 @@ namespace swift{
 		preload_resource = false;
 	}
 
-	Hook::Hook(std::string request_path, void* callback_function){
+	Hook::Hook(std::string request_path, std::string (*function)(Request*)){
 		is_resource = false;
 		preload_resource = false;
 		this->request_path = request_path;
-		this->callback_function = callback_function;
+		this->callback_function = function;
 	}
 
 	Hook::Hook(std::string request_path, std::string resource_path){
@@ -424,7 +424,7 @@ namespace swift{
 	* Sets the callback associated with this API Hook
 	* @param void function
 	*/
-	void Hook::setCallback(void* function){
+	void Hook::setCallback(std::string (*function)(Request*)){
 		callback_function = function;
 	}
 

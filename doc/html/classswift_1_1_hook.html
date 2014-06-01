@@ -99,9 +99,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa394cd0e3d904efc13d1ec68f7fecb75"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa394cd0e3d904efc13d1ec68f7fecb75"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Hook</b> (std::string request_path, void *callback_function)</td></tr>
-<tr class="separator:aa394cd0e3d904efc13d1ec68f7fecb75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0ac63716f7f8dd6f6daf34480adb222"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0ac63716f7f8dd6f6daf34480adb222"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Hook</b> (std::string request_path, std::string(*function)(<a class="el" href="classswift_1_1_request.html">Request</a> *))</td></tr>
+<tr class="separator:ad0ac63716f7f8dd6f6daf34480adb222"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08e8c205418d4dc95a24ad10f0a6754e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08e8c205418d4dc95a24ad10f0a6754e"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Hook</b> (std::string request_path, std::string resource_path)</td></tr>
 <tr class="separator:a08e8c205418d4dc95a24ad10f0a6754e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,8 +119,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aeefe2c2e5080787975097a7c1b431161"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addbf2c39d6628c838b6fb46c96469e31"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#addbf2c39d6628c838b6fb46c96469e31">isResource</a> ()</td></tr>
 <tr class="separator:addbf2c39d6628c838b6fb46c96469e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7bcbc0360bf438cef8eac374919495d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#ad7bcbc0360bf438cef8eac374919495d">setCallback</a> (void *function)</td></tr>
-<tr class="separator:ad7bcbc0360bf438cef8eac374919495d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a592640d6908ac0a34a40ce70a1922d14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#a592640d6908ac0a34a40ce70a1922d14">setCallback</a> (std::string(*function)(<a class="el" href="classswift_1_1_request.html">Request</a> *))</td></tr>
+<tr class="separator:a592640d6908ac0a34a40ce70a1922d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e206f183d02539d7ca2f2a1ea7e2518"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#a2e206f183d02539d7ca2f2a1ea7e2518">processCallback</a> (<a class="el" href="classswift_1_1_request.html">Request</a> *req)</td></tr>
+<tr class="separator:a2e206f183d02539d7ca2f2a1ea7e2518"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ab8f2a030f4234be5aaea657628414669"></a>
@@ -210,14 +212,37 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad7bcbc0360bf438cef8eac374919495d"></a>
+<a class="anchor" id="a2e206f183d02539d7ca2f2a1ea7e2518"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void swift::Hook::processCallback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classswift_1_1_request.html">Request</a> *&#160;</td>
+          <td class="paramname"><em>req</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Calls the callback function associated with this API <a class="el" href="classswift_1_1_hook.html">Hook</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="classswift_1_1_request.html">Request</a></td><td>object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a592640d6908ac0a34a40ce70a1922d14"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void swift::Hook::setCallback </td>
           <td>(</td>
-          <td class="paramtype">void *&#160;</td>
+          <td class="paramtype">std::string(*)(<a class="el" href="classswift_1_1_request.html">Request</a> *)&#160;</td>
           <td class="paramname"><em>function</em></td><td>)</td>
           <td></td>
         </tr>
@@ -309,7 +334,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 31 2014 21:50:21 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 1 2014 12:24:38 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

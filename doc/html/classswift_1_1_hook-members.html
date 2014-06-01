@@ -99,18 +99,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr class="even"><td class="entry"><a class="el" href="classswift_1_1_hook.html#ab8f2a030f4234be5aaea657628414669">allowMethod</a>(Method m)</td><td class="entry"><a class="el" href="classswift_1_1_hook.html">swift::Hook</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classswift_1_1_hook.html#a02148f71598a14eb8c7f42d9c82f50cb">disallowMethod</a>(Method m)</td><td class="entry"><a class="el" href="classswift_1_1_hook.html">swift::Hook</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Hook</b>() (defined in <a class="el" href="classswift_1_1_hook.html">swift::Hook</a>)</td><td class="entry"><a class="el" href="classswift_1_1_hook.html">swift::Hook</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Hook</b>(std::string request_path, void *callback_function) (defined in <a class="el" href="classswift_1_1_hook.html">swift::Hook</a>)</td><td class="entry"><a class="el" href="classswift_1_1_hook.html">swift::Hook</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>Hook</b>(std::string request_path, std::string(*function)(Request *)) (defined in <a class="el" href="classswift_1_1_hook.html">swift::Hook</a>)</td><td class="entry"><a class="el" href="classswift_1_1_hook.html">swift::Hook</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Hook</b>(std::string request_path, std::string resource_path) (defined in <a class="el" href="classswift_1_1_hook.html">swift::Hook</a>)</td><td class="entry"><a class="el" href="classswift_1_1_hook.html">swift::Hook</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classswift_1_1_hook.html#ad5e71e832b6290d4f195a5dcd594e661">isMethodAllowed</a>(Method m)</td><td class="entry"><a class="el" href="classswift_1_1_hook.html">swift::Hook</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classswift_1_1_hook.html#addbf2c39d6628c838b6fb46c96469e31">isResource</a>()</td><td class="entry"><a class="el" href="classswift_1_1_hook.html">swift::Hook</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classswift_1_1_hook.html#ad7bcbc0360bf438cef8eac374919495d">setCallback</a>(void *function)</td><td class="entry"><a class="el" href="classswift_1_1_hook.html">swift::Hook</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classswift_1_1_hook.html#aeefe2c2e5080787975097a7c1b431161">setIsResource</a>(bool resource)</td><td class="entry"><a class="el" href="classswift_1_1_hook.html">swift::Hook</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classswift_1_1_hook.html#a8fc8a844df53bc651a46f9616ee635f9">setPreloadResource</a>(bool preload)</td><td class="entry"><a class="el" href="classswift_1_1_hook.html">swift::Hook</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classswift_1_1_hook.html#a4147575b0d54691515271508baa428c8">setResourcePath</a>(std::string path)</td><td class="entry"><a class="el" href="classswift_1_1_hook.html">swift::Hook</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classswift_1_1_hook.html#a2e206f183d02539d7ca2f2a1ea7e2518">processCallback</a>(Request *req)</td><td class="entry"><a class="el" href="classswift_1_1_hook.html">swift::Hook</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classswift_1_1_hook.html#a592640d6908ac0a34a40ce70a1922d14">setCallback</a>(std::string(*function)(Request *))</td><td class="entry"><a class="el" href="classswift_1_1_hook.html">swift::Hook</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classswift_1_1_hook.html#aeefe2c2e5080787975097a7c1b431161">setIsResource</a>(bool resource)</td><td class="entry"><a class="el" href="classswift_1_1_hook.html">swift::Hook</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classswift_1_1_hook.html#a8fc8a844df53bc651a46f9616ee635f9">setPreloadResource</a>(bool preload)</td><td class="entry"><a class="el" href="classswift_1_1_hook.html">swift::Hook</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classswift_1_1_hook.html#a4147575b0d54691515271508baa428c8">setResourcePath</a>(std::string path)</td><td class="entry"><a class="el" href="classswift_1_1_hook.html">swift::Hook</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 31 2014 21:50:21 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 1 2014 12:24:38 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
