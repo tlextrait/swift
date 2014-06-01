@@ -379,19 +379,43 @@ namespace swift{
 		return allowed_methods.count(m) > 0;
 	}
 
+	/**
+	* Sets the static resource path for this API Hook and make it a static resource
+	* @param path to resource
+	*/
 	void Hook::setResourcePath(std::string path){
 		is_resource = true;
 		resource_path = path;
 	}
 
+	/**
+	* Sets this API Hook to preload static resources or not
+	* @param boolean
+	*/
 	void Hook::setPreloadResource(bool preload){
 		preload_resource = preload;
 	}
 
+	/**
+	* Sets this API Hook as a static resource or not
+	* @param boolean
+	*/
 	void Hook::setIsResource(bool resource){
 		is_resource = resource;
 	}
 
+	/**
+	* Indicates if this API Hook represents a static resource
+	* @return boolean
+	*/
+	bool Hook::isResource(){
+		return is_resource;
+	}
+
+	/**
+	* Sets the callback associated with this API Hook
+	* @param void function
+	*/
 	void Hook::setCallback(void* function){
 		callback_function = function;
 	}

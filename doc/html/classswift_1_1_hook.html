@@ -111,17 +111,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a02148f71598a14eb8c7f42d9c82f50cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5e71e832b6290d4f195a5dcd594e661"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#ad5e71e832b6290d4f195a5dcd594e661">isMethodAllowed</a> (Method m)</td></tr>
 <tr class="separator:ad5e71e832b6290d4f195a5dcd594e661"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4147575b0d54691515271508baa428c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4147575b0d54691515271508baa428c8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setResourcePath</b> (std::string path)</td></tr>
+<tr class="memitem:a4147575b0d54691515271508baa428c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#a4147575b0d54691515271508baa428c8">setResourcePath</a> (std::string path)</td></tr>
 <tr class="separator:a4147575b0d54691515271508baa428c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fc8a844df53bc651a46f9616ee635f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8fc8a844df53bc651a46f9616ee635f9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPreloadResource</b> (bool preload)</td></tr>
+<tr class="memitem:a8fc8a844df53bc651a46f9616ee635f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#a8fc8a844df53bc651a46f9616ee635f9">setPreloadResource</a> (bool preload)</td></tr>
 <tr class="separator:a8fc8a844df53bc651a46f9616ee635f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeefe2c2e5080787975097a7c1b431161"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeefe2c2e5080787975097a7c1b431161"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setIsResource</b> (bool resource)</td></tr>
+<tr class="memitem:aeefe2c2e5080787975097a7c1b431161"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#aeefe2c2e5080787975097a7c1b431161">setIsResource</a> (bool resource)</td></tr>
 <tr class="separator:aeefe2c2e5080787975097a7c1b431161"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7bcbc0360bf438cef8eac374919495d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad7bcbc0360bf438cef8eac374919495d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCallback</b> (void *function)</td></tr>
+<tr class="memitem:addbf2c39d6628c838b6fb46c96469e31"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#addbf2c39d6628c838b6fb46c96469e31">isResource</a> ()</td></tr>
+<tr class="separator:addbf2c39d6628c838b6fb46c96469e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7bcbc0360bf438cef8eac374919495d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#ad7bcbc0360bf438cef8eac374919495d">setCallback</a> (void *function)</td></tr>
 <tr class="separator:ad7bcbc0360bf438cef8eac374919495d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -195,6 +193,115 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setCallback</b> (void
 
 </div>
 </div>
+<a class="anchor" id="addbf2c39d6628c838b6fb46c96469e31"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool swift::Hook::isResource </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Indicates if this API <a class="el" href="classswift_1_1_hook.html">Hook</a> represents a static resource </p>
+<dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad7bcbc0360bf438cef8eac374919495d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void swift::Hook::setCallback </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>function</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the callback associated with this API <a class="el" href="classswift_1_1_hook.html">Hook</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td>function </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aeefe2c2e5080787975097a7c1b431161"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void swift::Hook::setIsResource </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>resource</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets this API <a class="el" href="classswift_1_1_hook.html">Hook</a> as a static resource or not </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">boolean</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a8fc8a844df53bc651a46f9616ee635f9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void swift::Hook::setPreloadResource </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>preload</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets this API <a class="el" href="classswift_1_1_hook.html">Hook</a> to preload static resources or not </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">boolean</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a4147575b0d54691515271508baa428c8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void swift::Hook::setResourcePath </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the static resource path for this API <a class="el" href="classswift_1_1_hook.html">Hook</a> and make it a static resource </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>to resource </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="swift_8h_source.html">swift.h</a></li>
 <li>swift.cpp</li>
@@ -202,7 +309,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setCallback</b> (void
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 31 2014 21:46:35 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 31 2014 21:50:21 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

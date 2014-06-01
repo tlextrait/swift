@@ -96,6 +96,7 @@ namespace swift{
 			void setResourcePath(std::string path);
 			void setPreloadResource(bool preload);
 			void setIsResource(bool resource);
+			bool isResource();
 
 			void setCallback(void* function);
 	};

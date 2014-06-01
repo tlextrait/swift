@@ -16,17 +16,15 @@ void \hyperlink{classswift_1_1_hook_a02148f71598a14eb8c7f42d9c82f50cb}{disallow\
 \item 
 bool \hyperlink{classswift_1_1_hook_ad5e71e832b6290d4f195a5dcd594e661}{is\-Method\-Allowed} (Method m)
 \item 
-\hypertarget{classswift_1_1_hook_a4147575b0d54691515271508baa428c8}{void {\bfseries set\-Resource\-Path} (std\-::string path)}\label{classswift_1_1_hook_a4147575b0d54691515271508baa428c8}
-
+void \hyperlink{classswift_1_1_hook_a4147575b0d54691515271508baa428c8}{set\-Resource\-Path} (std\-::string path)
 \item 
-\hypertarget{classswift_1_1_hook_a8fc8a844df53bc651a46f9616ee635f9}{void {\bfseries set\-Preload\-Resource} (bool preload)}\label{classswift_1_1_hook_a8fc8a844df53bc651a46f9616ee635f9}
-
+void \hyperlink{classswift_1_1_hook_a8fc8a844df53bc651a46f9616ee635f9}{set\-Preload\-Resource} (bool preload)
 \item 
-\hypertarget{classswift_1_1_hook_aeefe2c2e5080787975097a7c1b431161}{void {\bfseries set\-Is\-Resource} (bool resource)}\label{classswift_1_1_hook_aeefe2c2e5080787975097a7c1b431161}
-
+void \hyperlink{classswift_1_1_hook_aeefe2c2e5080787975097a7c1b431161}{set\-Is\-Resource} (bool resource)
 \item 
-\hypertarget{classswift_1_1_hook_ad7bcbc0360bf438cef8eac374919495d}{void {\bfseries set\-Callback} (void $\ast$function)}\label{classswift_1_1_hook_ad7bcbc0360bf438cef8eac374919495d}
-
+bool \hyperlink{classswift_1_1_hook_addbf2c39d6628c838b6fb46c96469e31}{is\-Resource} ()
+\item 
+void \hyperlink{classswift_1_1_hook_ad7bcbc0360bf438cef8eac374919495d}{set\-Callback} (void $\ast$function)
 \end{DoxyCompactItemize}
 
 
@@ -70,6 +68,64 @@ Indicates whether the given method is allowed by this A\-P\-I \hyperlink{classsw
 \begin{DoxyReturn}{Returns}
 boolean 
 \end{DoxyReturn}
+\hypertarget{classswift_1_1_hook_addbf2c39d6628c838b6fb46c96469e31}{\index{swift\-::\-Hook@{swift\-::\-Hook}!is\-Resource@{is\-Resource}}
+\index{is\-Resource@{is\-Resource}!swift::Hook@{swift\-::\-Hook}}
+\subsubsection[{is\-Resource}]{\setlength{\rightskip}{0pt plus 5cm}bool swift\-::\-Hook\-::is\-Resource (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_hook_addbf2c39d6628c838b6fb46c96469e31}
+Indicates if this A\-P\-I \hyperlink{classswift_1_1_hook}{Hook} represents a static resource \begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+\hypertarget{classswift_1_1_hook_ad7bcbc0360bf438cef8eac374919495d}{\index{swift\-::\-Hook@{swift\-::\-Hook}!set\-Callback@{set\-Callback}}
+\index{set\-Callback@{set\-Callback}!swift::Hook@{swift\-::\-Hook}}
+\subsubsection[{set\-Callback}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Hook\-::set\-Callback (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{function}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_hook_ad7bcbc0360bf438cef8eac374919495d}
+Sets the callback associated with this A\-P\-I \hyperlink{classswift_1_1_hook}{Hook} 
+\begin{DoxyParams}{Parameters}
+{\em void} & function \\
+\hline
+\end{DoxyParams}
+\hypertarget{classswift_1_1_hook_aeefe2c2e5080787975097a7c1b431161}{\index{swift\-::\-Hook@{swift\-::\-Hook}!set\-Is\-Resource@{set\-Is\-Resource}}
+\index{set\-Is\-Resource@{set\-Is\-Resource}!swift::Hook@{swift\-::\-Hook}}
+\subsubsection[{set\-Is\-Resource}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Hook\-::set\-Is\-Resource (
+\begin{DoxyParamCaption}
+\item[{bool}]{resource}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_hook_aeefe2c2e5080787975097a7c1b431161}
+Sets this A\-P\-I \hyperlink{classswift_1_1_hook}{Hook} as a static resource or not 
+\begin{DoxyParams}{Parameters}
+{\em boolean} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classswift_1_1_hook_a8fc8a844df53bc651a46f9616ee635f9}{\index{swift\-::\-Hook@{swift\-::\-Hook}!set\-Preload\-Resource@{set\-Preload\-Resource}}
+\index{set\-Preload\-Resource@{set\-Preload\-Resource}!swift::Hook@{swift\-::\-Hook}}
+\subsubsection[{set\-Preload\-Resource}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Hook\-::set\-Preload\-Resource (
+\begin{DoxyParamCaption}
+\item[{bool}]{preload}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_hook_a8fc8a844df53bc651a46f9616ee635f9}
+Sets this A\-P\-I \hyperlink{classswift_1_1_hook}{Hook} to preload static resources or not 
+\begin{DoxyParams}{Parameters}
+{\em boolean} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classswift_1_1_hook_a4147575b0d54691515271508baa428c8}{\index{swift\-::\-Hook@{swift\-::\-Hook}!set\-Resource\-Path@{set\-Resource\-Path}}
+\index{set\-Resource\-Path@{set\-Resource\-Path}!swift::Hook@{swift\-::\-Hook}}
+\subsubsection[{set\-Resource\-Path}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Hook\-::set\-Resource\-Path (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{path}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_hook_a4147575b0d54691515271508baa428c8}
+Sets the static resource path for this A\-P\-I \hyperlink{classswift_1_1_hook}{Hook} and make it a static resource 
+\begin{DoxyParams}{Parameters}
+{\em path} & to resource \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
