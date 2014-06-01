@@ -201,6 +201,14 @@ namespace swift{
 				// Check rules
 				if(hook->isMethodAllowed(req->getMethod())){
 
+					if(hook->isResource()){
+
+
+
+					}else{
+						hook->processCallback(req);
+					}
+
 				}else{
 					if(server->verbose) std::cout << "Access denied" << std::endl;
 					/*
@@ -420,6 +428,14 @@ namespace swift{
 		callback_function = function;
 	}
 
+	/**
+	* Calls the callback function associated with this API Hook
+	* @param Request object
+	*/
+	void Hook::processCallback(Request* req){
+		callback_function(req);
+	}
+
 	/* ======================================================== */
 	/* Request													*/
 	/* ======================================================== */
@@ -525,5 +541,14 @@ namespace swift{
 	size_t Request::getContentLen(){
 		return content_len;
 	}
+
+	/* ======================================================== */
+	/* Response													*/
+	/* ======================================================== */
+
+	/**
+	* Constructs a blank Response object
+	*/
+	Response::Response(){}
 
 }

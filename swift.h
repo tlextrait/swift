@@ -70,6 +70,22 @@ namespace swift{
 			size_t getContentLen();
 	};
 
+	// Swift response class
+	class Response {
+			std::string content;
+			size_t content_len;
+
+			int num_headers;
+			struct swift_header {
+				std::string name;
+				std::string value;
+			} http_headers[50];
+
+		public:
+			// Constructor/destructor
+			Response();
+	};
+
 	// API Hook
 	class Hook {
 			std::string request_path;			// request path
@@ -98,7 +114,8 @@ namespace swift{
 			void setIsResource(bool resource);
 			bool isResource();
 
-			void setCallback(void* function);
+			void setCallback(std::string (*function)(Request));
+			void processCallback(Request* req);
 	};
 
 	// Swift Server class
