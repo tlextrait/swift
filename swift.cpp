@@ -90,8 +90,10 @@ namespace swift{
 		sprintf(str_port, "%d", port);
 
 		// Create a Mongoose server
-		mgserver = mg_create_server(NULL, this->requestHandler);
-		//server_map.insert(std::make_pair(mgserver->server_id, this));
+		int server_id = -1;
+		mgserver = mg_create_server(NULL, this->requestHandler, &server_id);
+		// Keep track of server globally
+		addServer(this, server_id);
 
 		// Set the port
 		mg_set_option(mgserver, "listening_port", str_port);
@@ -110,7 +112,7 @@ namespace swift{
 	* @param server id
 	* @return boolean
 	*/
-	bool hasServer(int server_id){
+	bool Server::hasServer(int server_id){
 		return server_map.count(server_id) > 0;
 	}
 
@@ -120,7 +122,7 @@ namespace swift{
 	* @param server id
 	* @return boolean on success
 	*/
-	bool addServer(Server* server, int server_id){
+	bool Server::addServer(Server* server, int server_id){
 		bool success = false;
 		if(!hasServer(server_id)){
 			server_map.insert(std::make_pair(server_id, server));
@@ -134,7 +136,7 @@ namespace swift{
 	* @param server id
 	* @return server object, or nullptr if not found
 	*/
-	Server* getServer(int server_id){
+	Server* Server::getServer(int server_id){
 		if(hasServer(server_id)){
 			return server_map[server_id];
 		}else{
@@ -181,7 +183,24 @@ namespace swift{
 	* @param mongoose connection object
 	*/
 	void Server::processRequest(Request* req, struct mg_connection *conn){
-		mg_printf_data(conn, "Hello! Requested URI is [%s]", conn->uri);
+
+		// Check that we're tracking this server
+		int server_id = conn->server_id;
+
+		if(hasServer(server_id)){
+			Server* server = getServer(server_id);
+
+			if(server->verbose) std::cout << "Got request from server #" << conn->server_id << std::endl;
+
+			/*
+			@TODO Figure out what hook we're requesting!
+			*/
+
+			mg_printf_data(conn, "Hello! Requested URI is [%s]", conn->uri);
+		}else{
+			std::cout << "Server not found #" << server_id << std::endl;
+		}
+
 	}
 
 	/* ======================================================== */

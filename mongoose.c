@@ -282,7 +282,7 @@ int ns_hexdump(const void *buf, int len, char *dst, int dst_len);
 // Globals
 // @author Thomas Lextrait
 //
-int server_id = 0;
+int current_server_id = 0;
 
 struct ctl_msg {
   ns_callback_t callback;
@@ -4972,7 +4972,7 @@ const char *mg_get_option(const struct mg_server *server, const char *name) {
   return i == -1 ? NULL : opts[i] == NULL ? "" : opts[i];
 }
 
-struct mg_server *mg_create_server(void *server_data, mg_handler_t handler) {
+struct mg_server *mg_create_server(void *server_data, mg_handler_t handler, int* server_id) {
   struct mg_server *server = (struct mg_server *) calloc(1, sizeof(*server));
   ns_server_init(&server->ns_server, server_data, mg_ev_handler);
   set_default_option_values(server->config_options);
@@ -4980,9 +4980,10 @@ struct mg_server *mg_create_server(void *server_data, mg_handler_t handler) {
 
   // Record server id
   // @author Thomas Lextrait
-  server->server_id = server_id;
-  server->ns_server.server_id = server_id;
-  ++server_id;
+  server->server_id = current_server_id;
+  server->ns_server.server_id = current_server_id;
+  *server_id = current_server_id;
+  ++current_server_id;
 
   return server;
 }
