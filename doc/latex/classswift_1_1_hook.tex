@@ -10,6 +10,10 @@
 \hypertarget{classswift_1_1_hook_a08e8c205418d4dc95a24ad10f0a6754e}{{\bfseries Hook} (std\-::string request\-\_\-path, std\-::string resource\-\_\-path)}\label{classswift_1_1_hook_a08e8c205418d4dc95a24ad10f0a6754e}
 
 \item 
+void \hyperlink{classswift_1_1_hook_a047787726165c7b671e88e977468ff5d}{set\-Request\-Path} (std\-::string path)
+\item 
+std\-::string \hyperlink{classswift_1_1_hook_a4679b1c6977270006156702041180efa}{get\-Request\-Path} ()
+\item 
 void \hyperlink{classswift_1_1_hook_ab8f2a030f4234be5aaea657628414669}{allow\-Method} (Method m)
 \item 
 void \hyperlink{classswift_1_1_hook_a02148f71598a14eb8c7f42d9c82f50cb}{disallow\-Method} (Method m)
@@ -57,6 +61,16 @@ Disallows the given method
 {\em Method} & enum \\
 \hline
 \end{DoxyParams}
+\hypertarget{classswift_1_1_hook_a4679b1c6977270006156702041180efa}{\index{swift\-::\-Hook@{swift\-::\-Hook}!get\-Request\-Path@{get\-Request\-Path}}
+\index{get\-Request\-Path@{get\-Request\-Path}!swift::Hook@{swift\-::\-Hook}}
+\subsubsection[{get\-Request\-Path}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string swift\-::\-Hook\-::get\-Request\-Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_hook_a4679b1c6977270006156702041180efa}
+Returns the A\-P\-I \hyperlink{classswift_1_1_hook}{Hook}'s request path \begin{DoxyReturn}{Returns}
+path string 
+\end{DoxyReturn}
 \hypertarget{classswift_1_1_hook_a6754120ec1ace56091e2e794bc9df635}{\index{swift\-::\-Hook@{swift\-::\-Hook}!get\-Resource\-Path@{get\-Resource\-Path}}
 \index{get\-Resource\-Path@{get\-Resource\-Path}!swift::Hook@{swift\-::\-Hook}}
 \subsubsection[{get\-Resource\-Path}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string swift\-::\-Hook\-::get\-Resource\-Path (
@@ -135,6 +149,18 @@ Sets this A\-P\-I \hyperlink{classswift_1_1_hook}{Hook} as a static resource or 
 Sets this A\-P\-I \hyperlink{classswift_1_1_hook}{Hook} to preload static resources or not 
 \begin{DoxyParams}{Parameters}
 {\em boolean} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classswift_1_1_hook_a047787726165c7b671e88e977468ff5d}{\index{swift\-::\-Hook@{swift\-::\-Hook}!set\-Request\-Path@{set\-Request\-Path}}
+\index{set\-Request\-Path@{set\-Request\-Path}!swift::Hook@{swift\-::\-Hook}}
+\subsubsection[{set\-Request\-Path}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Hook\-::set\-Request\-Path (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{path}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_hook_a047787726165c7b671e88e977468ff5d}
+Sets the A\-P\-I \hyperlink{classswift_1_1_hook}{Hook}'s request path 
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
 \hline
 \end{DoxyParams}
 \hypertarget{classswift_1_1_hook_a4147575b0d54691515271508baa428c8}{\index{swift\-::\-Hook@{swift\-::\-Hook}!set\-Resource\-Path@{set\-Resource\-Path}}
