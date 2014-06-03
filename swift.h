@@ -116,6 +116,9 @@ namespace swift{
 			Hook(std::string request_path, Response* (*function)(Request*));
 			Hook(std::string request_path, std::string resource_path);
 
+			void setRequestPath(std::string path);
+			std::string getRequestPath();
+
 			void allowMethod(Method m);
 			void disallowMethod(Method m);
 			bool isMethodAllowed(Method m);
@@ -160,6 +163,7 @@ namespace swift{
 			// API
 			void addResource(std::string request_path, std::string file_path);
 			void addResource(std::string request_path, std::string file_path, bool preload);
+			void addHook(Hook* hook);
 
 			// MISC
 			void setCacheSize(size_t size);
@@ -177,8 +181,9 @@ namespace swift{
 			bool addEndpoint(std::string path, Hook* hook);
 			bool hasEndpointWithPath(std::string path);
 			Hook* getEndpoint(std::string path);
+			Response* serveResource(std::string file_path);
 
-			void serveResource(std::string file_path, struct mg_connection *conn);
+			void sendResponse(Response* resp, struct mg_connection *conn);
 
 			// MISC
 			void printWelcome();

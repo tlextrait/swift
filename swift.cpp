@@ -201,13 +201,14 @@ namespace swift{
 				// Check rules
 				if(hook->isMethodAllowed(req->getMethod())){
 
+					Response* resp;
+
 					if(hook->isResource()){
 						// Just serve the static resource to the client
-						server->serveResource(hook->getResourcePath(), conn);
+						resp = server->serveResource(hook->getResourcePath());
 					}else{
 						// Process the attached callback
-						Response* resp = hook->processCallback(req);
-						// @TODO send response to client
+						resp = hook->processCallback(req);
 					}
 
 				}else{
@@ -260,6 +261,14 @@ namespace swift{
 	}
 
 	/**
+	* Adds an API Hook to the server
+	* @param hook object
+	*/
+	void Server::addHook(Hook* hook){
+		addEndpoint(hook->getRequestPath(), hook);
+	}
+
+	/**
 	* Tries to add an endpoint to the server
 	* @param endpoint path
 	* @param API Hook
@@ -301,9 +310,17 @@ namespace swift{
 	/**
 	* Serves a static resource to the client
 	* @param file path
-	* @param mongoose connection struct
 	*/
-	void Server::serveResource(std::string file_path, struct mg_connection *conn){
+	Response* Server::serveResource(std::string file_path){
+		//@TODO
+	}
+
+	/**
+	* Sends a response to the client
+	* @param response object
+	* @param mongoose connnection struct
+	*/
+	void Server::sendResponse(Response* resp, struct mg_connection *conn){
 
 	}
 
@@ -370,6 +387,22 @@ namespace swift{
 		preload_resource = true;
 		this->request_path = request_path;
 		this->resource_path = resource_path;
+	}
+
+	/**
+	* Sets the API Hook's request path
+	* @param path
+	*/
+	void Hook::setRequestPath(std::string path){
+		request_path = path;
+	}
+
+	/**
+	* Returns the API Hook's request path
+	* @return path string
+	*/
+	std::string Hook::getRequestPath(){
+		return request_path;
 	}
 
 	/**
