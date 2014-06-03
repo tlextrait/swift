@@ -99,9 +99,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad0ac63716f7f8dd6f6daf34480adb222"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0ac63716f7f8dd6f6daf34480adb222"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Hook</b> (std::string request_path, std::string(*function)(<a class="el" href="classswift_1_1_request.html">Request</a> *))</td></tr>
-<tr class="separator:ad0ac63716f7f8dd6f6daf34480adb222"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e9f35346f4797a6149a79c7a34235fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e9f35346f4797a6149a79c7a34235fd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Hook</b> (std::string request_path, <a class="el" href="classswift_1_1_response.html">Response</a> *(*function)(<a class="el" href="classswift_1_1_request.html">Request</a> *))</td></tr>
+<tr class="separator:a8e9f35346f4797a6149a79c7a34235fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08e8c205418d4dc95a24ad10f0a6754e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08e8c205418d4dc95a24ad10f0a6754e"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Hook</b> (std::string request_path, std::string resource_path)</td></tr>
 <tr class="separator:a08e8c205418d4dc95a24ad10f0a6754e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -113,16 +113,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad5e71e832b6290d4f195a5dcd594e661"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4147575b0d54691515271508baa428c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#a4147575b0d54691515271508baa428c8">setResourcePath</a> (std::string path)</td></tr>
 <tr class="separator:a4147575b0d54691515271508baa428c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6754120ec1ace56091e2e794bc9df635"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#a6754120ec1ace56091e2e794bc9df635">getResourcePath</a> ()</td></tr>
+<tr class="separator:a6754120ec1ace56091e2e794bc9df635"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fc8a844df53bc651a46f9616ee635f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#a8fc8a844df53bc651a46f9616ee635f9">setPreloadResource</a> (bool preload)</td></tr>
 <tr class="separator:a8fc8a844df53bc651a46f9616ee635f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeefe2c2e5080787975097a7c1b431161"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#aeefe2c2e5080787975097a7c1b431161">setIsResource</a> (bool resource)</td></tr>
 <tr class="separator:aeefe2c2e5080787975097a7c1b431161"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addbf2c39d6628c838b6fb46c96469e31"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#addbf2c39d6628c838b6fb46c96469e31">isResource</a> ()</td></tr>
 <tr class="separator:addbf2c39d6628c838b6fb46c96469e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a592640d6908ac0a34a40ce70a1922d14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#a592640d6908ac0a34a40ce70a1922d14">setCallback</a> (std::string(*function)(<a class="el" href="classswift_1_1_request.html">Request</a> *))</td></tr>
-<tr class="separator:a592640d6908ac0a34a40ce70a1922d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e206f183d02539d7ca2f2a1ea7e2518"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#a2e206f183d02539d7ca2f2a1ea7e2518">processCallback</a> (<a class="el" href="classswift_1_1_request.html">Request</a> *req)</td></tr>
-<tr class="separator:a2e206f183d02539d7ca2f2a1ea7e2518"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1fd10e80b74ee88885d3b7225cf0c90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#aa1fd10e80b74ee88885d3b7225cf0c90">setCallback</a> (<a class="el" href="classswift_1_1_response.html">Response</a> *(*function)(<a class="el" href="classswift_1_1_request.html">Request</a> *))</td></tr>
+<tr class="separator:aa1fd10e80b74ee88885d3b7225cf0c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f1005a2e758eeb8776572edb2419932"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classswift_1_1_response.html">Response</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_hook.html#a1f1005a2e758eeb8776572edb2419932">processCallback</a> (<a class="el" href="classswift_1_1_request.html">Request</a> *req)</td></tr>
+<tr class="separator:a1f1005a2e758eeb8776572edb2419932"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ab8f2a030f4234be5aaea657628414669"></a>
@@ -171,6 +173,22 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a6754120ec1ace56091e2e794bc9df635"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string swift::Hook::getResourcePath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the resource path for this API <a class="el" href="classswift_1_1_hook.html">Hook</a>, if it is a static resource </p>
+
+</div>
+</div>
 <a class="anchor" id="ad5e71e832b6290d4f195a5dcd594e661"></a>
 <div class="memitem">
 <div class="memproto">
@@ -212,12 +230,12 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a2e206f183d02539d7ca2f2a1ea7e2518"></a>
+<a class="anchor" id="a1f1005a2e758eeb8776572edb2419932"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void swift::Hook::processCallback </td>
+          <td class="memname"><a class="el" href="classswift_1_1_response.html">Response</a> * swift::Hook::processCallback </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classswift_1_1_request.html">Request</a> *&#160;</td>
           <td class="paramname"><em>req</em></td><td>)</td>
@@ -235,14 +253,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a592640d6908ac0a34a40ce70a1922d14"></a>
+<a class="anchor" id="aa1fd10e80b74ee88885d3b7225cf0c90"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void swift::Hook::setCallback </td>
           <td>(</td>
-          <td class="paramtype">std::string(*)(<a class="el" href="classswift_1_1_request.html">Request</a> *)&#160;</td>
+          <td class="paramtype"><a class="el" href="classswift_1_1_response.html">Response</a> *(*)(<a class="el" href="classswift_1_1_request.html">Request</a> *)&#160;</td>
           <td class="paramname"><em>function</em></td><td>)</td>
           <td></td>
         </tr>
@@ -334,7 +352,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 1 2014 12:24:38 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 2 2014 20:26:08 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

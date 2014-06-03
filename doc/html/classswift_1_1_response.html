@@ -90,7 +90,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classswift_1_1_response-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -102,6 +101,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a10f959b77214b0ea7a0ec154a76086a5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a10f959b77214b0ea7a0ec154a76086a5">Response</a> ()</td></tr>
 <tr class="separator:a10f959b77214b0ea7a0ec154a76086a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e21abef101a79628db07071f98604a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a6e21abef101a79628db07071f98604a2">addHeader</a> (<a class="el" href="classswift_1_1_header.html">Header</a> *header)</td></tr>
+<tr class="separator:a6e21abef101a79628db07071f98604a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6d61f4bc7ee54aa4b3455c2d9fa36c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#ab6d61f4bc7ee54aa4b3455c2d9fa36c3">addHeader</a> (std::string name, std::string value)</td></tr>
+<tr class="separator:ab6d61f4bc7ee54aa4b3455c2d9fa36c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84de03abc1c55a7cd8f0bf0b3e22479e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a84de03abc1c55a7cd8f0bf0b3e22479e">getHeaderCount</a> ()</td></tr>
+<tr class="separator:a84de03abc1c55a7cd8f0bf0b3e22479e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28abb55e8780d8a6ebdd1ab55eaab06a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a28abb55e8780d8a6ebdd1ab55eaab06a">setContent</a> (std::string content)</td></tr>
+<tr class="separator:a28abb55e8780d8a6ebdd1ab55eaab06a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a816f9bfb4e67d7e658b79152c094bef9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a816f9bfb4e67d7e658b79152c094bef9">getContentLen</a> ()</td></tr>
+<tr class="separator:a816f9bfb4e67d7e658b79152c094bef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a10f959b77214b0ea7a0ec154a76086a5"></a>
@@ -120,6 +129,121 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a6e21abef101a79628db07071f98604a2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void swift::Response::addHeader </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classswift_1_1_header.html">Header</a> *&#160;</td>
+          <td class="paramname"><em>header</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Adds a new header object to the response </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">header</td><td>object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab6d61f4bc7ee54aa4b3455c2d9fa36c3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void swift::Response::addHeader </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Creates a new header and adds it to the response </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">header</td><td>name </td></tr>
+    <tr><td class="paramname">header</td><td>value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a816f9bfb4e67d7e658b79152c094bef9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t swift::Response::getContentLen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the lenght of the content </p>
+<dl class="section return"><dt>Returns</dt><dd>size_t </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a84de03abc1c55a7cd8f0bf0b3e22479e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int swift::Response::getHeaderCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the number of headers </p>
+<dl class="section return"><dt>Returns</dt><dd>integer </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a28abb55e8780d8a6ebdd1ab55eaab06a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void swift::Response::setContent </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>content</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the content of the response object </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">content</td><td>string </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="swift_8h_source.html">swift.h</a></li>
 <li>swift.cpp</li>
@@ -127,7 +251,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 1 2014 12:24:38 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 2 2014 20:26:08 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

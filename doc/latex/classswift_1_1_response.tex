@@ -5,6 +5,16 @@
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classswift_1_1_response_a10f959b77214b0ea7a0ec154a76086a5}{Response} ()
+\item 
+void \hyperlink{classswift_1_1_response_a6e21abef101a79628db07071f98604a2}{add\-Header} (\hyperlink{classswift_1_1_header}{Header} $\ast$header)
+\item 
+void \hyperlink{classswift_1_1_response_ab6d61f4bc7ee54aa4b3455c2d9fa36c3}{add\-Header} (std\-::string name, std\-::string value)
+\item 
+int \hyperlink{classswift_1_1_response_a84de03abc1c55a7cd8f0bf0b3e22479e}{get\-Header\-Count} ()
+\item 
+void \hyperlink{classswift_1_1_response_a28abb55e8780d8a6ebdd1ab55eaab06a}{set\-Content} (std\-::string content)
+\item 
+size\-\_\-t \hyperlink{classswift_1_1_response_a816f9bfb4e67d7e658b79152c094bef9}{get\-Content\-Len} ()
 \end{DoxyCompactItemize}
 
 
@@ -17,6 +27,68 @@
 \end{DoxyParamCaption}
 )}}\label{classswift_1_1_response_a10f959b77214b0ea7a0ec154a76086a5}
 Constructs a blank \hyperlink{classswift_1_1_response}{Response} object 
+
+\subsection{Member Function Documentation}
+\hypertarget{classswift_1_1_response_a6e21abef101a79628db07071f98604a2}{\index{swift\-::\-Response@{swift\-::\-Response}!add\-Header@{add\-Header}}
+\index{add\-Header@{add\-Header}!swift::Response@{swift\-::\-Response}}
+\subsubsection[{add\-Header}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Response\-::add\-Header (
+\begin{DoxyParamCaption}
+\item[{{\bf Header} $\ast$}]{header}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_response_a6e21abef101a79628db07071f98604a2}
+Adds a new header object to the response 
+\begin{DoxyParams}{Parameters}
+{\em header} & object \\
+\hline
+\end{DoxyParams}
+\hypertarget{classswift_1_1_response_ab6d61f4bc7ee54aa4b3455c2d9fa36c3}{\index{swift\-::\-Response@{swift\-::\-Response}!add\-Header@{add\-Header}}
+\index{add\-Header@{add\-Header}!swift::Response@{swift\-::\-Response}}
+\subsubsection[{add\-Header}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Response\-::add\-Header (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{std\-::string}]{value}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_response_ab6d61f4bc7ee54aa4b3455c2d9fa36c3}
+Creates a new header and adds it to the response 
+\begin{DoxyParams}{Parameters}
+{\em header} & name \\
+\hline
+{\em header} & value \\
+\hline
+\end{DoxyParams}
+\hypertarget{classswift_1_1_response_a816f9bfb4e67d7e658b79152c094bef9}{\index{swift\-::\-Response@{swift\-::\-Response}!get\-Content\-Len@{get\-Content\-Len}}
+\index{get\-Content\-Len@{get\-Content\-Len}!swift::Response@{swift\-::\-Response}}
+\subsubsection[{get\-Content\-Len}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t swift\-::\-Response\-::get\-Content\-Len (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_response_a816f9bfb4e67d7e658b79152c094bef9}
+Returns the lenght of the content \begin{DoxyReturn}{Returns}
+size\-\_\-t 
+\end{DoxyReturn}
+\hypertarget{classswift_1_1_response_a84de03abc1c55a7cd8f0bf0b3e22479e}{\index{swift\-::\-Response@{swift\-::\-Response}!get\-Header\-Count@{get\-Header\-Count}}
+\index{get\-Header\-Count@{get\-Header\-Count}!swift::Response@{swift\-::\-Response}}
+\subsubsection[{get\-Header\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int swift\-::\-Response\-::get\-Header\-Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_response_a84de03abc1c55a7cd8f0bf0b3e22479e}
+Returns the number of headers \begin{DoxyReturn}{Returns}
+integer 
+\end{DoxyReturn}
+\hypertarget{classswift_1_1_response_a28abb55e8780d8a6ebdd1ab55eaab06a}{\index{swift\-::\-Response@{swift\-::\-Response}!set\-Content@{set\-Content}}
+\index{set\-Content@{set\-Content}!swift::Response@{swift\-::\-Response}}
+\subsubsection[{set\-Content}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Response\-::set\-Content (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{content}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_response_a28abb55e8780d8a6ebdd1ab55eaab06a}
+Sets the content of the response object 
+\begin{DoxyParams}{Parameters}
+{\em content} & string \\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

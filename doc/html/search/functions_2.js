@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['ismethodallowed',['isMethodAllowed',['../classswift_1_1_hook.html#ad5e71e832b6290d4f195a5dcd594e661',1,'swift::Hook']]],
-  ['isresource',['isResource',['../classswift_1_1_hook.html#addbf2c39d6628c838b6fb46c96469e31',1,'swift::Hook']]]
+  ['getcontentlen',['getContentLen',['../classswift_1_1_response.html#a816f9bfb4e67d7e658b79152c094bef9',1,'swift::Response']]],
+  ['getheadercount',['getHeaderCount',['../classswift_1_1_response.html#a84de03abc1c55a7cd8f0bf0b3e22479e',1,'swift::Response']]],
+  ['getresourcepath',['getResourcePath',['../classswift_1_1_hook.html#a6754120ec1ace56091e2e794bc9df635',1,'swift::Hook']]]
 ];
