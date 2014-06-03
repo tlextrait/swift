@@ -569,6 +569,32 @@ namespace swift{
 	*/
 	Response::Response(){}
 
+	/**
+	* Adds a new header object to the response
+	* @param header object
+	*/
+	void Response::addHeader(Header* header){
+		headers.push(header);
+	}
+
+	/**
+	* Creates a new header and adds it to the response
+	* @param header name
+	* @param header value
+	*/
+	void Response::addHeader(std::string name, std::string value){
+		Header* header = new Header(name, value);
+		headers.push(header);
+	}
+
+	/**
+	* Returns the number of headers
+	* @return integer
+	*/
+	int Response::getHeaderCount(){
+		return headers.size();
+	}
+
 	/* ======================================================== */
 	/* Header													*/
 	/* ======================================================== */

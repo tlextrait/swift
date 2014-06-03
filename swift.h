@@ -8,6 +8,7 @@
 #include <exception>
 #include <map>
 #include <set>
+#include <queue>
 
 #include "mongoose.h"
 
@@ -51,11 +52,7 @@ namespace swift{
 			unsigned short remote_port; 	// Client's port
 			unsigned short local_port;		// Local port number
 
-			int num_headers;            // Number of HTTP headers
-			struct swift_header {
-				std::string name;       // HTTP header name
-				std::string value;      // HTTP header value
-			} http_headers[30];
+			std::queue<Header*> headers;
 
 			std::string content;        // POST (or websocket message) data, or NULL
 			size_t content_len;         // Data length
@@ -84,15 +81,14 @@ namespace swift{
 			std::string content;
 			size_t content_len;
 
-			int num_headers;
-			struct swift_header {
-				std::string name;
-				std::string value;
-			} http_headers[50];
+			std::queue<Header*> headers;
 
 		public:
 			// Constructor/destructor
 			Response();
+			void addHeader(Header* header);
+			void addHeader(std::string name, std::string value);
+			int getHeaderCount();
 	};
 
 	// API Hook
