@@ -38,6 +38,8 @@ namespace swift{
 			// Constructor/destructor
 			Header();
 			Header(std::string name, std::string value);
+			std::string getName();
+			std::string getValue();
 	};
 
 	// Swift Request class
@@ -82,6 +84,7 @@ namespace swift{
 	class Response {
 			std::string content;
 			size_t content_len;
+			bool binary_mode;
 
 			std::queue<Header*> headers;
 
@@ -95,6 +98,11 @@ namespace swift{
 
 			void setContent(std::string content);
 			size_t getContentLen();
+
+			void setBinaryMode(bool binary);
+			bool isBinary();
+
+			std::queue<Header*> getHeaderQueue();
 	};
 
 	// API Hook
@@ -187,6 +195,41 @@ namespace swift{
 
 			// MISC
 			void printWelcome();
+	};
+
+	/* ======================================================== */
+	/* Exceptions												*/
+	/* ======================================================== */
+
+	// Invalid method exception
+	class Ex_invalid_method: public std::exception{
+	  	virtual const char* what() const throw(){
+	    	return "Invalid request method";
+	  	}
+	};
+
+	class Ex_null_request: public std::exception{
+		virtual const char* what() const throw(){
+	    	return "Null request";
+	  	}
+	};
+
+	class Ex_null_uri: public std::exception{
+		virtual const char* what() const throw(){
+	    	return "Null URI";
+	  	}
+	};
+
+	class Ex_null_http_version: public std::exception{
+		virtual const char* what() const throw(){
+	    	return "Null HTTP version";
+	  	}
+	};
+
+	class Ex_request_path_exists: public std::exception{
+		virtual const char* what() const throw(){
+	    	return "Request path already exists";
+	  	}
 	};
 
 }

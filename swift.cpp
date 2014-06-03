@@ -18,36 +18,19 @@ namespace swift{
 	// Maps server id's to swift servers
 	std::map<int,Server*> server_map;
 
-	// Invalid method exception
-	class invalid_method_exception: public std::exception{
-	  	virtual const char* what() const throw(){
-	    	return "Invalid request method";
-	  	}
-	} ex_invalid_method;
+	/* ======================================================== */
+	/* Exceptions												*/
+	/* ======================================================== */
 
-	class null_request_exception: public std::exception{
-		virtual const char* what() const throw(){
-	    	return "Null request";
-	  	}
-	} ex_null_request;
+	Ex_invalid_method ex_invalid_method;
+	Ex_null_request ex_null_request;
+	Ex_null_uri ex_null_uri;
+	Ex_null_http_version ex_null_http_version;
+	Ex_request_path_exists ex_request_path_exists;
 
-	class null_uri_exception: public std::exception{
-		virtual const char* what() const throw(){
-	    	return "Null URI";
-	  	}
-	} ex_null_uri;
-
-	class null_http_version_exception: public std::exception{
-		virtual const char* what() const throw(){
-	    	return "Null HTTP version";
-	  	}
-	} ex_null_http_version;
-
-	class request_path_exists_exception: public std::exception{
-		virtual const char* what() const throw(){
-	    	return "Request path already exists";
-	  	}
-	} ex_request_path_exists;
+	/* ======================================================== */
+	/* Server loading											*/
+	/* ======================================================== */
 
 	/**
 	* Swift constructor
@@ -65,10 +48,6 @@ namespace swift{
 		// destroy the mongoose server
 		mg_destroy_server(&mgserver);
 	}
-
-	/* ======================================================== */
-	/* Server loading											*/
-	/* ======================================================== */
 
 	/**
 	* Returns a new swift server object
@@ -329,7 +308,22 @@ namespace swift{
 	* @param mongoose connnection struct
 	*/
 	void Server::sendResponse(Response* resp, struct mg_connection *conn){
+		// Send headers
+		std::queue<Header*> headers = resp->getHeaderQueue();
+		if(headers.size() > 0){
+			while(!headers.empty()){
+				Header* h = headers.front();
+				headers.pop();
+				// Send header
+				mg_send_header(conn, h->getName(), h->getValue());
+			}
+		}
 
+		if(resp->isBinary()){
+
+		}else{
+
+		}
 	}
 
 	/* ======================================================== */
@@ -657,6 +651,30 @@ namespace swift{
 		return content_len;
 	}
 
+	/**
+	* Makes this Response a binary one or not
+	* @param boolean
+	*/
+	void Response::setBinaryMode(bool binary){
+		binary_mode = binary;
+	}
+
+	/**
+	* Indicates whether this response operates in binary mode
+	* @return boolean
+	*/
+	bool Response::isBinary(){
+		return binary_mode;
+	}
+
+	/**
+	* Returns the queue of headers, in order
+	* @return header queue
+	*/
+	std::queue<Header*> Response::getHeaderQueue(){
+		return headers;
+	}
+
 	/* ======================================================== */
 	/* Header													*/
 	/* ======================================================== */
@@ -672,6 +690,14 @@ namespace swift{
 	Header::Header(std::string name, std::string value){
 		this->name = name;
 		this->value = value;
+	}
+
+	std::string Header::getName(){
+		return name;
+	}
+
+	std::string Header::getValue(){
+		return value;
 	}
 
 }
