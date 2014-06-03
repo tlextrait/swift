@@ -203,7 +203,7 @@ namespace swift{
 
 					if(hook->isResource()){
 						// Just serve the static resource to the client
-						serveResource(hook->getResourcePath(), conn);
+						server->serveResource(hook->getResourcePath(), conn);
 					}else{
 						// Process the attached callback
 						Response* resp = hook->processCallback(req);
@@ -409,7 +409,7 @@ namespace swift{
 	/**
 	* Returns the resource path for this API Hook, if it is a static resource
 	*/
-	std::string getResourcePath(){
+	std::string Hook::getResourcePath(){
 		return resource_path;
 	}
 
@@ -507,7 +507,7 @@ namespace swift{
 		local_port = conn->local_port;
 
 		// Headers
-		num_headers = conn->num_headers;
+		// @TODO
 
 		// Contents
 		if(conn->content != nullptr) content = std::string(conn->content);

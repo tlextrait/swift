@@ -35,6 +35,7 @@ namespace swift{
 			std::string name;
 			std::string value;
 		public:
+			// Constructor/destructor
 			Header();
 			Header(std::string name, std::string value);
 	};
