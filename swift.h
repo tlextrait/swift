@@ -29,6 +29,15 @@ namespace swift{
 	// Converts a string to a method enum
 	Method str_to_method(std::string request_method);
 
+	// Header class
+	class Header {
+			std::string name;
+			std::string value;
+		public:
+			Header();
+			Header(std::string name, std::string value);
+	};
+
 	// Swift Request class
 	class Request {
 			Method request_method;				// "GET", "POST", etc
@@ -95,14 +104,14 @@ namespace swift{
 			bool preload_resource;				// preload the resource?
 
 			std::set<Method> allowed_methods;	// POST, GET... (overrides server settings)
-			std::string (*callback_function)(Request*); 	// pointer to function
+			Response* (*callback_function)(Request*); 	// pointer to function
 
 			std::set<unsigned short> allowed_ports; // (overrides server settings)
 		
 		public:
 			// Constructor/destructor
 			Hook();
-			Hook(std::string request_path, std::string (*function)(Request*));
+			Hook(std::string request_path, Response* (*function)(Request*));
 			Hook(std::string request_path, std::string resource_path);
 
 			void allowMethod(Method m);
@@ -110,12 +119,13 @@ namespace swift{
 			bool isMethodAllowed(Method m);
 
 			void setResourcePath(std::string path);
+			std::string getResourcePath();
 			void setPreloadResource(bool preload);
 			void setIsResource(bool resource);
 			bool isResource();
 
-			void setCallback(std::string (*function)(Request*));
-			void processCallback(Request* req);
+			void setCallback(Response* (*function)(Request*));
+			Response* processCallback(Request* req);
 	};
 
 	// Swift Server class
@@ -165,6 +175,8 @@ namespace swift{
 			bool addEndpoint(std::string path, Hook* hook);
 			bool hasEndpointWithPath(std::string path);
 			Hook* getEndpoint(std::string path);
+
+			void serveResource(std::string file_path, struct mg_connection *conn);
 
 			// MISC
 			void printWelcome();

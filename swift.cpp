@@ -202,11 +202,12 @@ namespace swift{
 				if(hook->isMethodAllowed(req->getMethod())){
 
 					if(hook->isResource()){
-
-
-
+						// Just serve the static resource to the client
+						serveResource(hook->getResourcePath(), conn);
 					}else{
-						hook->processCallback(req);
+						// Process the attached callback
+						Response resp = hook->processCallback(req);
+						// @TODO send response to client
 					}
 
 				}else{
@@ -297,6 +298,15 @@ namespace swift{
 		}
 	}
 
+	/**
+	* Serves a static resource to the client
+	* @param file path
+	* @param mongoose connection struct
+	*/
+	void Server::serveResource(std::string file_path, struct mg_connection *conn){
+
+	}
+
 	/* ======================================================== */
 	/* MISC														*/
 	/* ======================================================== */
@@ -348,7 +358,7 @@ namespace swift{
 		preload_resource = false;
 	}
 
-	Hook::Hook(std::string request_path, std::string (*function)(Request*)){
+	Hook::Hook(std::string request_path, Response* (*function)(Request*)){
 		is_resource = false;
 		preload_resource = false;
 		this->request_path = request_path;
@@ -397,6 +407,13 @@ namespace swift{
 	}
 
 	/**
+	* Returns the resource path for this API Hook, if it is a static resource
+	*/
+	std::string getResourcePath(){
+		return resource_path;
+	}
+
+	/**
 	* Sets this API Hook to preload static resources or not
 	* @param boolean
 	*/
@@ -424,7 +441,7 @@ namespace swift{
 	* Sets the callback associated with this API Hook
 	* @param void function
 	*/
-	void Hook::setCallback(std::string (*function)(Request*)){
+	void Hook::setCallback(Response* (*function)(Request*)){
 		callback_function = function;
 	}
 
@@ -432,8 +449,9 @@ namespace swift{
 	* Calls the callback function associated with this API Hook
 	* @param Request object
 	*/
-	void Hook::processCallback(Request* req){
-		callback_function(req);
+	Response* Hook::processCallback(Request* req){
+		Response* resp = callback_function(req);
+		return resp;
 	}
 
 	/* ======================================================== */
@@ -550,5 +568,22 @@ namespace swift{
 	* Constructs a blank Response object
 	*/
 	Response::Response(){}
+
+	/* ======================================================== */
+	/* Header													*/
+	/* ======================================================== */
+
+	/**
+	* Constructs a blank Header object
+	*/
+	Header::Header(){}
+
+	/**
+	* Constructs a new Header object
+	*/
+	Header::Header(std::string name, std::string value){
+		this->name = name;
+		this->value = value;
+	}
 
 }
