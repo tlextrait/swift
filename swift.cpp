@@ -31,17 +31,23 @@ namespace swift{
 	  	}
 	} ex_null_request;
 
-	class null_uri: public std::exception{
+	class null_uri_exception: public std::exception{
 		virtual const char* what() const throw(){
 	    	return "Null URI";
 	  	}
 	} ex_null_uri;
 
-	class null_http_version: public std::exception{
+	class null_http_version_exception: public std::exception{
 		virtual const char* what() const throw(){
 	    	return "Null HTTP version";
 	  	}
 	} ex_null_http_version;
+
+	class request_path_exists_exception: public std::exception{
+		virtual const char* what() const throw(){
+	    	return "Request path already exists";
+	  	}
+	} ex_request_path_exists;
 
 	/**
 	* Swift constructor
@@ -280,6 +286,8 @@ namespace swift{
 		if(!hasEndpointWithPath(path)){
 			endpoints.insert(std::make_pair(path, hook));
 			success = true;
+		}else{
+			throw ex_request_path_exists;
 		}
 
 		return success;
