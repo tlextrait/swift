@@ -75,6 +75,7 @@ namespace swift{
 			unsigned short getLocalPort();
 			std::string getContent();
 			size_t getContentLen();
+			int getHeaderCount();
 	};
 
 	// Swift response class
@@ -87,9 +88,13 @@ namespace swift{
 		public:
 			// Constructor/destructor
 			Response();
+
 			void addHeader(Header* header);
 			void addHeader(std::string name, std::string value);
 			int getHeaderCount();
+
+			void setContent(std::string content);
+			size_t getContentLen();
 	};
 
 	// API Hook

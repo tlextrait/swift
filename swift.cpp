@@ -560,6 +560,10 @@ namespace swift{
 		return content_len;
 	}
 
+	int Request::getHeaderCount(){
+		return headers.size();
+	}
+
 	/* ======================================================== */
 	/* Response													*/
 	/* ======================================================== */
@@ -593,6 +597,23 @@ namespace swift{
 	*/
 	int Response::getHeaderCount(){
 		return headers.size();
+	}
+
+	/**
+	* Sets the content of the response object
+	* @param content string
+	*/
+	void Response::setContent(std::string content){
+		this->content = content;
+		// @TODO content len
+	}
+
+	/**
+	* Returns the lenght of the content
+	* @return size_t
+	*/
+	size_t Response::getContentLen(){
+		return content_len;
 	}
 
 	/* ======================================================== */
