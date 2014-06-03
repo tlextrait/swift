@@ -206,7 +206,7 @@ namespace swift{
 						serveResource(hook->getResourcePath(), conn);
 					}else{
 						// Process the attached callback
-						Response resp = hook->processCallback(req);
+						Response* resp = hook->processCallback(req);
 						// @TODO send response to client
 					}
 
