@@ -13,6 +13,7 @@
 #include <sys/stat.h> // file stats
 #include <fstream> // file reading
 #include <sstream>
+#include <algorithm> // transform()
 
 #include "swift.h"
 
@@ -40,6 +41,7 @@ namespace swift{
 	Ex_file_not_found ex_file_not_found;
 	Ex_mime_types_file_not_found ex_mime_types_file_not_found;
 	Ex_no_mime_type ex_no_mime_type;
+	Ex_invalid_filename ex_invalid_filename;
 
 	/* ======================================================== */
 	/* Server loading											*/
@@ -790,16 +792,40 @@ namespace swift{
 	/**
 	* Returns the MIME type for given file extension
 	* @param file extension string
-	* @return mime type string
+	* @return MIME type string
 	*/
-	std::string MIME::getMIME(std::string file_extension){
+	std::string MIME::getMIMEByExtension(std::string file_extension){
 		if(
 			file_extension.length() > 0 && 
 			types.count(file_extension) > 0
 		){
+			// Lower case the extension
+			std::transform(file_extension.begin(), file_extension.end(), file_extension.begin(), ::tolower);
 			return types[file_extension];
 		}else{
 			throw ex_no_mime_type;
+		}
+	}
+
+	/**
+	* Returns the MIME type for given filename
+	* @param filename string
+	* @param MIME type string
+	*/
+	std::string MIME::getMIMEByFilename(std::string filename){
+		if(
+			filename.length() >= 3 && 
+			filename.find('.') != std::string::npos
+		){
+			// Find the extension
+			std::string extension = filename.substr(filename.find_last_of(".") + 1);
+			if(extension.length() > 0){
+				return getMIMEByExtension(extension);
+			}else{
+				throw ex_invalid_filename;
+			}
+		}else{
+			throw ex_invalid_filename;
 		}
 	}
 

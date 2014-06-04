@@ -37,7 +37,8 @@ namespace swift{
 		public:
 			MIME();
 			MIME(std::string file_path);
-			std::string getMIME(std::string file_extension);
+			std::string getMIMEByExtension(std::string file_extension);
+			std::string getMIMEByFilename(std::string filename);
 	};
 
 	// Header class
@@ -257,6 +258,12 @@ namespace swift{
 	class Ex_no_mime_type: public std::exception{
 		virtual const char* what() const throw(){
 	    	return "No MIME type for given file extension";
+	  	}
+	};
+
+	class Ex_invalid_filename: public std::exception{
+		virtual const char* what() const throw(){
+	    	return "Invalid filename";
 	  	}
 	};
 
