@@ -214,6 +214,7 @@ namespace swift{
 	void loadMIME(std::string file_path);
 	std::string getMIMEByExtension(std::string file_extension);
 	std::string getMIMEByFilename(std::string filename);
+	bool isTextMIME(std::string MIME);
 
 	/* ======================================================== */
 	/* Exceptions												*/

@@ -349,9 +349,13 @@ namespace swift{
 		    	// Set correct MIME type
 		    	try{
 		    		std::string mime = getMIMEByFilename(file_path);
-
-		    		std::cout << "MIME type found: '" << mime << "'" << std::endl;
 		    		resp->addHeader("Content-Type", mime);
+
+		    		// Unless it's text, set mode as binary
+		    		if(!isTextMIME(mime)){
+		    			resp->setBinaryMode(true);
+		    		}
+
 		    	}catch(Ex_no_mime_type& e){
 		    		std::cout << "MIME type not found for file served: '" << file_path << "'" << std::endl;
 		    	}catch(Ex_invalid_filename& e){
@@ -398,8 +402,10 @@ namespace swift{
 
 		if(resp->isBinary()){
 			mg_send_data(conn, resp->getContent(), resp->getContentLen());
+			if(verbose) std::cout << "Sent response in binary" << std::endl;
 		}else{
-			// @TODO
+			mg_printf_data(conn, "%s", resp->getContent());
+			if(verbose) std::cout << "Sent response in text/html" << std::endl;
 		}
 	}
 
@@ -926,6 +932,15 @@ namespace swift{
 		}else{
 			throw ex_invalid_filename;
 		}
+	}
+
+	/**
+	* Indicates whether the given MIME string is of Text type
+	* @param MIME string
+	* @return boolean
+	*/
+	bool isTextMIME(std::string MIME){
+		return MIME.length() >= 5 && MIME.find("text/") == 0;
 	}
 
 }
