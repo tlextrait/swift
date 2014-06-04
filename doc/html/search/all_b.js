@@ -2,9 +2,10 @@ var searchData=
 [
   ['server',['Server',['../classswift_1_1_server.html',1,'swift']]],
   ['server',['Server',['../classswift_1_1_server.html#a0322af4ef5852cd53e37dc661c46637b',1,'swift::Server']]],
+  ['setbinarymode',['setBinaryMode',['../classswift_1_1_response.html#a3fc7dd485e4868914ebb4458880adf89',1,'swift::Response']]],
   ['setcachesize',['setCacheSize',['../classswift_1_1_server.html#ad94cc232553cbbddb57463c343456e18',1,'swift::Server']]],
   ['setcallback',['setCallback',['../classswift_1_1_hook.html#aa1fd10e80b74ee88885d3b7225cf0c90',1,'swift::Hook']]],
-  ['setcontent',['setContent',['../classswift_1_1_response.html#a28abb55e8780d8a6ebdd1ab55eaab06a',1,'swift::Response']]],
+  ['setcontent',['setContent',['../classswift_1_1_response.html#a60462803819683419263b32412186c0b',1,'swift::Response']]],
   ['setisresource',['setIsResource',['../classswift_1_1_hook.html#aeefe2c2e5080787975097a7c1b431161',1,'swift::Hook']]],
   ['setpreloadresource',['setPreloadResource',['../classswift_1_1_hook.html#a8fc8a844df53bc651a46f9616ee635f9',1,'swift::Hook']]],
   ['setrequestpath',['setRequestPath',['../classswift_1_1_hook.html#a047787726165c7b671e88e977468ff5d',1,'swift::Hook']]],

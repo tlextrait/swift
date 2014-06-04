@@ -5,5 +5,7 @@ var searchData=
   ['mg_5fexpansion',['mg_expansion',['../structmg__expansion.html',1,'']]],
   ['mg_5fheader',['mg_header',['../structmg__connection_1_1mg__header.html',1,'mg_connection']]],
   ['mg_5fiterator',['mg_iterator',['../structmg__iterator.html',1,'']]],
-  ['mg_5fserver',['mg_server',['../structmg__server.html',1,'']]]
+  ['mg_5fserver',['mg_server',['../structmg__server.html',1,'']]],
+  ['mime',['MIME',['../classswift_1_1_m_i_m_e.html#abe227dcc4995486a0d4cb23235229c9d',1,'swift::MIME::MIME()'],['../classswift_1_1_m_i_m_e.html#a03f261db0ffec0cecba7f47bbabccc8b',1,'swift::MIME::MIME(std::string file_path)']]],
+  ['mime',['MIME',['../classswift_1_1_m_i_m_e.html',1,'swift']]]
 ];

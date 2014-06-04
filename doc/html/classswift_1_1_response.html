@@ -107,10 +107,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab6d61f4bc7ee54aa4b3455c2d9fa36c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84de03abc1c55a7cd8f0bf0b3e22479e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a84de03abc1c55a7cd8f0bf0b3e22479e">getHeaderCount</a> ()</td></tr>
 <tr class="separator:a84de03abc1c55a7cd8f0bf0b3e22479e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28abb55e8780d8a6ebdd1ab55eaab06a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a28abb55e8780d8a6ebdd1ab55eaab06a">setContent</a> (std::string content)</td></tr>
-<tr class="separator:a28abb55e8780d8a6ebdd1ab55eaab06a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60462803819683419263b32412186c0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a60462803819683419263b32412186c0b">setContent</a> (char *content, int length)</td></tr>
+<tr class="separator:a60462803819683419263b32412186c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a816f9bfb4e67d7e658b79152c094bef9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a816f9bfb4e67d7e658b79152c094bef9">getContentLen</a> ()</td></tr>
 <tr class="separator:a816f9bfb4e67d7e658b79152c094bef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fc7dd485e4868914ebb4458880adf89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a3fc7dd485e4868914ebb4458880adf89">setBinaryMode</a> (bool binary)</td></tr>
+<tr class="separator:a3fc7dd485e4868914ebb4458880adf89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a63f4bd7c1c9e042b89f5185c231dd2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a7a63f4bd7c1c9e042b89f5185c231dd2">isBinary</a> ()</td></tr>
+<tr class="separator:a7a63f4bd7c1c9e042b89f5185c231dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad93bf7c6d9de7c62cd8ece268e603036"><td class="memItemLeft" align="right" valign="top">std::queue&lt; <a class="el" href="classswift_1_1_header.html">Header</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#ad93bf7c6d9de7c62cd8ece268e603036">getHeaderQueue</a> ()</td></tr>
+<tr class="separator:ad93bf7c6d9de7c62cd8ece268e603036"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a10f959b77214b0ea7a0ec154a76086a5"></a>
@@ -221,16 +227,83 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a28abb55e8780d8a6ebdd1ab55eaab06a"></a>
+<a class="anchor" id="ad93bf7c6d9de7c62cd8ece268e603036"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::queue&lt; <a class="el" href="classswift_1_1_header.html">Header</a> * &gt; swift::Response::getHeaderQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the queue of headers, in order </p>
+<dl class="section return"><dt>Returns</dt><dd>header queue </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7a63f4bd7c1c9e042b89f5185c231dd2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool swift::Response::isBinary </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Indicates whether this response operates in binary mode </p>
+<dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3fc7dd485e4868914ebb4458880adf89"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void swift::Response::setBinaryMode </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>binary</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Makes this <a class="el" href="classswift_1_1_response.html">Response</a> a binary one or not </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">boolean</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a60462803819683419263b32412186c0b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void swift::Response::setContent </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>content</em></td><td>)</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>content</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -251,7 +324,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 2 2014 20:55:45 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 4 2014 11:45:26 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
