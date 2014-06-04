@@ -105,12 +105,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6e21abef101a79628db07071f98604a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6d61f4bc7ee54aa4b3455c2d9fa36c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#ab6d61f4bc7ee54aa4b3455c2d9fa36c3">addHeader</a> (std::string name, std::string value)</td></tr>
 <tr class="separator:ab6d61f4bc7ee54aa4b3455c2d9fa36c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1251c89c062e157c481faa6dd2034f66"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a1251c89c062e157c481faa6dd2034f66">hasHeader</a> (std::string name)</td></tr>
+<tr class="separator:a1251c89c062e157c481faa6dd2034f66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84de03abc1c55a7cd8f0bf0b3e22479e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a84de03abc1c55a7cd8f0bf0b3e22479e">getHeaderCount</a> ()</td></tr>
 <tr class="separator:a84de03abc1c55a7cd8f0bf0b3e22479e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60462803819683419263b32412186c0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a60462803819683419263b32412186c0b">setContent</a> (char *content, int length)</td></tr>
 <tr class="separator:a60462803819683419263b32412186c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a816f9bfb4e67d7e658b79152c094bef9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a816f9bfb4e67d7e658b79152c094bef9">getContentLen</a> ()</td></tr>
-<tr class="separator:a816f9bfb4e67d7e658b79152c094bef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e7ec1b7a0cb3b665b122b68f431ef92"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a1e7ec1b7a0cb3b665b122b68f431ef92">getContentLen</a> ()</td></tr>
+<tr class="separator:a1e7ec1b7a0cb3b665b122b68f431ef92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63c00d2d22061d7c225ff72fa0df74d3"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a63c00d2d22061d7c225ff72fa0df74d3">getContentByteSize</a> ()</td></tr>
+<tr class="separator:a63c00d2d22061d7c225ff72fa0df74d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e2b37743efe9f036b3edc5b004de18c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a5e2b37743efe9f036b3edc5b004de18c">getContentByteSizeStr</a> ()</td></tr>
+<tr class="separator:a5e2b37743efe9f036b3edc5b004de18c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fc7dd485e4868914ebb4458880adf89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a3fc7dd485e4868914ebb4458880adf89">setBinaryMode</a> (bool binary)</td></tr>
 <tr class="separator:a3fc7dd485e4868914ebb4458880adf89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a63f4bd7c1c9e042b89f5185c231dd2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a7a63f4bd7c1c9e042b89f5185c231dd2">isBinary</a> ()</td></tr>
@@ -193,12 +199,46 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a816f9bfb4e67d7e658b79152c094bef9"></a>
+<a class="anchor" id="a63c00d2d22061d7c225ff72fa0df74d3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t swift::Response::getContentLen </td>
+          <td class="memname">size_t swift::Response::getContentByteSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the byte size of the content </p>
+<dl class="section return"><dt>Returns</dt><dd>size_t </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5e2b37743efe9f036b3edc5b004de18c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string swift::Response::getContentByteSizeStr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the byte size of the content as a string </p>
+<dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1e7ec1b7a0cb3b665b122b68f431ef92"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int swift::Response::getContentLen </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -241,6 +281,30 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns the queue of headers, in order </p>
 <dl class="section return"><dt>Returns</dt><dd>header queue </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1251c89c062e157c481faa6dd2034f66"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool swift::Response::hasHeader </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Indicates whether the response already has a header with given name </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">header</td><td>name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
 </div>
 </div>
@@ -324,7 +388,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 4 2014 11:45:26 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 4 2014 12:14:44 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

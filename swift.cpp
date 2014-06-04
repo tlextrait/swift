@@ -780,16 +780,26 @@ namespace swift{
 
 	/**
 	* Constructs a new Header object
+	* @param header name
+	* @param header value
 	*/
 	Header::Header(std::string name, std::string value){
 		this->name = name;
 		this->value = value;
 	}
 
+	/**
+	* Returns the header's name
+	* @return string
+	*/
 	std::string Header::getName(){
 		return name;
 	}
 
+	/**
+	* Returns the header's value
+	* @return string
+	*/
 	std::string Header::getValue(){
 		return value;
 	}
