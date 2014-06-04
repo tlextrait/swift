@@ -27,20 +27,6 @@ namespace swift{
 		GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT, PATCH
 	};
 
-	// Converts a string to a method enum
-	Method str_to_method(std::string request_method);
-
-	// MIME Class
-	class MIME {
-			// maps extensions to mime types
-			std::map<std::string,std::string> types;
-		public:
-			MIME();
-			MIME(std::string file_path);
-			std::string getMIMEByExtension(std::string file_extension);
-			std::string getMIMEByFilename(std::string filename);
-	};
-
 	// Header class
 	class Header {
 			std::string name;
@@ -221,6 +207,13 @@ namespace swift{
 	static inline std::string &ltrim(std::string &s);
 	static inline std::string &rtrim(std::string &s);
 	static inline std::string &trim(std::string &s);
+
+	// Converts a string to a method enum
+	Method str_to_method(std::string request_method);
+
+	void loadMIME(std::string file_path);
+	std::string getMIMEByExtension(std::string file_extension);
+	std::string getMIMEByFilename(std::string filename);
 
 	/* ======================================================== */
 	/* Exceptions												*/

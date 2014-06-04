@@ -30,7 +30,7 @@ namespace swift{
 	std::map<int,Server*> server_map;
 
 	// Global listing of mime types
-	MIME* mimetypes;
+	std::map<std::string,std::string> mimetypes;
 
 	/* ======================================================== */
 	/* Exceptions												*/
@@ -90,7 +90,9 @@ namespace swift{
 	void Server::Start(int port){
 
 		// Load MIME types
-		if(mimetypes == nullptr) mimetypes = new MIME();
+		if(mimetypes.size() == 0){
+			loadMIME("mime.types");
+		}
 
 		// Convert the port to string (for mongoose)
 		char str_port[10];
@@ -99,6 +101,7 @@ namespace swift{
 		// Create a Mongoose server
 		int server_id = -1;
 		mgserver = mg_create_server(NULL, this->requestHandler, &server_id);
+		
 		// Keep track of server globally
 		addServer(this, server_id);
 
@@ -345,7 +348,7 @@ namespace swift{
 
 		    	// Set correct MIME type
 		    	try{
-		    		std::string mime = mimetypes->getMIMEByFilename(file_path);
+		    		std::string mime = getMIMEByFilename(file_path);
 
 		    		std::cout << "MIME type found: '" << mime << "'" << std::endl;
 		    		resp->addHeader("Content-Type", mime);
@@ -830,98 +833,7 @@ namespace swift{
 	}
 
 	/* ======================================================== */
-	/* MIME														*/
-	/* ======================================================== */
-
-	/**
-	* Constructs a MIME class with default file path
-	*/
-	MIME::MIME(){
-		MIME("mime.types");
-	}
-
-	/**
-	* Constructs a MIME class with given file path
-	* @param file path // must be in the same format as httpd's mime.types
-	* Note: see http://www.iana.org/assignments/media-types
-	*/
-	MIME::MIME(std::string file_path){
-		std::ifstream myFile(file_path);
-		std::string line;
-		if(myFile){
-			while(std::getline(myFile, line)){
-			    std::istringstream iss(line);
-
-			    if(line.length() >= 3){
-				    // Tokenize the line
-				    std::vector<std::string> tokens{std::istream_iterator<std::string>{iss}, 
-				    	std::istream_iterator<std::string>{}};
-					
-					int ctok = 0;
-					std::string mimetype;
-				    for(std::string token: tokens){
-				    	if(token.at(0) == '#') break; // it's a comment, break now
-				    	else if(ctok==0) mimetype = trim(token); // first arg is the mime type
-				    	else this->types[trim(token)] = mimetype; // other args are extensions
-				    	++ctok;
-				    }
-				}
-			}
-		}else{
-			throw ex_mime_types_file_not_found;
-		}
-	}
-
-	/**
-	* Returns the MIME type for given file extension
-	* @param file extension string
-	* @return MIME type string
-	*/
-	std::string MIME::getMIMEByExtension(std::string file_extension){
-		// Lower case the extension
-		std::transform(file_extension.begin(), file_extension.end(), file_extension.begin(), ::tolower);
-		file_extension = trim(file_extension);
-
-		std::cout << "FOUND = " << this->types.size() << " '" << file_extension << "'" << " : " << types.at(file_extension) << std::endl;
-
-		if(
-			file_extension.length() > 0 && 
-			this->types.count(file_extension) > 0
-		){
-
-			std::cout << "Looking for extension '" << file_extension << "'\n";
-
-			return this->types.at(file_extension);
-		}else{
-			throw ex_no_mime_type;
-		}
-	}
-
-	/**
-	* Returns the MIME type for given filename
-	* @param filename string
-	* @param MIME type string
-	*/
-	std::string MIME::getMIMEByFilename(std::string filename){
-		if(
-			filename.length() >= 3 && 
-			filename.find('.') != std::string::npos
-		){
-			// Find the extension
-			std::string extension = filename.substr(filename.find_last_of(".") + 1);
-
-			if(extension.length() > 0){
-				return getMIMEByExtension(extension);
-			}else{
-				throw ex_invalid_filename;
-			}
-		}else{
-			throw ex_invalid_filename;
-		}
-	}
-
-	/* ======================================================== */
-	/* Utility												*/
+	/* Utility													*/
 	/* ======================================================== */
 
 	// trim from start
@@ -939,6 +851,81 @@ namespace swift{
 	// trim from both ends
 	static inline std::string &trim(std::string &s) {
 		return ltrim(rtrim(s));
+	}
+
+	/* ======================================================== */
+	/* MIME														*/
+	/* ======================================================== */
+
+	void loadMIME(std::string file_path){
+		std::ifstream myFile(file_path);
+		std::string line;
+		if(myFile){
+			while(std::getline(myFile, line)){
+			    std::istringstream iss(line);
+
+			    if(line.length() >= 3){
+				    // Tokenize the line
+				    std::vector<std::string> tokens{
+				    	std::istream_iterator<std::string>{iss}, 
+				    	std::istream_iterator<std::string>{}};
+					
+					int ctok = 0;
+					std::string ctype;
+				    for(std::string token: tokens){
+				    	if(token.at(0) == '#') break; // it's a comment, break now
+				    	else if(ctok==0) ctype = trim(token); // first arg is the mime type
+				    	else mimetypes[trim(token)] = ctype; // other args are extensions
+				    	++ctok;
+				    }
+				}
+			}
+		}else{
+			throw ex_mime_types_file_not_found;
+		}
+	}
+
+	/**
+	* Returns the MIME type for given file extension
+	* @param file extension string
+	* @return MIME type string
+	*/
+	std::string getMIMEByExtension(std::string file_extension){
+		// Lower case the extension
+		std::transform(file_extension.begin(), file_extension.end(), file_extension.begin(), ::tolower);
+		file_extension = trim(file_extension);
+
+		if(
+			file_extension.length() > 0 && 
+			mimetypes.count(file_extension) > 0
+		){
+			return mimetypes.at(file_extension);
+		}else{
+			throw ex_no_mime_type;
+		}
+	}
+
+	/**
+	* Returns the MIME type for given filename
+	* @param filename string
+	* @param MIME type string
+	*/
+	std::string getMIMEByFilename(std::string filename){
+		if(
+			filename.length() >= 3 && 
+			filename.find('.') != std::string::npos
+		){
+			// Find the extension
+			std::string extension = filename.substr(filename.find_last_of(".") + 1);
+
+			if(extension.length() > 0){
+				return getMIMEByExtension(extension);
+			}else{
+				throw ex_invalid_filename;
+			}
+		}else{
+			throw ex_invalid_filename;
+		}
 	}
 
 }
