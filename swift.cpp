@@ -18,8 +18,15 @@
 
 namespace swift{
 
+	/* ======================================================== */
+	/* Globals													*/
+	/* ======================================================== */
+
 	// Maps server id's to swift servers
 	std::map<int,Server*> server_map;
+
+	// Global listing of mime types
+	MIME* mimetypes;
 
 	/* ======================================================== */
 	/* Exceptions												*/
@@ -88,6 +95,9 @@ namespace swift{
 
 		// Set the port
 		mg_set_option(mgserver, "listening_port", str_port);
+
+		// Load MIME types
+		if(mimetypes == nullptr) mimetypes = new MIME();
 
 		// Display info
 		printWelcome();
