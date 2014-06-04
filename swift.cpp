@@ -323,13 +323,9 @@ namespace swift{
 
 		struct stat results;
 		size_t size = 0;
-
-		std::cout << "Serving resource...\n";
     
 	    if(stat(file_path.c_str(), &results) == 0){
 	        size = results.st_size;
-
-	        std::cout << "opening file in bin...\n";
 
 	        // Open the file in binary mode
 	        // Note: we don't use ifstreams because of a g++ bug with ios::binary
@@ -338,26 +334,14 @@ namespace swift{
 
 		    if(myFile){
 
-		    	std::cout << "Reading file...\n";
-
 		    	// Read file
 		    	char* buffer = new char[size];
 		    	myFile.read(buffer, size);
 		    	resp->setContent(buffer, size);
 
-		    	std::cout << "Content read!\n";
-
 		    	// Set correct MIME type
 		    	try{
-		    		std::cout << "Finding mime...\n";
-
 		    		std::string mime = mimetypes->getMIMEByFilename(file_path);
-
-		    		if(mime.length() <= 0){
-		    			std::cout << "MIME ERROR\n";
-		    		}else{
-		    			std::cout << "MIME FOUND\n";
-		    		}
 
 		    		std::cout << "MIME type found: '" << mime << "'" << std::endl;
 		    		resp->addHeader("Content-Type", mime);
