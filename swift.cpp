@@ -10,6 +10,8 @@
 #include <map>
 #include <utility> // make_pair
 #include <vector>
+#include <sys/stat.h> // file stats
+#include <fstream> // file reading
 
 #include "swift.h"
 
@@ -299,7 +301,34 @@ namespace swift{
 	* @param file path
 	*/
 	Response* Server::serveResource(std::string file_path){
-		//@TODO
+		Response* resp = new Response();
+
+		struct stat results;
+		size_t size = 0;
+    
+	    if(stat(file_path.c_str(), &results) == 0){
+	        size = results.st_size;
+
+	        // Open the file in binary mode
+	        // Note: we don't use ifstreams because of a g++ bug with ios::binary
+	        std::fstream myFile;
+		    myFile.open(file_path, std::ios::in | std::ios::binary);
+		    if(myFile){
+		    	// Read file
+		    	char* buffer = new char[size];
+		    	myFile.read(buffer, size);
+		    	resp->setContent(buffer, size);
+		    	// Set correct MIME type
+		    	// @TODO
+		    }else{
+		    	// @TODO File not found (404)
+		    }
+
+	    }else{
+	        // @TODO File not found (404)
+		}
+
+		return resp;
 	}
 
 	/**
@@ -315,7 +344,7 @@ namespace swift{
 				Header* h = headers.front();
 				headers.pop();
 				// Send header
-				mg_send_header(conn, h->getName(), h->getValue());
+				mg_send_header(conn, h->getName().c_str(), h->getValue().c_str());
 			}
 		}
 
@@ -638,9 +667,10 @@ namespace swift{
 	* Sets the content of the response object
 	* @param content string
 	*/
-	void Response::setContent(std::string content){
-		this->content = content;
-		// @TODO content len
+	void Response::setContent(char* content, int length){
+		this->content_len = length;
+		this->content = new char[length];
+		strcpy(this->content, content);
 	}
 
 	/**
