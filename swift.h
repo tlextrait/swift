@@ -242,4 +242,22 @@ namespace swift{
 	  	}
 	};
 
+	class Ex_file_not_found: public std::exception{
+		virtual const char* what() const throw(){
+	    	return "File not found";
+	  	}
+	};
+
+	class Ex_mime_types_file_not_found: public std::exception{
+		virtual const char* what() const throw(){
+	    	return "MIME types file not found";
+	  	}
+	};
+
+	class Ex_no_mime_type: public std::exception{
+		virtual const char* what() const throw(){
+	    	return "No MIME type for given file extension";
+	  	}
+	};
+
 }

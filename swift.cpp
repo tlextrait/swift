@@ -12,6 +12,7 @@
 #include <vector>
 #include <sys/stat.h> // file stats
 #include <fstream> // file reading
+#include <sstream>
 
 #include "swift.h"
 
@@ -29,6 +30,9 @@ namespace swift{
 	Ex_null_uri ex_null_uri;
 	Ex_null_http_version ex_null_http_version;
 	Ex_request_path_exists ex_request_path_exists;
+	Ex_file_not_found ex_file_not_found;
+	Ex_mime_types_file_not_found ex_mime_types_file_not_found;
+	Ex_no_mime_type ex_no_mime_type;
 
 	/* ======================================================== */
 	/* Server loading											*/
@@ -728,6 +732,65 @@ namespace swift{
 
 	std::string Header::getValue(){
 		return value;
+	}
+
+	/* ======================================================== */
+	/* MIME														*/
+	/* ======================================================== */
+
+	/**
+	* Constructs a MIME class with default file path
+	*/
+	MIME::MIME(){
+		MIME("mime.types");
+	}
+
+	/**
+	* Constructs a MIME class with given file path
+	* @param file path // must be in the same format as httpd's mime.types
+	* Note: see http://www.iana.org/assignments/media-types
+	*/
+	MIME::MIME(std::string file_path){
+		std::ifstream myFile(file_path);
+		std::string line;
+		if(myFile){
+			while(std::getline(myFile, line)){
+			    std::istringstream iss(line);
+
+			    if(line.length() >= 3){
+				    // Tokenize the line
+				    std::vector<std::string> tokens{std::istream_iterator<std::string>{iss}, 
+				    	std::istream_iterator<std::string>{}};
+					
+					int ctok = 0;
+					std::string mimetype;
+				    for(std::string token: tokens){
+				    	if(token.at(0) == '#') break; // it's a comment, break now
+				    	else if(ctok==0) mimetype = token; // first arg is the mime type
+				    	else this->types[token] = mimetype; // other args are extensions
+				    	++ctok;
+				    }
+				}
+			}
+		}else{
+			throw ex_mime_types_file_not_found;
+		}
+	}
+
+	/**
+	* Returns the MIME type for given file extension
+	* @param file extension string
+	* @return mime type string
+	*/
+	std::string MIME::getMIME(std::string file_extension){
+		if(
+			file_extension.length() > 0 && 
+			types.count(file_extension) > 0
+		){
+			return types[file_extension];
+		}else{
+			throw ex_no_mime_type;
+		}
 	}
 
 }
