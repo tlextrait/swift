@@ -30,6 +30,16 @@ namespace swift{
 	// Converts a string to a method enum
 	Method str_to_method(std::string request_method);
 
+	// MIME Class
+	class MIME {
+			// maps extensions to mime types
+			std::map<std::string,std::string> types;
+		public:
+			MIME();
+			MIME(std::string file_path);
+			std::string getMIME(std::string file_extension);
+	};
+
 	// Header class
 	class Header {
 			std::string name;
