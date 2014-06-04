@@ -877,6 +877,9 @@ namespace swift{
 	* @return MIME type string
 	*/
 	std::string MIME::getMIMEByExtension(std::string file_extension){
+		// Lower case the extension
+		std::transform(file_extension.begin(), file_extension.end(), file_extension.begin(), ::tolower);
+		
 		if(
 			file_extension.length() > 0 && 
 			types.count(file_extension) > 0
@@ -884,9 +887,7 @@ namespace swift{
 
 			std::cout << "Looking for extension '" << file_extension << "'\n";
 
-			// Lower case the extension
-			std::transform(file_extension.begin(), file_extension.end(), file_extension.begin(), ::tolower);
-			return types[file_extension];
+			return types.at(file_extension);
 		}else{
 			throw ex_no_mime_type;
 		}
@@ -904,6 +905,7 @@ namespace swift{
 		){
 			// Find the extension
 			std::string extension = filename.substr(filename.find_last_of(".") + 1);
+
 			if(extension.length() > 0){
 				return getMIMEByExtension(extension);
 			}else{
