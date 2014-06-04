@@ -1443,7 +1443,7 @@ text/csv					csv
 # text/enriched
 # text/example
 # text/fwdred
-text/html					html htm md
+text/html					html htm
 # text/javascript
 text/n3						n3
 # text/parityfec
@@ -1497,6 +1497,7 @@ text/x-fortran					f for f77 f90
 text/x-java-source				java
 text/x-opml					opml
 text/x-pascal					p pas
+text/x-markdown				md
 text/x-nfo					nfo
 text/x-setext					etx
 text/x-sfv					sfv
