@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['getcontent',['getContent',['../classswift_1_1_response.html#a350021b3a6afb34a1fbfefd17f541b5e',1,'swift::Response']]],
   ['getcontentbytesize',['getContentByteSize',['../classswift_1_1_response.html#a63c00d2d22061d7c225ff72fa0df74d3',1,'swift::Response']]],
   ['getcontentbytesizestr',['getContentByteSizeStr',['../classswift_1_1_response.html#a5e2b37743efe9f036b3edc5b004de18c',1,'swift::Response']]],
   ['getcontentlen',['getContentLen',['../classswift_1_1_response.html#a1e7ec1b7a0cb3b665b122b68f431ef92',1,'swift::Response']]],

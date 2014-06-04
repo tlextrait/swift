@@ -214,6 +214,9 @@ namespace swift{
 						resp = hook->processCallback(req);
 					}
 
+					// Send response to client
+					server->sendResponse(resp, conn);
+
 				}else{
 					if(server->verbose) std::cout << "Access denied" << std::endl;
 					/*
@@ -227,8 +230,6 @@ namespace swift{
 				@TODO 404 !!!
 				*/
 			}
-
-			mg_printf_data(conn, "Hello! Requested URI is [%s]", conn->uri);
 		}else{
 			std::cout << "Server not found #" << server_id << std::endl;
 		}
@@ -258,6 +259,7 @@ namespace swift{
 		// Create the API Hook
 		Hook* hook = new Hook(request_path, file_path);
 		hook->setPreloadResource(preload);
+		hook->allowMethod(Method::GET);
 
 		// Add the endpoint
 		addEndpoint(request_path, hook);
@@ -377,9 +379,9 @@ namespace swift{
 		}
 
 		if(resp->isBinary()){
-
+			mg_send_data(conn, resp->getContent(), resp->getContentLen());
 		}else{
-
+			// @TODO
 		}
 	}
 
@@ -717,6 +719,14 @@ namespace swift{
 		this->content_len = length;
 		this->content = new char[length];
 		strcpy(this->content, content);
+	}
+
+	/**
+	* Returns the response's content
+	* @return char*
+	*/
+	char* Response::getContent(){
+		return content;
 	}
 
 	/**

@@ -110,6 +110,7 @@ namespace swift{
 			int getHeaderCount();
 
 			void setContent(char* content, int length);
+			char* getContent();
 			int getContentLen();
 
 			size_t getContentByteSize();

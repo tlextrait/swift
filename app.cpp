@@ -11,6 +11,7 @@
 int main(){
 
 	swift::Server* server = swift::Server::newServer();
+	server->addResource("/readme","README.md");
 	server->Start();
 
 	return 0;
