@@ -336,10 +336,10 @@ namespace swift{
 		    	resp->setContent(buffer, size);
 		    	// Set correct MIME type
 		    	try{
-		    		std::string mime = mimetypes.getMIMEByFilename(file_path);
-		    		resp.addHeader("Content-Type", mime);
-		    	}catch(exception& e){
-		    		std::count << "MIME type not found for file served: '" << file_path << "'" << std::endl;
+		    		std::string mime = mimetypes->getMIMEByFilename(file_path);
+		    		resp->addHeader("Content-Type", mime);
+		    	}catch(std::exception& e){
+		    		std::cout << "MIME type not found for file served: '" << file_path << "'" << std::endl;
 		    	}
 		    }else{
 		    	// @TODO File not found (404)
@@ -360,7 +360,9 @@ namespace swift{
 	void Server::sendResponse(Response* resp, struct mg_connection *conn){
 
 		// Content-length
-		headers.add("Content-Length", getContentByteSizeStr());
+		if(resp->hasHeader("Content-Length")){
+			resp->addHeader("Content-Length", resp->getContentByteSizeStr());
+		}
 
 		// Send headers
 		std::queue<Header*> headers = resp->getHeaderQueue();
@@ -668,7 +670,12 @@ namespace swift{
 	* @param header object
 	*/
 	void Response::addHeader(Header* header){
+		// Add to header queue
 		headers.push(header);
+		// Keep track of lowercase header names used so far
+		std::string name = header->getName();
+		std::transform(name.begin(), name.end(), name.begin(), ::tolower);
+		header_names.insert(name);
 	}
 
 	/**
@@ -677,8 +684,12 @@ namespace swift{
 	* @param header value
 	*/
 	void Response::addHeader(std::string name, std::string value){
+		// Add to header queue
 		Header* header = new Header(name, value);
 		headers.push(header);
+		// Keep track of lowercase header names used so far
+		std::transform(name.begin(), name.end(), name.begin(), ::tolower);
+		header_names.insert(name);
 	}
 
 	/**
@@ -686,8 +697,8 @@ namespace swift{
 	* @param header name
 	* @return boolean
 	*/
-	bool hasHeader(std::string name){
-		
+	bool Response::hasHeader(std::string name){
+		return header_names.count(name) > 0;
 	}
 
 	/**
@@ -729,7 +740,7 @@ namespace swift{
 	* @return string
 	*/
 	std::string Response::getContentByteSizeStr(){
-		stringstream ss;
+		std::stringstream ss;
 		ss << getContentByteSize();
 		return ss.str();
 	}

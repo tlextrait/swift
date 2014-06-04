@@ -97,6 +97,7 @@ namespace swift{
 			int content_len;
 			bool binary_mode;
 
+			std::set<std::string> header_names;
 			std::queue<Header*> headers;
 
 		public:
