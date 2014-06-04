@@ -95,8 +95,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_m_i_m_e.html">MIME</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_header.html">Header</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_request.html">Request</a></td></tr>
@@ -148,15 +146,25 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a54d9cafe8eb822e4a2fedef9d724a702"><td class="memItemLeft" align="right" valign="top">Method&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceswift.html#a54d9cafe8eb822e4a2fedef9d724a702">str_to_method</a> (std::string request_method)</td></tr>
 <tr class="separator:a54d9cafe8eb822e4a2fedef9d724a702"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae335972047e7668cec7201491d257752"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae335972047e7668cec7201491d257752"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>loadMIME</b> (std::string file_path)</td></tr>
+<tr class="separator:ae335972047e7668cec7201491d257752"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed5a07b82de96426b420729d59736292"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceswift.html#aed5a07b82de96426b420729d59736292">getMIMEByExtension</a> (std::string file_extension)</td></tr>
+<tr class="separator:aed5a07b82de96426b420729d59736292"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac38362ee196781905ade0aab40d11ef3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceswift.html#ac38362ee196781905ade0aab40d11ef3">getMIMEByFilename</a> (std::string filename)</td></tr>
+<tr class="separator:ac38362ee196781905ade0aab40d11ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb665a39ef9f8804a730dae8881b781d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceswift.html#afb665a39ef9f8804a730dae8881b781d">isTextMIME</a> (std::string MIME)</td></tr>
+<tr class="separator:afb665a39ef9f8804a730dae8881b781d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a0d54eeac3847161ee8afa83619ab7cc2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d54eeac3847161ee8afa83619ab7cc2"></a>
 std::map&lt; int, <a class="el" href="classswift_1_1_server.html">Server</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>server_map</b></td></tr>
 <tr class="separator:a0d54eeac3847161ee8afa83619ab7cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81b6163435bed9c1dc013e5adff02083"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a81b6163435bed9c1dc013e5adff02083"></a>
-<a class="el" href="classswift_1_1_m_i_m_e.html">MIME</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mimetypes</b></td></tr>
-<tr class="separator:a81b6163435bed9c1dc013e5adff02083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03e7a101170e687662cdf778e9f20117"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a03e7a101170e687662cdf778e9f20117"></a>
+std::map&lt; std::string, <br class="typebreak"/>
+std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mimetypes</b></td></tr>
+<tr class="separator:a03e7a101170e687662cdf778e9f20117"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89b7510a7218be3e43722a4ee4bc4120"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a89b7510a7218be3e43722a4ee4bc4120"></a>
 <a class="el" href="classswift_1_1_ex__invalid__method.html">Ex_invalid_method</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ex_invalid_method</b></td></tr>
 <tr class="separator:a89b7510a7218be3e43722a4ee4bc4120"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,6 +196,78 @@ std::map&lt; int, <a class="el" href="classswift_1_1_server.html">Server</a> * &
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>SWIFT Copyright (c) 2014 Thomas Lextrait <a href="#" onclick="location.href='mai'+'lto:'+'tho'+'ma'+'s.l'+'ex'+'tra'+'it'+'@gm'+'ai'+'l.c'+'om'; return false;">thoma<span style="display: none;">.nosp@m.</span>s.le<span style="display: none;">.nosp@m.</span>xtrai<span style="display: none;">.nosp@m.</span>t@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> All rights reserved </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="aed5a07b82de96426b420729d59736292"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string swift::getMIMEByExtension </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>file_extension</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the MIME type for given file extension </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>extension string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>MIME type string </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac38362ee196781905ade0aab40d11ef3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string swift::getMIMEByFilename </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the MIME type for given filename </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>string </td></tr>
+    <tr><td class="paramname">MIME</td><td>type string </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="afb665a39ef9f8804a730dae8881b781d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool swift::isTextMIME </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>MIME</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Indicates whether the given MIME string is of Text type </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">MIME</td><td>string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a54d9cafe8eb822e4a2fedef9d724a702"></a>
 <div class="memitem">
 <div class="memproto">
@@ -208,7 +288,7 @@ std::map&lt; int, <a class="el" href="classswift_1_1_server.html">Server</a> * &
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 4 2014 12:25:53 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 4 2014 19:14:34 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
