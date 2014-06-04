@@ -218,14 +218,14 @@ namespace swift{
 					server->sendResponse(resp, conn);
 
 				}else{
-					if(server->verbose) std::cout << "Access denied" << std::endl;
+					if(server->verbose) std::cout << "(403) Forbidden" << std::endl;
 					/*
 					@TODO ACCESS DENIED
 					*/
 				}
 
 			}else{
-				if(server->verbose) std::cout << "No matching endpoint" << std::endl;
+				if(server->verbose) std::cout << "(404) No matching endpoint" << std::endl;
 				/*
 				@TODO 404 !!!
 				*/
