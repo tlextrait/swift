@@ -94,7 +94,7 @@ namespace swift{
 	// Swift response class
 	class Response {
 			char* content;
-			size_t content_len;
+			int content_len;
 			bool binary_mode;
 
 			std::queue<Header*> headers;
@@ -105,10 +105,14 @@ namespace swift{
 
 			void addHeader(Header* header);
 			void addHeader(std::string name, std::string value);
+			bool hasHeader(std::string name);
 			int getHeaderCount();
 
 			void setContent(char* content, int length);
-			size_t getContentLen();
+			int getContentLen();
+
+			size_t getContentByteSize();
+			std::string getContentByteSizeStr();
 
 			void setBinaryMode(bool binary);
 			bool isBinary();

@@ -335,7 +335,12 @@ namespace swift{
 		    	myFile.read(buffer, size);
 		    	resp->setContent(buffer, size);
 		    	// Set correct MIME type
-		    	// @TODO
+		    	try{
+		    		std::string mime = mimetypes.getMIMEByFilename(file_path);
+		    		resp.addHeader("Content-Type", mime);
+		    	}catch(exception& e){
+		    		std::count << "MIME type not found for file served: '" << file_path << "'" << std::endl;
+		    	}
 		    }else{
 		    	// @TODO File not found (404)
 		    }
@@ -353,8 +358,13 @@ namespace swift{
 	* @param mongoose connnection struct
 	*/
 	void Server::sendResponse(Response* resp, struct mg_connection *conn){
+
+		// Content-length
+		headers.add("Content-Length", getContentByteSizeStr());
+
 		// Send headers
 		std::queue<Header*> headers = resp->getHeaderQueue();
+
 		if(headers.size() > 0){
 			while(!headers.empty()){
 				Header* h = headers.front();
@@ -672,6 +682,15 @@ namespace swift{
 	}
 
 	/**
+	* Indicates whether the response already has a header with given name
+	* @param header name
+	* @return boolean
+	*/
+	bool hasHeader(std::string name){
+		
+	}
+
+	/**
 	* Returns the number of headers
 	* @return integer
 	*/
@@ -693,8 +712,26 @@ namespace swift{
 	* Returns the lenght of the content
 	* @return size_t
 	*/
-	size_t Response::getContentLen(){
+	int Response::getContentLen(){
 		return content_len;
+	}
+
+	/**
+	* Returns the byte size of the content
+	* @return size_t
+	*/
+	size_t Response::getContentByteSize(){
+		return sizeof(content);
+	}
+
+	/**
+	* Returns the byte size of the content as a string
+	* @return string
+	*/
+	std::string Response::getContentByteSizeStr(){
+		stringstream ss;
+		ss << getContentByteSize();
+		return ss.str();
 	}
 
 	/**
