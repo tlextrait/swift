@@ -88,6 +88,10 @@ namespace swift{
 	* @param port
 	*/
 	void Server::Start(int port){
+
+		// Load MIME types
+		if(mimetypes == nullptr) mimetypes = new MIME();
+
 		// Convert the port to string (for mongoose)
 		char str_port[10];
 		sprintf(str_port, "%d", port);
@@ -100,9 +104,6 @@ namespace swift{
 
 		// Set the port
 		mg_set_option(mgserver, "listening_port", str_port);
-
-		// Load MIME types
-		if(mimetypes == nullptr) mimetypes = new MIME();
 
 		// Display info
 		printWelcome();
@@ -879,15 +880,18 @@ namespace swift{
 	std::string MIME::getMIMEByExtension(std::string file_extension){
 		// Lower case the extension
 		std::transform(file_extension.begin(), file_extension.end(), file_extension.begin(), ::tolower);
-		
+		file_extension = trim(file_extension);
+
+		std::cout << "FOUND = " << this->types.size() << " '" << file_extension << "'" << " : " << types.at(file_extension) << std::endl;
+
 		if(
 			file_extension.length() > 0 && 
-			types.count(file_extension) > 0
+			this->types.count(file_extension) > 0
 		){
 
 			std::cout << "Looking for extension '" << file_extension << "'\n";
 
-			return types.at(file_extension);
+			return this->types.at(file_extension);
 		}else{
 			throw ex_no_mime_type;
 		}
