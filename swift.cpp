@@ -348,8 +348,12 @@ namespace swift{
 
 		    		std::cout << "MIME type found: '" << mime << "'" << std::endl;
 		    		resp->addHeader("Content-Type", mime);
-		    	}catch(std::exception& e){
+		    	}catch(Ex_no_mime_type& e){
 		    		std::cout << "MIME type not found for file served: '" << file_path << "'" << std::endl;
+		    	}catch(Ex_invalid_filename& e){
+		    		std::cout << "Couldn't find MIME type for invalid filename '" << file_path << "'" << std::endl;
+		    	}catch(std::exception& e){
+		    		std::cout << "Couldn't find MIME type for file '" << file_path << "', unknown error occurred" << std::endl;
 		    	}
 		    }else{
 		    	std::cout << "(404) File couldn't be opened: '" << file_path << "'" << std::endl;
@@ -856,8 +860,8 @@ namespace swift{
 					std::string mimetype;
 				    for(std::string token: tokens){
 				    	if(token.at(0) == '#') break; // it's a comment, break now
-				    	else if(ctok==0) mimetype = token; // first arg is the mime type
-				    	else this->types[token] = mimetype; // other args are extensions
+				    	else if(ctok==0) mimetype = trim(token); // first arg is the mime type
+				    	else this->types[trim(token)] = mimetype; // other args are extensions
 				    	++ctok;
 				    }
 				}
@@ -877,6 +881,9 @@ namespace swift{
 			file_extension.length() > 0 && 
 			types.count(file_extension) > 0
 		){
+
+			std::cout << "Looking for extension '" << file_extension << "'\n";
+
 			// Lower case the extension
 			std::transform(file_extension.begin(), file_extension.end(), file_extension.begin(), ::tolower);
 			return types[file_extension];
