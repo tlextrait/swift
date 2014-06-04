@@ -215,6 +215,14 @@ namespace swift{
 	};
 
 	/* ======================================================== */
+	/* Utility													*/
+	/* ======================================================== */
+
+	static inline std::string &ltrim(std::string &s);
+	static inline std::string &rtrim(std::string &s);
+	static inline std::string &trim(std::string &s);
+
+	/* ======================================================== */
 	/* Exceptions												*/
 	/* ======================================================== */
 
