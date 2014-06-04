@@ -349,11 +349,15 @@ namespace swift{
 		    	// Set correct MIME type
 		    	try{
 		    		std::string mime = getMIMEByFilename(file_path);
-		    		resp->addHeader("Content-Type", mime);
+		    		
 
 		    		// Unless it's text, set mode as binary
 		    		if(!isTextMIME(mime)){
 		    			resp->setBinaryMode(true);
+		    			resp->addHeader("Content-Type", mime);
+		    		}else{
+		    			// @TODO charset
+		    			resp->addHeader("Content-Type", mime+"; charset=utf-8");
 		    		}
 
 		    	}catch(Ex_no_mime_type& e){
@@ -400,12 +404,13 @@ namespace swift{
 			}
 		}
 
+		// @TODO - Temporary header to prevent browser caching
+		resp->addHeader("Cache-Control", "max-age=0, post-check=0, pre-check=0, no-store, no-cache, must-revalidate");
+
 		if(resp->isBinary()){
 			mg_send_data(conn, resp->getContent(), resp->getContentLen());
-			if(verbose) std::cout << "Sent response in binary" << std::endl;
 		}else{
 			mg_printf_data(conn, "%s", resp->getContent());
-			if(verbose) std::cout << "Sent response in text/html" << std::endl;
 		}
 	}
 
