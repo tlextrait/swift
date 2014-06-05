@@ -4,11 +4,11 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classswift_1_1_hook_a8e9f35346f4797a6149a79c7a34235fd}{{\bfseries Hook} (std\-::string request\-\_\-path, \hyperlink{classswift_1_1_response}{Response} $\ast$($\ast$function)(\hyperlink{classswift_1_1_request}{Request} $\ast$))}\label{classswift_1_1_hook_a8e9f35346f4797a6149a79c7a34235fd}
-
+\hyperlink{classswift_1_1_hook_a604d16b8f18f29b83d21f9bed0a22fb2}{Hook} ()
 \item 
-\hypertarget{classswift_1_1_hook_a08e8c205418d4dc95a24ad10f0a6754e}{{\bfseries Hook} (std\-::string request\-\_\-path, std\-::string resource\-\_\-path)}\label{classswift_1_1_hook_a08e8c205418d4dc95a24ad10f0a6754e}
-
+\hyperlink{classswift_1_1_hook_a8e9f35346f4797a6149a79c7a34235fd}{Hook} (std\-::string request\-\_\-path, \hyperlink{classswift_1_1_response}{Response} $\ast$($\ast$function)(\hyperlink{classswift_1_1_request}{Request} $\ast$))
+\item 
+\hyperlink{classswift_1_1_hook_a08e8c205418d4dc95a24ad10f0a6754e}{Hook} (std\-::string request\-\_\-path, std\-::string resource\-\_\-path)
 \item 
 void \hyperlink{classswift_1_1_hook_a047787726165c7b671e88e977468ff5d}{set\-Request\-Path} (std\-::string path)
 \item 
@@ -30,10 +30,54 @@ void \hyperlink{classswift_1_1_hook_aeefe2c2e5080787975097a7c1b431161}{set\-Is\-
 \item 
 bool \hyperlink{classswift_1_1_hook_addbf2c39d6628c838b6fb46c96469e31}{is\-Resource} ()
 \item 
+std\-::string \hyperlink{classswift_1_1_hook_af530b678e3663ff565411a26ee6f1974}{get\-Charset} ()
+\item 
+void \hyperlink{classswift_1_1_hook_a1867ce0a20bf811620a9f7d598986ff8}{set\-Charset} (std\-::string charset)
+\item 
 void \hyperlink{classswift_1_1_hook_aa1fd10e80b74ee88885d3b7225cf0c90}{set\-Callback} (\hyperlink{classswift_1_1_response}{Response} $\ast$($\ast$function)(\hyperlink{classswift_1_1_request}{Request} $\ast$))
 \item 
-\hyperlink{classswift_1_1_response}{Response} $\ast$ \hyperlink{classswift_1_1_hook_a1f1005a2e758eeb8776572edb2419932}{process\-Callback} (\hyperlink{classswift_1_1_request}{Request} $\ast$req)
+\hyperlink{classswift_1_1_response}{Response} $\ast$ \hyperlink{classswift_1_1_hook_af73ae15c10ee4c34bd35eca56e78951a}{get\-Callback\-Response} (\hyperlink{classswift_1_1_request}{Request} $\ast$req)
 \end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classswift_1_1_hook_a604d16b8f18f29b83d21f9bed0a22fb2}{\index{swift\-::\-Hook@{swift\-::\-Hook}!Hook@{Hook}}
+\index{Hook@{Hook}!swift::Hook@{swift\-::\-Hook}}
+\subsubsection[{Hook}]{\setlength{\rightskip}{0pt plus 5cm}swift\-::\-Hook\-::\-Hook (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_hook_a604d16b8f18f29b83d21f9bed0a22fb2}
+Constructs an A\-P\-I \hyperlink{classswift_1_1_hook}{Hook} with default settings \hypertarget{classswift_1_1_hook_a8e9f35346f4797a6149a79c7a34235fd}{\index{swift\-::\-Hook@{swift\-::\-Hook}!Hook@{Hook}}
+\index{Hook@{Hook}!swift::Hook@{swift\-::\-Hook}}
+\subsubsection[{Hook}]{\setlength{\rightskip}{0pt plus 5cm}swift\-::\-Hook\-::\-Hook (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{request\-\_\-path, }
+\item[{{\bf Response} $\ast$($\ast$)({\bf Request} $\ast$)}]{function}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_hook_a8e9f35346f4797a6149a79c7a34235fd}
+Constructs an A\-P\-I \hyperlink{classswift_1_1_hook}{Hook} with a callback function 
+\begin{DoxyParams}{Parameters}
+{\em request} & path string \\
+\hline
+{\em callback} & function pointer \\
+\hline
+\end{DoxyParams}
+\hypertarget{classswift_1_1_hook_a08e8c205418d4dc95a24ad10f0a6754e}{\index{swift\-::\-Hook@{swift\-::\-Hook}!Hook@{Hook}}
+\index{Hook@{Hook}!swift::Hook@{swift\-::\-Hook}}
+\subsubsection[{Hook}]{\setlength{\rightskip}{0pt plus 5cm}swift\-::\-Hook\-::\-Hook (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{request\-\_\-path, }
+\item[{std\-::string}]{resource\-\_\-path}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_hook_a08e8c205418d4dc95a24ad10f0a6754e}
+Constructs an A\-P\-I \hyperlink{classswift_1_1_hook}{Hook} that serves a static resource 
+\begin{DoxyParams}{Parameters}
+{\em request} & path string \\
+\hline
+{\em resource} & path string \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Member Function Documentation}
@@ -61,6 +105,28 @@ Disallows the given method
 {\em Method} & enum \\
 \hline
 \end{DoxyParams}
+\hypertarget{classswift_1_1_hook_af73ae15c10ee4c34bd35eca56e78951a}{\index{swift\-::\-Hook@{swift\-::\-Hook}!get\-Callback\-Response@{get\-Callback\-Response}}
+\index{get\-Callback\-Response@{get\-Callback\-Response}!swift::Hook@{swift\-::\-Hook}}
+\subsubsection[{get\-Callback\-Response}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Response} $\ast$ swift\-::\-Hook\-::get\-Callback\-Response (
+\begin{DoxyParamCaption}
+\item[{{\bf Request} $\ast$}]{req}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_hook_af73ae15c10ee4c34bd35eca56e78951a}
+Calls the callback function associated with this A\-P\-I \hyperlink{classswift_1_1_hook}{Hook} 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classswift_1_1_request}{Request}} & object \\
+\hline
+\end{DoxyParams}
+\hypertarget{classswift_1_1_hook_af530b678e3663ff565411a26ee6f1974}{\index{swift\-::\-Hook@{swift\-::\-Hook}!get\-Charset@{get\-Charset}}
+\index{get\-Charset@{get\-Charset}!swift::Hook@{swift\-::\-Hook}}
+\subsubsection[{get\-Charset}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string swift\-::\-Hook\-::get\-Charset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_hook_af530b678e3663ff565411a26ee6f1974}
+Returns the charset for this A\-P\-I \hyperlink{classswift_1_1_hook}{Hook}'s resource \begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
 \hypertarget{classswift_1_1_hook_a4679b1c6977270006156702041180efa}{\index{swift\-::\-Hook@{swift\-::\-Hook}!get\-Request\-Path@{get\-Request\-Path}}
 \index{get\-Request\-Path@{get\-Request\-Path}!swift::Hook@{swift\-::\-Hook}}
 \subsubsection[{get\-Request\-Path}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string swift\-::\-Hook\-::get\-Request\-Path (
@@ -103,18 +169,6 @@ boolean
 Indicates if this A\-P\-I \hyperlink{classswift_1_1_hook}{Hook} represents a static resource \begin{DoxyReturn}{Returns}
 boolean 
 \end{DoxyReturn}
-\hypertarget{classswift_1_1_hook_a1f1005a2e758eeb8776572edb2419932}{\index{swift\-::\-Hook@{swift\-::\-Hook}!process\-Callback@{process\-Callback}}
-\index{process\-Callback@{process\-Callback}!swift::Hook@{swift\-::\-Hook}}
-\subsubsection[{process\-Callback}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Response} $\ast$ swift\-::\-Hook\-::process\-Callback (
-\begin{DoxyParamCaption}
-\item[{{\bf Request} $\ast$}]{req}
-\end{DoxyParamCaption}
-)}}\label{classswift_1_1_hook_a1f1005a2e758eeb8776572edb2419932}
-Calls the callback function associated with this A\-P\-I \hyperlink{classswift_1_1_hook}{Hook} 
-\begin{DoxyParams}{Parameters}
-{\em \hyperlink{classswift_1_1_request}{Request}} & object \\
-\hline
-\end{DoxyParams}
 \hypertarget{classswift_1_1_hook_aa1fd10e80b74ee88885d3b7225cf0c90}{\index{swift\-::\-Hook@{swift\-::\-Hook}!set\-Callback@{set\-Callback}}
 \index{set\-Callback@{set\-Callback}!swift::Hook@{swift\-::\-Hook}}
 \subsubsection[{set\-Callback}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Hook\-::set\-Callback (
@@ -125,6 +179,18 @@ Calls the callback function associated with this A\-P\-I \hyperlink{classswift_1
 Sets the callback associated with this A\-P\-I \hyperlink{classswift_1_1_hook}{Hook} 
 \begin{DoxyParams}{Parameters}
 {\em void} & function \\
+\hline
+\end{DoxyParams}
+\hypertarget{classswift_1_1_hook_a1867ce0a20bf811620a9f7d598986ff8}{\index{swift\-::\-Hook@{swift\-::\-Hook}!set\-Charset@{set\-Charset}}
+\index{set\-Charset@{set\-Charset}!swift::Hook@{swift\-::\-Hook}}
+\subsubsection[{set\-Charset}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Hook\-::set\-Charset (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{charset}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_hook_a1867ce0a20bf811620a9f7d598986ff8}
+Sets the charset for this resource 
+\begin{DoxyParams}{Parameters}
+{\em charset} & string \\
 \hline
 \end{DoxyParams}
 \hypertarget{classswift_1_1_hook_aeefe2c2e5080787975097a7c1b431161}{\index{swift\-::\-Hook@{swift\-::\-Hook}!set\-Is\-Resource@{set\-Is\-Resource}}

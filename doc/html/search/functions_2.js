@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['getcallbackresponse',['getCallbackResponse',['../classswift_1_1_hook.html#af73ae15c10ee4c34bd35eca56e78951a',1,'swift::Hook']]],
+  ['getcharset',['getCharset',['../classswift_1_1_response.html#a76bd0df3d78b11583bde37c1e4148c47',1,'swift::Response::getCharset()'],['../classswift_1_1_hook.html#af530b678e3663ff565411a26ee6f1974',1,'swift::Hook::getCharset()']]],
   ['getcontent',['getContent',['../classswift_1_1_response.html#a350021b3a6afb34a1fbfefd17f541b5e',1,'swift::Response']]],
   ['getcontentbytesize',['getContentByteSize',['../classswift_1_1_response.html#a63c00d2d22061d7c225ff72fa0df74d3',1,'swift::Response']]],
   ['getcontentbytesizestr',['getContentByteSizeStr',['../classswift_1_1_response.html#a5e2b37743efe9f036b3edc5b004de18c',1,'swift::Response']]],

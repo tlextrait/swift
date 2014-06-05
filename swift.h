@@ -86,6 +86,8 @@ namespace swift{
 			std::set<std::string> header_names;
 			std::queue<Header*> headers;
 
+			std::string charset; // charset for text content
+
 		public:
 			// Constructor/destructor
 			Response();
@@ -98,6 +100,9 @@ namespace swift{
 			void setContent(char* content, int length);
 			char* getContent();
 			int getContentLen();
+
+			std::string getCharset();
+			void setCharset(std::string charset);
 
 			size_t getContentByteSize();
 			std::string getContentByteSizeStr();
@@ -144,7 +149,7 @@ namespace swift{
 			void setCharset(std::string charset);
 
 			void setCallback(Response* (*function)(Request*));
-			Response* processCallback(Request* req);
+			Response* getCallbackResponse(Request* req);
 	};
 
 	// Swift Server class

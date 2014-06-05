@@ -218,7 +218,7 @@ namespace swift{
 						resp = server->serveResource(hook->getResourcePath());
 					}else{
 						// Process the attached callback
-						resp = hook->processCallback(req);
+						resp = hook->getCallbackResponse(req);
 					}
 
 					// Send response to client
@@ -604,7 +604,7 @@ namespace swift{
 	* Calls the callback function associated with this API Hook
 	* @param Request object
 	*/
-	Response* Hook::processCallback(Request* req){
+	Response* Hook::getCallbackResponse(Request* req){
 		Response* resp = callback_function(req);
 		return resp;
 	}
@@ -796,6 +796,22 @@ namespace swift{
 	*/
 	int Response::getContentLen(){
 		return content_len;
+	}
+
+	/**
+	* Returns the charset for this response (used for text content)
+	* @return string
+	*/
+	std::string Response::getCharset(){
+		return charset;
+	}
+
+	/**
+	* Sets the charset for this response (used for text content)
+	* @param charset string
+	*/
+	void Response::setCharset(std::string charset){
+		this->charset = charset;
 	}
 
 	/**

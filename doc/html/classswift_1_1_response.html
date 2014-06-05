@@ -115,6 +115,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a350021b3a6afb34a1fbfefd17f541b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e7ec1b7a0cb3b665b122b68f431ef92"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a1e7ec1b7a0cb3b665b122b68f431ef92">getContentLen</a> ()</td></tr>
 <tr class="separator:a1e7ec1b7a0cb3b665b122b68f431ef92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76bd0df3d78b11583bde37c1e4148c47"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a76bd0df3d78b11583bde37c1e4148c47">getCharset</a> ()</td></tr>
+<tr class="separator:a76bd0df3d78b11583bde37c1e4148c47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87b6bf5cc2dee1c4d4e730d2302eb72e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a87b6bf5cc2dee1c4d4e730d2302eb72e">setCharset</a> (std::string charset)</td></tr>
+<tr class="separator:a87b6bf5cc2dee1c4d4e730d2302eb72e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63c00d2d22061d7c225ff72fa0df74d3"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a63c00d2d22061d7c225ff72fa0df74d3">getContentByteSize</a> ()</td></tr>
 <tr class="separator:a63c00d2d22061d7c225ff72fa0df74d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e2b37743efe9f036b3edc5b004de18c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswift_1_1_response.html#a5e2b37743efe9f036b3edc5b004de18c">getContentByteSizeStr</a> ()</td></tr>
@@ -198,6 +202,23 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a76bd0df3d78b11583bde37c1e4148c47"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string swift::Response::getCharset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the charset for this response (used for text content) </p>
+<dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
 </div>
 </div>
@@ -367,6 +388,29 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a87b6bf5cc2dee1c4d4e730d2302eb72e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void swift::Response::setCharset </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>charset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the charset for this response (used for text content) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">charset</td><td>string </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a60462803819683419263b32412186c0b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -407,7 +451,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 4 2014 19:14:34 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 5 2014 12:17:00 for Swift by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

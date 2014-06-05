@@ -20,6 +20,10 @@ char $\ast$ \hyperlink{classswift_1_1_response_a350021b3a6afb34a1fbfefd17f541b5e
 \item 
 int \hyperlink{classswift_1_1_response_a1e7ec1b7a0cb3b665b122b68f431ef92}{get\-Content\-Len} ()
 \item 
+std\-::string \hyperlink{classswift_1_1_response_a76bd0df3d78b11583bde37c1e4148c47}{get\-Charset} ()
+\item 
+void \hyperlink{classswift_1_1_response_a87b6bf5cc2dee1c4d4e730d2302eb72e}{set\-Charset} (std\-::string charset)
+\item 
 size\-\_\-t \hyperlink{classswift_1_1_response_a63c00d2d22061d7c225ff72fa0df74d3}{get\-Content\-Byte\-Size} ()
 \item 
 std\-::string \hyperlink{classswift_1_1_response_a5e2b37743efe9f036b3edc5b004de18c}{get\-Content\-Byte\-Size\-Str} ()
@@ -70,6 +74,16 @@ Creates a new header and adds it to the response
 {\em header} & value \\
 \hline
 \end{DoxyParams}
+\hypertarget{classswift_1_1_response_a76bd0df3d78b11583bde37c1e4148c47}{\index{swift\-::\-Response@{swift\-::\-Response}!get\-Charset@{get\-Charset}}
+\index{get\-Charset@{get\-Charset}!swift::Response@{swift\-::\-Response}}
+\subsubsection[{get\-Charset}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string swift\-::\-Response\-::get\-Charset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_response_a76bd0df3d78b11583bde37c1e4148c47}
+Returns the charset for this response (used for text content) \begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
 \hypertarget{classswift_1_1_response_a350021b3a6afb34a1fbfefd17f541b5e}{\index{swift\-::\-Response@{swift\-::\-Response}!get\-Content@{get\-Content}}
 \index{get\-Content@{get\-Content}!swift::Response@{swift\-::\-Response}}
 \subsubsection[{get\-Content}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ swift\-::\-Response\-::get\-Content (
@@ -165,6 +179,18 @@ boolean
 Makes this \hyperlink{classswift_1_1_response}{Response} a binary one or not 
 \begin{DoxyParams}{Parameters}
 {\em boolean} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classswift_1_1_response_a87b6bf5cc2dee1c4d4e730d2302eb72e}{\index{swift\-::\-Response@{swift\-::\-Response}!set\-Charset@{set\-Charset}}
+\index{set\-Charset@{set\-Charset}!swift::Response@{swift\-::\-Response}}
+\subsubsection[{set\-Charset}]{\setlength{\rightskip}{0pt plus 5cm}void swift\-::\-Response\-::set\-Charset (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{charset}
+\end{DoxyParamCaption}
+)}}\label{classswift_1_1_response_a87b6bf5cc2dee1c4d4e730d2302eb72e}
+Sets the charset for this response (used for text content) 
+\begin{DoxyParams}{Parameters}
+{\em charset} & string \\
 \hline
 \end{DoxyParams}
 \hypertarget{classswift_1_1_response_a60462803819683419263b32412186c0b}{\index{swift\-::\-Response@{swift\-::\-Response}!set\-Content@{set\-Content}}
