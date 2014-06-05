@@ -460,23 +460,39 @@ namespace swift{
 	/* API Hook													*/
 	/* ======================================================== */
 
+	/**
+	* Constructs an API Hook with default settings
+	*/
 	Hook::Hook(){
 		is_resource = false;
 		preload_resource = false;
+		setCharset(Charset::getDefault());
 	}
 
+	/**
+	* Constructs an API Hook with a callback function
+	* @param request path string
+	* @param callback function pointer
+	*/
 	Hook::Hook(std::string request_path, Response* (*function)(Request*)){
 		is_resource = false;
 		preload_resource = false;
 		this->request_path = request_path;
 		this->callback_function = function;
+		setCharset(Charset::getDefault());
 	}
 
+	/**
+	* Constructs an API Hook that serves a static resource
+	* @param request path string
+	* @param resource path string
+	*/
 	Hook::Hook(std::string request_path, std::string resource_path){
 		is_resource = true;
 		preload_resource = true;
 		this->request_path = request_path;
 		this->resource_path = resource_path;
+		setCharset(Charset::getDefault());
 	}
 
 	/**
@@ -558,6 +574,22 @@ namespace swift{
 	*/
 	bool Hook::isResource(){
 		return is_resource;
+	}
+
+	/**
+	* Returns the charset for this API Hook's resource
+	* @return string
+	*/
+	std::string Hook::getCharset(){
+		return charset;
+	}
+
+	/**
+	* Sets the charset for this resource
+	* @param charset string
+	*/
+	void Hook::setCharset(std::string charset){
+		this->charset = charset;
 	}
 
 	/**

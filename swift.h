@@ -115,6 +115,7 @@ namespace swift{
 			bool is_resource;					// is this a resource?
 			std::string resource_path; 			// path to resource file
 			bool preload_resource;				// preload the resource?
+			std::string charset;				// charset (if resource is text)
 
 			std::set<Method> allowed_methods;	// POST, GET... (overrides server settings)
 			Response* (*callback_function)(Request*); 	// pointer to function
@@ -139,6 +140,8 @@ namespace swift{
 			void setPreloadResource(bool preload);
 			void setIsResource(bool resource);
 			bool isResource();
+			std::string getCharset();
+			void setCharset(std::string charset);
 
 			void setCallback(Response* (*function)(Request*));
 			Response* processCallback(Request* req);
@@ -215,6 +218,41 @@ namespace swift{
 	std::string getMIMEByExtension(std::string file_extension);
 	std::string getMIMEByFilename(std::string filename);
 	bool isTextMIME(std::string MIME);
+
+	class Charset {
+		public:
+			static std::string getDefault(){return utf_8();}
+			static std::string us_ascii(){return "us-ascii";} 		// US ASCII
+			static std::string unicode(){return "unicode";}		// Unicode
+			static std::string unicode_big_endian(){return "unicodeFFFE";} // Unicode Big-Endian
+			static std::string utf_7(){return "utf-7";}			// Unicode
+			static std::string utf_8(){return "utf-8";}			// Unicode
+			static std::string utf_16(){return "utf-16";}			// Unicode
+			static std::string utf_32(){return "utf-32";}			// Unicode
+			static std::string iso_8859_1(){return "ISO-8859-1";} 	// Western (ISO)
+			static std::string iso_8859_2(){return "ISO-8859-2";} 	// Central European (ISO)
+			static std::string iso_8859_3(){return "ISO-8859-3";} 	// Latin 3 (ISO)
+			static std::string iso_8859_4(){return "ISO-8859-4";} 	// Baltic (ISO)
+			static std::string iso_8859_5(){return "ISO-8859-5";} 	// Cyrillic (ISO)
+			static std::string iso_8859_6(){return "ISO-8859-6";} 	// Arabic (ISO)
+			static std::string iso_8859_7(){return "ISO-8859-7";} 	// Greek (ISO)
+			static std::string iso_8859_8(){return "ISO-8859-8";} 	// Hebrew (ISO)
+			static std::string big5(){return "big5";} 				// Chinese Traditional (BIG5)
+			static std::string euc_kr(){return "euc-kr";} 			// Korean (EUC)
+			static std::string koi8_r(){return "koi8-r";}			// Cyrillic
+			static std::string shift_jis(){return "shift-jis";}	// Japanese
+			static std::string x_euc(){return "x-euc";}			// Japanese (EUC)
+			static std::string windows_1250(){return "windows-1250";} 	// Central European
+			static std::string windows_1251(){return "windows-1251";} 	// Cyrillic
+			static std::string windows_1252(){return "windows-1252";} 	// Western
+			static std::string windows_1253(){return "windows-1253";} 	// Greek
+			static std::string windows_1254(){return "windows-1254";} 	// Turkish
+			static std::string windows_1255(){return "windows-1255";} 	// Hebrew
+			static std::string windows_1256(){return "windows-1256";} 	// Arabic
+			static std::string windows_1257(){return "windows-1257";} 	// Baltic
+			static std::string windows_1258(){return "windows-1258";} 	// Vietnamese
+			static std::string windows_874(){return "windows-874";} 	// Thai
+	};
 
 	/* ======================================================== */
 	/* Exceptions												*/
