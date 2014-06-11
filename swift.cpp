@@ -215,9 +215,11 @@ namespace swift{
 
 					if(hook->isResource()){
 						// Just serve the static resource to the client
+						if(server->verbose) std::cout << "Serving static resource" << std::endl;
 						resp = server->serveResource(hook->getResourcePath());
 					}else{
 						// Process the attached callback
+						if(server->verbose) std::cout << "Serving dynamic callback" << std::endl;
 						resp = hook->getCallbackResponse(req);
 					}
 
@@ -388,7 +390,7 @@ namespace swift{
 	void Server::sendResponse(Response* resp, struct mg_connection *conn){
 
 		// Content-length
-		if(resp->hasHeader("Content-Length")){
+		if(!resp->hasHeader("Content-Length")){
 			resp->addHeader("Content-Length", resp->getContentByteSizeStr());
 		}
 
@@ -775,6 +777,7 @@ namespace swift{
 	/**
 	* Sets the content of the response object
 	* @param content string
+	* @param char length of content
 	*/
 	void Response::setContent(char* content, int length){
 		this->content_len = length;
@@ -829,6 +832,9 @@ namespace swift{
 	std::string Response::getContentByteSizeStr(){
 		std::stringstream ss;
 		ss << getContentByteSize();
+
+		std::cout << "SIZE WAS " << ss.str() << "\n";
+
 		return ss.str();
 	}
 
