@@ -179,7 +179,7 @@ namespace swift{
 			// Process it
 			Server::processRequest(req, conn);
 
-			result = MG_TRUE;
+			result = MG_MORE;
 
 		}else if(ev == MG_AUTH){
 			result = MG_TRUE;
@@ -336,6 +336,8 @@ namespace swift{
 	    if(stat(file_path.c_str(), &results) == 0){
 	        size = results.st_size;
 
+	        std::cout << "FILE STAT SIZE = " << size << "\n";
+
 	        // Open the file in binary mode
 	        // Note: we don't use ifstreams because of a g++ bug with ios::binary
 	        std::fstream myFile;
@@ -410,7 +412,8 @@ namespace swift{
 		resp->addHeader("Cache-Control", "max-age=0, post-check=0, pre-check=0, no-store, no-cache, must-revalidate");
 
 		if(resp->isBinary()){
-			mg_send_data(conn, resp->getContent(), resp->getContentLen());
+			//mg_send_data(conn, resp->getContent(), resp->getContentLen());
+			mg_write(conn, resp->getContent(), resp->getContentLen());
 		}else{
 			mg_printf_data(conn, "%s", resp->getContent());
 		}
@@ -822,7 +825,7 @@ namespace swift{
 	* @return size_t
 	*/
 	size_t Response::getContentByteSize(){
-		return sizeof(content);
+		return content_len;
 	}
 
 	/**
