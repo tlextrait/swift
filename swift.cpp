@@ -4,20 +4,6 @@
 * All rights reserved
 */
 
-#include <stdio.h>
-#include <iostream>
-#include <string>
-#include <map>
-#include <utility> // make_pair
-#include <vector>
-#include <sys/stat.h> // file stats
-#include <fstream> // file reading
-#include <sstream>
-#include <algorithm> // transform()
-#include <functional> 
-#include <cctype>
-#include <locale>
-
 #include "swift.h"
 
 namespace swift{

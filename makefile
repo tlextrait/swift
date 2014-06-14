@@ -1,5 +1,5 @@
 #
-#
+# Thomas Lextrait, thomas.lextrait@gmail.com
 #
 
 CXX = g++

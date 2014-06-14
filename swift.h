@@ -9,6 +9,17 @@
 #include <map>
 #include <set>
 #include <queue>
+#include <stdio.h>
+#include <iostream>
+#include <utility> // make_pair
+#include <vector>
+#include <sys/stat.h> // file stats
+#include <fstream> // file reading
+#include <sstream>
+#include <algorithm> // transform()
+#include <functional> 
+#include <cctype>
+#include <locale>
 
 #include "mongoose.h"
 
