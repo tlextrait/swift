@@ -11,7 +11,7 @@ LIBS = -lpthread
 all: webapp
 
 webapp: app.o swift.o mongoose.o
-	$(CXX) app.o swift.o mongoose.o -o webapp
+	$(CXX) app.o swift.o mongoose.o -o webapp $(LIBS)
 
 app.o: app.cpp app.h swift.h mongoose.h
 	$(CXX) $(CXXFLAGS) app.cpp swift.cpp mongoose.c $(LIBS)
