@@ -14,13 +14,13 @@ webapp: app.o swift.o mongoose.o
 	$(CXX) app.o swift.o mongoose.o -o webapp
 
 app.o: app.cpp app.h swift.h mongoose.h
-	$(CXX) $(CXXFLAGS) $(LIBS) app.cpp swift.cpp mongoose.c
+	$(CXX) $(CXXFLAGS) app.cpp swift.cpp mongoose.c $(LIBS)
 
 swift.o: swift.cpp swift.h mongoose.h
-	$(CXX) $(CXXFLAGS) $(LIBS) swift.cpp mongoose.c
+	$(CXX) $(CXXFLAGS) swift.cpp mongoose.c $(LIBS)
 
 mongoose.o: mongoose.c mongoose.h
-	$(CXX) $(CXXFLAGS) $(LIBS) mongoose.c
+	$(CXX) $(CXXFLAGS) mongoose.c $(LIBS)
 
 # Compile documentation, using 'make doc'
 doc: $(DOC)
