@@ -4,7 +4,7 @@
 * All rights reserved
 */
 
-#include <string>
+#include <string.h>
 #include <exception>
 #include <map>
 #include <set>
